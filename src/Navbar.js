@@ -5,12 +5,12 @@ class Navbar extends React.Component {
     render() { 
         return (  
             <div className="Navbar">
-                <div class="ui inverted borderless large menu">
-                    <a class="item">
+                <div className="ui inverted borderless large menu">
+                    <a className="item">
                         <Link to="/" className="link">Home</Link>
                     </a>
-                    <div class="right menu">
-                        <a class="item">
+                    <div className="right menu">
+                        <a className="item">
                         </a>
                     </div>
                 </div>
