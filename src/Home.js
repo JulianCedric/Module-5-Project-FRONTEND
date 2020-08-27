@@ -5,6 +5,7 @@ import HabitsContainer from './HabitsContainer';
 import CreateHabitForm from './CreateHabitForm';
 import Spacing from './Spacing';
 import ProgressBarsContainer from './ProgressBarsContainer';
+import EditModal from './EditModel';
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
@@ -38,7 +39,8 @@ const HABITS = [
 class Home extends React.Component {
     state = {  
         habits: HABITS,
-        currentDate: date
+        currentDate: date,
+        showEditModal: true
     }
 
     handleNewHabit = newHabit => {
@@ -81,6 +83,10 @@ class Home extends React.Component {
             return habit
         })
         this.setState({habits: updatedHabitsArr})
+    }
+
+    handleShowEditModal = () => {
+        this.setState({showEditModal: !this.state.showEditModal})
     }
 
     handleEdit = (id, description) => {
@@ -129,8 +135,16 @@ class Home extends React.Component {
                 <h2>Home</h2>
                 <CreateHabitForm handleNewHabit={this.handleNewHabit} />
                     <Spacing />
-                <HabitsContainer habits={this.state.habits} currentDate={this.state.currentDate} handleStickify={this.handleStickify} handleEdit={this.handleEdit} handleDelete={this.handleDelete} />
+                <HabitsContainer habits={this.state.habits} currentDate={this.state.currentDate} handleStickify={this.handleStickify} handleShowEditModal={this.handleShowEditModal} handleEdit={this.handleEdit} handleDelete={this.handleDelete} />
                     <Spacing />
+                {this.state.showEditModal
+                ? 
+                <>
+                    <EditModal />
+                    <Spacing />
+                </>
+                : null
+                }
                 <ProgressBarsContainer />
                     <Spacing />
                     <Spacing />

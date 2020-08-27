@@ -24,7 +24,7 @@ class HabitsContainer extends React.Component {
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
-                                {this.props.habits.map(habit => <Habit key={habit.id} habit={habit} currentDate={this.props.currentDate} handleStickify={this.props.handleStickify} handleEdit={this.props.handleEdit} handleDelete={this.props.handleDelete} temporaryID={this.props.temporaryID}/>)}
+                                {this.props.habits.map(habit => <Habit key={habit.id} habit={habit} currentDate={this.props.currentDate} handleStickify={this.props.handleStickify} handleShowEditModal={this.props.handleShowEditModal} handleEdit={this.props.handleEdit} handleDelete={this.props.handleDelete} temporaryID={this.props.temporaryID}/>)}
                             </thead>
                             <tbody>
                             </tbody>
