@@ -39,12 +39,13 @@ const HABITS = [
 class Home extends React.Component {
     state = {  
         habits: HABITS,
+        stickifiedHabits: [],
         currentDate: date,
-        showEditModal: true
+        showEditModal: false
     }
 
     handleNewHabit = newHabit => {
-        console.log("Description of new habit:", newHabit.description)
+        console.log("POST ---", "Description of newly-created habit object:", newHabit.description)
         let newArr = [...this.state.habits, newHabit]
         this.setState({habits: newArr})        
     }
@@ -73,20 +74,9 @@ class Home extends React.Component {
 
     handleStickify = id => {
         console.log("PATCH ---", "ID of habit object being stickified:", id)
-
         let updatedHabitObject = this.state.habits.find(habit => habit.id === id)
-
-        let updatedHabitsArr = this.state.habits.map(habit => {
-            if (habit.id === id) {
-                return updatedHabitObject
-            }
-            return habit
-        })
-        this.setState({habits: updatedHabitsArr})
-    }
-
-    handleShowEditModal = () => {
-        this.setState({showEditModal: !this.state.showEditModal})
+        let updatedStickifiedHabitsArr = [...this.state.stickifiedHabits, updatedHabitObject]
+        this.setState({stickifiedHabits: updatedStickifiedHabitsArr})
     }
 
     handleEdit = (id, description) => {
@@ -100,6 +90,7 @@ class Home extends React.Component {
             }
             return habit
         })
+        this.setState({showEditModal: !this.state.showEditModal})
         this.setState({habits: updatedHabitsArr})
     }
 
@@ -135,7 +126,7 @@ class Home extends React.Component {
                 <h2>Home</h2>
                 <CreateHabitForm handleNewHabit={this.handleNewHabit} />
                     <Spacing />
-                <HabitsContainer habits={this.state.habits} currentDate={this.state.currentDate} handleStickify={this.handleStickify} handleShowEditModal={this.handleShowEditModal} handleEdit={this.handleEdit} handleDelete={this.handleDelete} />
+                <HabitsContainer habits={this.state.habits} currentDate={this.state.currentDate} handleStickify={this.handleStickify} handleEdit={this.handleEdit} handleDelete={this.handleDelete} />
                     <Spacing />
                 {this.state.showEditModal
                 ? 
@@ -145,7 +136,7 @@ class Home extends React.Component {
                 </>
                 : null
                 }
-                <ProgressBarsContainer />
+                <ProgressBarsContainer stickifiedHabits={this.state.stickifiedHabits}/>
                     <Spacing />
                     <Spacing />
             </div>

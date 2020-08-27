@@ -4,6 +4,12 @@ import ProgressBar from 'react-customizable-progressbar'
 class ProgressBarsContainer extends React.Component {
     state = {  }
     render() { 
+        let { stickifiedHabits } = this.props
+
+        console.log(stickifiedHabits)
+        console.log(stickifiedHabits[0])
+        console.log(stickifiedHabits[0])
+
         return (  
 
             <div>
@@ -13,14 +19,32 @@ class ProgressBarsContainer extends React.Component {
                 
                 <div class="ui center aligned three column grid">
 
+                    {/* {this.props.stickiedHabits.map(stickifiedHabit => <ProgressBar 
+                        className="progress-bar"
+                        progress={25}
+                        radius={100}
+                        strokeColor='violet'
+                        strokeWidth={20}
+                    />)} */}
+
                         <div class="column">
                             <div class="ui segment">
                                 <h2>Habit 1</h2>
-                                <ProgressBar className="progress-bar"
+                                {stickifiedHabits[0]
+                                ? 
+                                <p>Description: {stickifiedHabits[0].description}</p>
+                                : null
+                                }
+
+
+                                <p>{stickifiedHabits.first}</p>
+                                <ProgressBar 
+                                    className="progress-bar"
                                     progress={25}
                                     radius={100}
                                     strokeColor='violet'
                                     strokeWidth={20}
+                                    // children={stickifiedHabits.first}
                                 />
                             </div>
                         </div>
