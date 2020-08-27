@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import HabitsContainer from './HabitsContainer';
 import CreateHabitForm from './CreateHabitForm';
+import ProgressBarsContainer from './ProgressBarsContainer';
+import Spacing from './Spacing';
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
-const HABITS = [
+let HABITS = [
     {
       id: 1,
       description: 'breakfast',
@@ -51,7 +53,11 @@ class Home extends React.Component {
             <div className="home">
                 <h2>Home</h2>
                 <CreateHabitForm handleNewHabit={this.handleNewHabit} />
+                    <Spacing />
                 <HabitsContainer habits={this.state.habits} currentDate={this.state.currentDate} />
+                    <Spacing />
+                <ProgressBarsContainer />
+                    <Spacing />
             </div>
         );
     }

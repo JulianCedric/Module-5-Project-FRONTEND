@@ -5,10 +5,6 @@ class HabitsContainer extends React.Component {
     render() { 
         console.log(this.props.habits)
         console.log(this.props.currentDate)
-
-        let temporaryID = 
-
-        console.log(this.props.temporaryID)
         return (  
             <div className="ui form">
                 <div className="field">
@@ -16,9 +12,10 @@ class HabitsContainer extends React.Component {
                 </div>
                 <div className="ui centered grid">
                     <div className="twelve wide column">
-                        <table className="ui sortable celled table">
+                        <table className="ui inverted sortable celled table">
                             <thead>
                                 <tr>
+                                    <th>Test Column</th>
                                     <th>Description</th>
                                     <th>Date Added</th>
                                     <th>Stickify</th>
@@ -31,6 +28,7 @@ class HabitsContainer extends React.Component {
                             </tbody>
                                 <tfoot>
                                     <tr>
+                                        <th>0</th>
                                         <th>1</th>
                                         <th>2</th>
                                         <th>3</th>

@@ -59,7 +59,13 @@ class CreateHabitForm extends React.Component {
         return (  
             <div className="ui form">
                 <div className="field">
+                        <p></p>
+                        <br></br>
+                        <label>Image of</label>
                     <label> ~ Stick-Figure Person ~ </label>
+                    <label> will go here </label>
+                        <p></p>
+                        <br></br>
                     <input type="text" placeholder="Add a Habit.." style={{width: "350px"}} name="description" value={this.state.description} onChange={this.handleChange}/><button className="circular ui positive icon basic button" onClick={this.handleFormClick}><i className="right arrow icon"></i></button>
                 </div>
             </div>
