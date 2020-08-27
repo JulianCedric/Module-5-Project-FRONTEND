@@ -13,7 +13,7 @@ class HabitsContainer extends React.Component {
                     <br></br>
                 </div>
                 <div className="ui centered grid">
-                    <div className="twelve wide column">
+                    <div className="fifteen wide column">
                         <table className="ui inverted sortable celled table">
                             <thead>
                                 <tr>

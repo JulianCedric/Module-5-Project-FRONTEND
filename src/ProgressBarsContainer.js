@@ -6,9 +6,8 @@ class ProgressBarsContainer extends React.Component {
     render() { 
         let { stickifiedHabits } = this.props
 
-        console.log(stickifiedHabits)
-        console.log(stickifiedHabits[0])
-        console.log(stickifiedHabits[0])
+        // console.log(stickifiedHabits)
+        // console.log(stickifiedHabits[0])
 
         return (  
 
@@ -71,8 +70,8 @@ class ProgressBarsContainer extends React.Component {
                                     strokeColor='blue'
                                     strokeWidth={20}
                                 />
-                            </div>       
-                        </div>
+                            </div>
+                        </div>       
 
                 </div>
 
