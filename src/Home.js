@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import HabitsContainer from './HabitsContainer';
 import CreateHabitForm from './CreateHabitForm';
-import ProgressBarsContainer from './ProgressBarsContainer';
 import Spacing from './Spacing';
+import ProgressBarsContainer from './ProgressBarsContainer';
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
