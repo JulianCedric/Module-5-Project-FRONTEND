@@ -12,12 +12,6 @@ class Spacing extends React.Component {
 
                 <p></p>
                 <br></br>
-
-                <p></p>
-                <br></br>
-
-                <p></p>
-                <br></br>
             </div>
         );
     }

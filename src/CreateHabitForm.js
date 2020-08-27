@@ -20,7 +20,7 @@ class CreateHabitForm extends React.Component {
     // handleSubmit = e => {
     //     e.preventDefault()
         
-    //     fetch(API_HABITS, {
+    //     fetch(API_HABITS_inProgress, {
     //         method: "POST",
     //         headers: {
     //             "Content-Type": "application/json",
