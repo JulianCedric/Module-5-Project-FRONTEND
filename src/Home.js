@@ -6,6 +6,7 @@ import CreateHabitForm from './CreateHabitForm';
 import Spacing from './Spacing';
 import ProgressBarsContainer from './ProgressBarsContainer';
 import EditModal from './EditModel';
+import ProjectManagement from './ProjectManagement';
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
@@ -137,6 +138,8 @@ class Home extends React.Component {
                 : null
                 }
                 <ProgressBarsContainer stickifiedHabits={this.state.stickifiedHabits}/>
+                    <Spacing />
+                <ProjectManagement />
                     <Spacing />
                     <Spacing />
             </div>

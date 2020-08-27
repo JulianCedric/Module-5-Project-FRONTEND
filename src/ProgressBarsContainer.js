@@ -11,11 +11,10 @@ class ProgressBarsContainer extends React.Component {
 
         return (  
 
-            <div>
+            <div className="ui container">
                 <h2>Progress Bars Container</h2>
-                <p></p>
-                <br></br>
-                
+                    <p></p>
+                    <br></br>
                 <div class="ui center aligned three column grid">
 
                     {/* {this.props.stickiedHabits.map(stickifiedHabit => <ProgressBar 
