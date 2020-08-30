@@ -1,16 +1,29 @@
 import React from 'react';
+import StickPerson from './Images/stickPerson.png';
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
 
 class CreateHabitForm extends React.Component {
     state = {  
-        id: '',
+        id: null,
         description: '',
         type: 'good',
         stickify: false,
         created: date,
-        tag: ''
+        tag: '',
+        progress: {
+            counter: 0,
+            percentage: 0,
+            dailyWinConfirmation: false
+          //   User clicks submit on dailyReminderForm, which 
+              // (1) sets dailyWinConfirmation attribute to true, and 
+              // (2) increments habit.progress.counter by 1 [day] 
+        },
+        dailyWin: ( time )=>{
+          // if user clicks submit within day range, increment progress.counter, else progress.counter = 0
+          // progress.percentage = progress.counter/21
+        }
     }
 
     handleChange = e => {
@@ -43,7 +56,26 @@ class CreateHabitForm extends React.Component {
 
     handleFormClick = e => {
         e.preventDefault() 
-        let newHabit = this.state
+        let newHabit = {
+            id: null,
+            description: this.state.description,
+            type: 'good',
+            stickify: false,
+            created: date,
+            tag: '',
+            progress: {
+                counter: 0,
+                percentage: 0,
+                dailyWinConfirmation: false
+              //   User clicks submit on dailyReminderForm, which 
+                  // (1) sets dailyWinConfirmation attribute to true, and 
+                  // (2) increments habit.progress.counter by 1 [day] 
+            },
+            dailyWin: ( time )=>{
+              // if user clicks submit within day range, increment progress.counter, else progress.counter = 0
+              // progress.percentage = progress.counter/21
+            }
+        }
         this.props.handleNewHabit(newHabit)
         this.setState({
             id: '',
@@ -61,9 +93,9 @@ class CreateHabitForm extends React.Component {
                 <div className="field">
                         <p></p>
                         <br></br>
-                        <label>Image of</label>
-                    <label> ~ Stick-Figure Person ~ </label>
-                    <label> will go here </label>
+
+                    <img src={ StickPerson } alt="stickPerson" />
+
                         <p></p>
                         <br></br>
                     <input type="text" placeholder="Add a Habit.." style={{width: "350px"}} name="description" value={this.state.description} onChange={this.handleChange}/><button className="circular ui positive icon basic button" onClick={this.handleFormClick}><i className="right arrow icon"></i></button>

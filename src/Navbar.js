@@ -9,10 +9,14 @@ class Navbar extends React.Component {
                     <a className="item">
                         <Link to="/" className="link">Home</Link>
                     </a>
-                    <div className="right menu">
-                        <a className="item">
-                        </a>
-                    </div>
+                    <a class="item">
+                        <Link to="/dashboard" className="link">Dashboard</Link>
+                    </a>
+                <div className="right menu">
+                    <a className="item">
+                        <Link to="/login" className="link">{this.props.loggedIn ? "Logout" : "Login"}</Link>
+                    </a>
+                </div>
                 </div>
             </div>
         );

@@ -8,7 +8,7 @@ class HabitsContainer extends React.Component {
         return (  
             <div className="ui form">
                 <div className="field">
-                    <h2>Habits Container</h2>
+                    <h2 className="mediumWhiteText" >Habits Container</h2>
                     <p></p>
                     <br></br>
                 </div>

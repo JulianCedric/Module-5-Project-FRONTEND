@@ -7,6 +7,10 @@ import Spacing from './Spacing';
 import ProgressBarsContainer from './ProgressBarsContainer';
 import EditModal from './EditModel';
 import ProjectManagement from './ProjectManagement';
+import Login from './Login';
+import lessIsMoreLogo from './Images/lessIsMoreLogo.png';
+import './App.css';
+import { Link } from 'react-router-dom';
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
@@ -121,27 +125,8 @@ class Home extends React.Component {
         // console.log(this.state.habits)
         // console.log(this.state.currentDate)
         return (  
-            <div className="home">
-                <p></p>
-                <br></br>
-                <h2>Home</h2>
-                <CreateHabitForm handleNewHabit={this.handleNewHabit} />
-                    <Spacing />
-                <HabitsContainer habits={this.state.habits} currentDate={this.state.currentDate} handleStickify={this.handleStickify} handleEdit={this.handleEdit} handleDelete={this.handleDelete} />
-                    <Spacing />
-                {this.state.showEditModal
-                ? 
-                <>
-                    <EditModal />
-                    <Spacing />
-                </>
-                : null
-                }
-                <ProgressBarsContainer stickifiedHabits={this.state.stickifiedHabits}/>
-                    <Spacing />
-                <ProjectManagement />
-                    <Spacing />
-                    <Spacing />
+            <div className="home-container" >
+                <Link to="/login" type="text" className="ui inverted basic button" onClick={this.onLoginClick}>Login | Sign Up</Link>
             </div>
         );
     }
