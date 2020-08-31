@@ -2,6 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component {
+
+    handleClick = e => {
+        console.log(this.props.setLogout)
+        // this.props.setLogout('false')
+    }
+
     render() { 
         return (  
             <div className="Navbar">
@@ -14,7 +20,7 @@ class Navbar extends React.Component {
                     </a>
                 <div className="right menu">
                     <a className="item">
-                        <Link to="/login" className="link">{this.props.loggedIn ? "Logout" : "Login"}</Link>
+                        <Link to="/login" onClick={this.handleClick} className="link">{this.props.loggedIn ? "Logout" : "Login | Sign Up"}</Link>
                     </a>
                 </div>
                 </div>

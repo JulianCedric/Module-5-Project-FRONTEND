@@ -1,3 +1,9 @@
+// Dr. Gail Matthews (Dominican University of California)'s study on Goal Setting found that 42%
+
+
+
+
+
 // SCENARIO A
 
       // user clicks Stickify

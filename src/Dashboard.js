@@ -66,6 +66,8 @@ const HABITS = [
     }
   ]
 
+const API_HABITS = 'http://localhost:3001/api/v1/habits'
+
 class Dashboard extends React.Component {
     state = {  
         habits: HABITS,
@@ -78,8 +80,12 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount = () => {
-        
+        fetch(API_HABITS)
+        .then(r => r.json())
+        .then(habitsObjects => this.setState({habits: habitsObjects}), () => console.log(this.state.habits))
     }
+
+
 
     timeout = 0
     timer = (id, progress) => {
@@ -236,6 +242,8 @@ class Dashboard extends React.Component {
     }
 
     render() { 
+        console.log(this.state.habits)
+
         // this.setState(prevState => {
         //     habits: {
         //         ...prevState.habits,

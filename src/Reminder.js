@@ -13,7 +13,7 @@ class Reminder extends React.Component {
         return (  
             <div>
                 <form className="ui form" onSubmit={ this.handleSubmit }>
-                    <h2>Please re-enter your habit: "{this.props.remindedHabit.description}"</h2>
+                    <h2 className="mediumWhiteText">Please re-enter your habit: "{this.props.remindedHabit.description}"</h2>
                     <input style={{width: "250px"}} type="text" placeholder={this.props.remindedHabit.description}></input>
                     <br></br>
                     <p></p>

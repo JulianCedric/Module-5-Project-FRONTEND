@@ -12,7 +12,6 @@ class Login extends React.Component {
     }
 
     handleChange = e => {
-        console.log(this.state.username)
         this.setState(
             {[e.target.name] : e.target.value}
         )
@@ -40,7 +39,7 @@ class Login extends React.Component {
 
     handleLoginSubmit = e => {
         console.log(this.state.username)
-        this.props.setLogin()
+        this.props.setLogin('true')
         // e.preventDefault()
         // this.props.changeCurrentView('home')
         // this.props.changeUsernameGreeting(this.state.username)
