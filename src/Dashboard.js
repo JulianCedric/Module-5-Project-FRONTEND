@@ -8,7 +8,7 @@ import EditModal from './EditModel';
 import ProjectManagement from './ProjectManagement';
 import Login from './Login';
 import Reminder from './Reminder';
-import CalendarDashboard from './CalendarDashboard';
+import ReactCalendar from './ReactCalendar';
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
@@ -278,7 +278,7 @@ class Dashboard extends React.Component {
             ? <Reminder habits={this.state.habits} remindedHabit={this.state.remindedHabit} handleProgressCounter={this.handleProgressCounter}/> 
             : null}
                 <Spacing />
-            <CalendarDashboard />
+            <ReactCalendar />
             {/* <ProjectManagement /> */}
                 <Spacing />
                 <Spacing />
