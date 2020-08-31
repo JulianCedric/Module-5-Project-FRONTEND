@@ -9,7 +9,9 @@ import ProjectManagement from './ProjectManagement';
 import Login from './Login';
 import Reminder from './Reminder';
 import ReactCalendar from './ReactCalendar';
-
+import Grid from './Grid';
+import Menu from './Menu';
+;
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
 const HABITS = [
@@ -116,10 +118,11 @@ const HABITS = [
         name: '', 
         description: 'Drink 1 more glass of water today',
         dateCreated: '',
-        progress: '',
-        counter: 7,
-        percentage: '',
-        dailyWinConfirmation: ''
+        progress: {
+            counter: 7,
+            percentage: 33.33,
+            dailyWinConfirmation: false
+        },
     },
     {
         id: 6,
@@ -127,10 +130,11 @@ const HABITS = [
         name: '', 
         description: 'Water plants in my room!',
         dateCreated: '',
-        progress: '',
-        counter: 20,
-        percentage: '',
-        dailyWinConfirmation: ''
+        progress: {
+            counter: 20,
+            percentage: 90.00,
+            dailyWinConfirmation: false
+        },
     },
     {
         id: 7,
@@ -379,6 +383,9 @@ class Dashboard extends React.Component {
             : null}
                 <Spacing />
             <ReactCalendar />
+            <Spacing />
+            {/* <Grid /> */}
+            <Menu/>
             {/* <ProjectManagement /> */}
                 <Spacing />
                 <Spacing />
