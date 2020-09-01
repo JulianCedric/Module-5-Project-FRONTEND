@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React from 'react';
 import HabitsContainer from './HabitsContainer';
 import CreateHabit from './CreateHabit';
 import Spacing from './Spacing';
 import ProgressBarsContainer from './ProgressBarsContainer';
 import EditModal from './EditHabit';
-import Login from './Login';
 import Reminder from './Reminder';
 import ReactCalendar from './ReactCalendar';
 import Menu from './Menu';
@@ -227,8 +225,6 @@ class Dashboard extends React.Component {
         .then(r => r.json())
         .then(habitsObjects => this.setState({habits: habitsObjects}), () => console.log(this.state.habits))
     }
-
-
 
     timeout = 0
     timer = (id, progress) => {

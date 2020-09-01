@@ -44,7 +44,6 @@ class App extends React.Component {
   }
 
   render() { 
-    console.log(this.state)
     return (
       <Router>
        <React.Fragment>
