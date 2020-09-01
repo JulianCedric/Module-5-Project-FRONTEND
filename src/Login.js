@@ -1,4 +1,5 @@
 import React from 'react';  
+import './App.css';
 
 class Login extends React.Component {
     state = {  
@@ -63,8 +64,8 @@ class Login extends React.Component {
     render() { 
         return (  
             <div className="login">
-                <div className = "login-segment" class="ui segment">
-                    <div class="ui two column very relaxed grid">
+                <div class="ui segment">
+                    <div className="login-grid" class="ui two column very relaxed grid">
                         <div class="column">
                             <div class="ui form" onSubmit={this.handleLoginSubmit}>
                                 <form action="#">
@@ -113,9 +114,7 @@ class Login extends React.Component {
                                 </form>  
                             </div>
                         </div>
-                        <div class="ui vertical divider">
-                            <h3>or</h3>
-                        </div>
+
                     </div>
                 </div>
             </div>            

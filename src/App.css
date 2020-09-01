@@ -59,6 +59,10 @@ html, body {
   background-image: url('./Images/plainBackground.png');
 }
 
+.login-grid {
+  background-image: url('./Images/plainBackground.png');
+}
+
 .login-segment {
   background-image: url('./Images/plainBackground.png');
 }

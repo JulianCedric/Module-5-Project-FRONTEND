@@ -17,7 +17,6 @@ class HabitsContainer extends React.Component {
                         <table className="ui inverted sortable celled table">
                             <thead>
                                 <tr>
-                                    <th>Test Column</th>
                                     <th>Description</th>
                                     <th>Date Added</th>
                                     <th>Stickify</th>
