@@ -1,3 +1,14 @@
+// notes = () => {
+// ////////// 1ST DRAFT CODE FOR POST-MVP VERSION //////////
+
+// // changeUsernameGreeting = name => {
+// //   console.log(name)
+// //   // this.setState({username: name})
+// // }
+
+// /////////////////////////////////////////////////////////
+// }
+
 import React from 'react';
 import './App.css';
 import Navbar from './Navbar';
@@ -41,11 +52,6 @@ class App extends React.Component {
 
   changeView = view => {
     this.setState({ currentView: view })
-  }
-
-  changeUsernameGreeting = name => {
-    console.log(name)
-    // this.setState({username: name})
   }
 
   render() { 
