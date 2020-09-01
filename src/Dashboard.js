@@ -8,7 +8,6 @@ import EditModal from './EditHabit';
 import Login from './Login';
 import Reminder from './Reminder';
 import ReactCalendar from './ReactCalendar';
-import Grid from './Grid';
 import Menu from './Menu';
 import $ from 'jquery';
 ;
@@ -445,7 +444,6 @@ class Dashboard extends React.Component {
                 <Spacing />
             <ReactCalendar />
             <Spacing />
-            {/* <Grid /> */}
             <Menu habits={this.state.habits}/>
                 <Spacing />
                 <Spacing />

@@ -4,6 +4,10 @@ class Reminder extends React.Component {
     state = { 
         description: ''
      }
+     
+    handleChange = (e) => {
+    this.setState({ description: e.target.value })
+    }
 
     handleSubmit = (e) =>{
         e.preventDefault();
@@ -15,17 +19,13 @@ class Reminder extends React.Component {
         this.setState({ description: '' })
     }
 
-    onChange = (e) => {
-        this.setState({ description: e.target.value })
-    }
-
     render() { 
         console.log(this.props.remindedHabit)
         return (  
             <div>
                 <form className="ui form" onSubmit={ this.handleSubmit }>
                     <h2 className="mediumWhiteText">Please re-enter your habit: "{this.props.remindedHabit.description}"</h2>
-                    <input style={{width: "250px"}} type="text" placeholder={this.props.remindedHabit.description} name="description" value={ this.state.description } onChange={ this.onChange }></input>
+                    <input style={{width: "250px"}} type="text" placeholder={this.props.remindedHabit.description} name="description" value={ this.state.description } onChange={ this.handleChange }></input>
                     <br></br>
                     <p></p>
                     <input className="ui mini green button" type="submit"></input>

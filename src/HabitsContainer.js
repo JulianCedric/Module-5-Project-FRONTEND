@@ -3,8 +3,6 @@ import Habit from './Habit';
 
 class HabitsContainer extends React.Component {
     render() { 
-        // console.log(this.props.habits)
-        // console.log(this.props.currentDate)
         return (  
             <div className="ui form">
                 <div className="field">
@@ -42,7 +40,7 @@ class HabitsContainer extends React.Component {
                 </div>
             </div>
         );
-    }
-}
+    };
+};
  
 export default HabitsContainer;
