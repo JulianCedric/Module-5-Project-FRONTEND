@@ -98,7 +98,8 @@ class CreateHabitForm extends React.Component {
 
                         <p></p>
                         <br></br>
-                    <input type="text" placeholder="Add a Habit.." style={{width: "350px"}} name="description" value={this.state.description} onChange={this.handleChange}/><button onClick={this.handleFormClick}><img src={ AddHabitButton } alt="Add a Habit Button" /></button>
+                    <input type="text" placeholder="Add a Habit.." style={{width: "350px"}} name="description" value={this.state.description} onChange={this.handleChange}/><button onClick={this.handleFormClick}><i class="angle double right icon"></i>
+</button>
                 </div>
             </div>
         );

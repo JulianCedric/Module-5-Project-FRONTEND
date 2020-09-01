@@ -1,5 +1,4 @@
 import React from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
@@ -23,21 +22,22 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
+    fetch(API_USERS)
+    .then(r => r.json())
+    .then(users => this.setState({ users }))
+  }
+  
+  componentDidMount = () => {
     fetch(API_HABITS)
-    .then(res => res.json())
+    .then(r => r.json())
     .then(habits => this.setState({ habits }))
   }
 
   componentDidMount = () => {
-    fetch(API_USERS)
-    .then(res => res.json())
+    fetch(API_REMINDERS)
+    .then(r => r.json())
     .then(users => this.setState({ users }))
   }
-
-  // setLogin = (value) => {
-  //   console.log("Confirmation: User has logged in")
-  //   this.state.loggedIn ? this.setState({ loggedIn }) : this.setState({ loggedIn: !loggedIn})
-  // }
 
   changeView = view => {
     this.setState({ currentView: view })
@@ -49,10 +49,7 @@ class App extends React.Component {
   }
 
   render() { 
-    // console.log(this.state.loggedIn)
-    console.log(this.state.users)
-
-    console.log(this.state.habits)
+    console.log(this.state)
     return (
       <Router>
        <React.Fragment>
@@ -62,19 +59,17 @@ class App extends React.Component {
             <Route exact path = '/' render={(props) => (<Home {...props} loggedIn={this.state.loggedIn} />)}></Route>
             <Route path = '/login' render={(props) => (<Login {...props} setLogin={this.setLogin} setLogout={this.setLogout} changeCurrentView={this.changeCurrentView} changeUsernameGreeting={this.changeUsernameGreeting}/>)}></Route>
             <Route path='/dashboard' render={(props) => (<Dashboard {...props} />)}></Route>
-            
-            {!this.state.loggedIn 
-            ? <Redirect to="/" component={ Home } /> 
-            : <Redirect to="/dashboard" component={ Dashboard } /> 
-            }
-          
+              {!this.state.loggedIn 
+                ? <Redirect to="/" component={ Home } /> 
+                : <Redirect to="/dashboard" component={ Dashboard } /> 
+              }
           </div>
         </Switch>
         <Footer />
       </React.Fragment>
     </Router>
-    )
-  }
-}
+    );
+  };
+};
  
 export default App;
