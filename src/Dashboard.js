@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import HabitsContainer from './HabitsContainer';
-import CreateHabitForm from './CreateHabitForm';
+import CreateHabit from './CreateHabit';
 import Spacing from './Spacing';
 import ProgressBarsContainer from './ProgressBarsContainer';
-import EditModal from './EditModel';
+import EditModal from './EditHabit';
 import Login from './Login';
 import Reminder from './Reminder';
 import ReactCalendar from './ReactCalendar';
@@ -208,7 +208,9 @@ const HABITS = [
     }
 ]
 
+const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
+const API_REMINDERS = 'http://localhost:3001/api/v1/reminders'
 
 class Dashboard extends React.Component {
     state = {  
@@ -424,7 +426,7 @@ class Dashboard extends React.Component {
             <h2 className="mediumWhiteText" >Dashboard</h2>
             <div className="ui basic modal">Modal</div>
             <button onClick={ this.modalClick }>Modal</button>
-            <CreateHabitForm handleNewHabit={this.handleNewHabit} />
+            <CreateHabit handleNewHabit={this.handleNewHabit} />
                 <Spacing />
             <HabitsContainer habits={this.state.habits} currentDate={this.state.currentDate} handleStickify={this.handleStickify} handleEdit={this.handleEdit} handleDelete={this.handleDelete} />
                 <Spacing />

@@ -7,7 +7,7 @@ const Footer = () => {
                 <h7 className="mediumWhiteText" >meOS © {new Date().toISOString().substring(0, 4)} </h7>
             </div>   
         </div>
-    )
-}
+    );
+};
 
 export default Footer;

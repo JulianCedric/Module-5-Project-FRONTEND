@@ -1,10 +1,9 @@
 import React from 'react';
-import AddHabitButton from './Images/AddHabitButton.png';
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
 
-class CreateHabitForm extends React.Component {
+class CreateHabit extends React.Component {
     state = {  
         id: null,
         description: '',
@@ -54,7 +53,7 @@ class CreateHabitForm extends React.Component {
     //     )
     // }
 
-    handleFormClick = e => {
+    handleSubmit = e => {
         e.preventDefault() 
         let newHabit = {
             id: null,
@@ -108,4 +107,4 @@ class CreateHabitForm extends React.Component {
     }
 }
  
-export default CreateHabitForm;
+export default CreateHabit;

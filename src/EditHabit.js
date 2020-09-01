@@ -1,6 +1,6 @@
 import React from 'react';
 
-class EditModal extends React.Component {
+class EditHabit extends React.Component {
     render() { 
         return (
             <div>
@@ -10,4 +10,4 @@ class EditModal extends React.Component {
     }
 }
  
-export default EditModal;
+export default EditHabit;

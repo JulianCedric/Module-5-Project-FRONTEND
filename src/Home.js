@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import HabitsContainer from './HabitsContainer';
-import CreateHabitForm from './CreateHabitForm';
+import CreateHabit from './CreateHabit';
 import Spacing from './Spacing';
 import ProgressBarsContainer from './ProgressBarsContainer';
-import EditModal from './EditModel';
+import EditModal from './EditHabit';
 import Login from './Login';
 import lessIsMoreLogo from './Images/lessIsMoreLogo.png';
 import './App.css';

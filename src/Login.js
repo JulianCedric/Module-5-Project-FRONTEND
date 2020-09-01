@@ -12,7 +12,7 @@ class Login extends React.Component {
         confirmpasswordNew: ""
     }
 
-    handleChange = e => {
+    handleLoginChange = e => {
         this.setState(
             {[e.target.name] : e.target.value}
         )
