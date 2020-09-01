@@ -1,4 +1,3 @@
-// import React from 'react';
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import HabitsContainer from './HabitsContainer';
@@ -6,7 +5,6 @@ import CreateHabitForm from './CreateHabitForm';
 import Spacing from './Spacing';
 import ProgressBarsContainer from './ProgressBarsContainer';
 import EditModal from './EditModel';
-import ProjectManagement from './ProjectManagement';
 import Login from './Login';
 import lessIsMoreLogo from './Images/lessIsMoreLogo.png';
 import './App.css';
@@ -122,16 +120,19 @@ class Home extends React.Component {
     }
 
     render() { 
-        // console.log(this.state.habits)
-        // console.log(this.state.currentDate)
         return (  
             <div className="home-container" >
-                {/* <h1 className="mediumWhiteText">"WE HUMAN BEINGS ARE 42% MORE LIKELY TO ACHIEVE OUR GOALS IF WE SIMPLY WRITE THEM DOWN."</h1> */}
-                {/* <h2 className="mediumWhiteText">Dr. Gail Matthews, Dominican University of California</h2>  */}
-                {/* <Link to="/login" type="text" className="ui inverted basic button" onClick={this.onLoginClick}>Login | Sign Up</Link> */}
             </div>
         );
-    }
-}
+    };
+};
  
 export default Home;
+
+////////// 1ST DRAFT CODE FOR POST-MVP VERSION //////////
+
+    {/* <h1 className="mediumWhiteText">"WE HUMAN BEINGS ARE 42% MORE LIKELY TO ACHIEVE OUR GOALS IF WE SIMPLY WRITE THEM DOWN."</h1> */}
+    {/* <h2 className="mediumWhiteText">Dr. Gail Matthews, Dominican University of California</h2>  */}
+    {/* <Link to="/login" type="text" className="ui inverted basic button" onClick={this.onLoginClick}>Login | Sign Up</Link> */}
+
+/////////////////////////////////////////////////////////

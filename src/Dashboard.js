@@ -5,7 +5,6 @@ import CreateHabitForm from './CreateHabitForm';
 import Spacing from './Spacing';
 import ProgressBarsContainer from './ProgressBarsContainer';
 import EditModal from './EditModel';
-import ProjectManagement from './ProjectManagement';
 import Login from './Login';
 import Reminder from './Reminder';
 import ReactCalendar from './ReactCalendar';
@@ -446,7 +445,6 @@ class Dashboard extends React.Component {
             <Spacing />
             {/* <Grid /> */}
             <Menu habits={this.state.habits}/>
-            {/* <ProjectManagement /> */}
                 <Spacing />
                 <Spacing />
         </div>
