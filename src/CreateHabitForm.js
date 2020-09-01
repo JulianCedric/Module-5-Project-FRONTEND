@@ -1,5 +1,5 @@
 import React from 'react';
-import StickPerson from './Images/stickPerson.png';
+import AddHabitButton from './Images/AddHabitButton.png';
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
@@ -94,11 +94,11 @@ class CreateHabitForm extends React.Component {
                         <p></p>
                         <br></br>
 
-                    <img src={ StickPerson } alt="stickPerson" />
+                    {/* <img src={ StickPerson } alt="stickPerson" /> */}
 
                         <p></p>
                         <br></br>
-                    <input type="text" placeholder="Add a Habit.." style={{width: "350px"}} name="description" value={this.state.description} onChange={this.handleChange}/><button className="circular ui positive icon basic button" onClick={this.handleFormClick}><i className="right arrow icon"></i></button>
+                    <input type="text" placeholder="Add a Habit.." style={{width: "350px"}} name="description" value={this.state.description} onChange={this.handleChange}/><button onClick={this.handleFormClick}><img src={ AddHabitButton } alt="Add a Habit Button" /></button>
                 </div>
             </div>
         );

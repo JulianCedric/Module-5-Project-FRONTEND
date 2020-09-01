@@ -1,114 +1,63 @@
 import React from 'react';  
+import MenuItem from './MenuItem';
 
 class Menu extends React.Component {
-    state = {  }
+    state = { 
+        colA: [],
+        colB: [],
+        colC: [],
+        items: []
+     }
+
+     componentDidMount = () => {
+        this.props.habits.map( habit => {
+            if( habit.column === 'A' ){
+                this.setState({ colA: this.state.colA.push( habit.description ) })
+            } else if( habit.column === 'B' ){
+                this.setState({ colB: this.state.colB.push( habit.description ) })
+            } else if( habit.column === 'C' ){
+                this.setState({ colC: this.state.colC.push( habit.description ) })
+            }
+        })
+        this.saveItems();
+     }
+
+     saveCols = () => {
+        
+     }
+
+     saveItems = () => {
+        for( let i=0; i<10; i++ ){
+            this.state.items.push(
+                <tr>
+                    <td>{ this.state.colA[i] }</td>
+                    <td>{ this.state.colB[i] }</td>
+                    <td>{ this.state.colC[i] }</td>
+                </tr>
+            )
+        }
+     }
+
     render() { 
+        console.log("Menu", this.state.colA )
+
         return (  
-            <div>
-            {/* <div class="ui three item menu">
-  <a class="item">
-    A
-  </a>
-  <a class="item">
-    B
-  </a>
-  <a class="item active">
-    C
-  </a>
-</div> */}
+            <table className="ui inverted celled structured table">
+                <thead style={{ textAlign: 'center' }}>
 
+                    <tr>
+                        <th style={{ width: '33vw' }}>Bucket List</th>
+                        <th style={{ width: '33vw' }}>In-Progress...</th>
+                        <th style={{ width: '33vw' }}>STIKified</th>
 
-{/* <div class="ui vertical demo menu">
-  <a class="active item">
-    A
-  </a>
-  <a class="item">
-    B
-    <div class="ui label">1</div>
-  </a>
-  <div class="item">
-  <div class="ui transparent icon input">
-<input type="text" placeholder="Search..."/>
-<i class="search icon"></i>
-    </div>
-  </div>
-</div> */}
-
-
-{/* <div class="ui tabular menu">
-  <a class="active item">
-    Tab
-  </a>
-  <a class="item">
-    Tab
-  </a>
-</div> */}
-
-<div class="ui inverted text demo menu">
-  <a class="active item">
-    A
-  </a>
-  <a class="item">
-    B
-  </a>
-  <a class="item">
-    C
-  </a>
-</div>
-
-
-
-
-<div class="ui inverted secondary demo menu">
-  <a class="item active">
-    A
-  </a>
-  <a class="item">
-    B
-  </a>
-  <a class="item">
-    C
-  </a>
-</div>
-
-
-
-<div class="ui inverted secondary pointing three item demo menu">
-  <a class="item active">
-    A
-  </a>
-  <a class="item">
-    B
-  </a>
-  <a class="item">
-    C
-  </a>
-</div>
-<div class="ui inverted secondary vertical demo menu">
-  <a class="item">
-    A
-  </a>
-  <a class="item">
-    B
-  </a>
-  <a class="item active">
-    C
-  </a>
-</div>
-<div class="ui inverted secondary pointing vertical demo menu">
-  <a class="item">
-    A
-  </a>
-  <a class="item active">
-    B
-  </a>
-  <a class="item">
-    C
-  </a>
-</div>
-</div>
-
-        );
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    { this.state.items }
+                </tbody>
+            </table>
+        )
     }
 }
 

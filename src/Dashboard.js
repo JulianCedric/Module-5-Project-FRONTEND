@@ -11,6 +11,7 @@ import Reminder from './Reminder';
 import ReactCalendar from './ReactCalendar';
 import Grid from './Grid';
 import Menu from './Menu';
+import $ from 'jquery';
 ;
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
@@ -75,10 +76,15 @@ const HABITS = [
         name: '', 
         description: 'Write 1 new thing I learned today in my journal before bedtime',
         dateCreated: date,
-        progress: '',
+        column: 'A',
         counter: '',
         percentage: '',
-        dailyWinConfirmation: ''
+        dailyWinConfirmation: '',
+        progress: {
+            counter: 20,
+            percentage: 33.33,
+            dailyWinConfirmation: false
+        }
     },
     {
         id: 2,
@@ -86,20 +92,30 @@ const HABITS = [
         name: '', 
         description: 'Practice piano for at least 20 minutes',
         dateCreated: '',
-        progress: '',
+        column: 'A',
         counter: '',
         percentage: '',
-        dailyWinConfirmation: ''
+        dailyWinConfirmation: '',
+        progress: {
+            counter: 7,
+            percentage: 33.33,
+            dailyWinConfirmation: false
+        }
     },{
         id: 3,
         user_id: 1,
         name: '', 
         description: 'Read at least 3 pages of a fiction novel',
         dateCreated: '',
-        progress: '',
+        column: 'A',
         counter: '',
         percentage: '',
-        dailyWinConfirmation: ''
+        dailyWinConfirmation: '',
+        progress: {
+            counter: 7,
+            percentage: 33.33,
+            dailyWinConfirmation: false
+        }
     },
     {
         id: 4,
@@ -107,10 +123,15 @@ const HABITS = [
         name: '', 
         description: 'Do 10 push-ups before breakfast',
         dateCreated: '',
-        progress: '',
+        column: 'A',
         counter: '',
         percentage: '',
-        dailyWinConfirmation: ''
+        dailyWinConfirmation: '',
+        progress: {
+            counter: 7,
+            percentage: 33.33,
+            dailyWinConfirmation: false
+        }
     },
     {
         id: 5,
@@ -118,6 +139,7 @@ const HABITS = [
         name: '', 
         description: 'Drink 1 more glass of water today',
         dateCreated: '',
+        column: 'B',
         progress: {
             counter: 7,
             percentage: 33.33,
@@ -130,6 +152,7 @@ const HABITS = [
         name: '', 
         description: 'Water plants in my room!',
         dateCreated: '',
+        column: 'B',
         progress: {
             counter: 20,
             percentage: 90.00,
@@ -142,10 +165,15 @@ const HABITS = [
         name: '', 
         description: 'Make bed before morning jog',
         dateCreated: '',
-        progress: '',
+        column: 'C',
         counter: '',
         percentage: '',
-        dailyWinConfirmation: ''
+        dailyWinConfirmation: '',
+        progress: {
+            counter: 7,
+            percentage: 33.33,
+            dailyWinConfirmation: false
+        }
     },
     {
         id: 8,
@@ -153,10 +181,15 @@ const HABITS = [
         name: '', 
         description: 'Prep gym clothes next to bed the night before a work-out day',
         dateCreated: '',
-        progress: '',
+        column: 'C',
         counter: '',
         percentage: '',
-        dailyWinConfirmation: ''
+        dailyWinConfirmation: '',
+        progress: {
+            counter: 7,
+            percentage: 33.33,
+            dailyWinConfirmation: false
+        }
     },
     {
         id: 9,
@@ -164,10 +197,15 @@ const HABITS = [
         name: '', 
         description: 'Study / Practice Algorithms & Data Structures for at least an hour',
         dateCreated: '',
-        progress: '',
+        column: 'C',
         counter: '',
         percentage: '',
-        dailyWinConfirmation: ''
+        dailyWinConfirmation: '',
+        progress: {
+            counter: 7,
+            percentage: 33.33,
+            dailyWinConfirmation: false
+        }
     }
 ]
 
@@ -238,16 +276,32 @@ class Dashboard extends React.Component {
     console.log(newCount)
 
     this.setState(prevState => ({
-        habits: prevState.habits.map(eachItem => 
-            eachItem === copiedHabitObject
-            ? { ...eachItem, progress: { ...eachItem.progress, counter: newCount } }
-            : eachItem
-            )
-    }))
-
+        habits: prevState.habits.map(eachItem => {
+            if( eachItem === copiedHabitObject ){
+                if( newCount === 21 ){
+                    return { ...eachItem, progress: { ...eachItem.progress, counter: newCount }, column: 'C' }
+                } else {
+                    return { ...eachItem, progress: { ...eachItem.progress, counter: newCount }}
+                }
+            } else {
+                return eachItem
+            }
+        })
+    }), ()=>{ console.log( this.state.habits[0])})
 
 
     }
+
+        // if( count === 21 ){
+        //     this.setState(prevState => ({
+        //         habits: prevState.habits.map( habit => 
+        //             habit === [...this.state.habits].find(hab => hab.id === id )
+        //             ? { ...habit, column: "C" }
+        //             : null
+        //         )
+        //     }), ()=>{ console.log( this.state.habits[0].column )})
+        // }
+
 
         // // this.setState({remindedHabit: })
 
@@ -346,6 +400,10 @@ class Dashboard extends React.Component {
         this.setState({remindedHabit: updatedHabitObject})
     }
 
+    modalClick = () => {
+        $('.ui.basic.modal').modal('show');
+    }
+
     render() { 
         console.log(this.state.habits)
 
@@ -365,6 +423,8 @@ class Dashboard extends React.Component {
             <p></p>
             <br></br>
             <h2 className="mediumWhiteText" >Dashboard</h2>
+            <div className="ui basic modal">Modal</div>
+            <button onClick={ this.modalClick }>Modal</button>
             <CreateHabitForm handleNewHabit={this.handleNewHabit} />
                 <Spacing />
             <HabitsContainer habits={this.state.habits} currentDate={this.state.currentDate} handleStickify={this.handleStickify} handleEdit={this.handleEdit} handleDelete={this.handleDelete} />
@@ -385,7 +445,7 @@ class Dashboard extends React.Component {
             <ReactCalendar />
             <Spacing />
             {/* <Grid /> */}
-            <Menu/>
+            <Menu habits={this.state.habits}/>
             {/* <ProjectManagement /> */}
                 <Spacing />
                 <Spacing />

@@ -1,48 +1,55 @@
-<style type="text/css">
-
-/* Shaded */
-.demo .grid.shaded.examples .row {
-  position: relative;
-}
-.demo .grid.shaded.examples .grid > .column {
-  position: relative;
-  z-index: 11;
-}
-.demo .grid.shaded.examples .grid .column:not(.row):after {
-  background-color: #AAAAAA;
-  content: "";
-  display: block;
-  min-height: 1em;
-}
-
-.demo .grid.divided.examples .grid .column:not(.row):after {
-  background-color: rgba(0, 0, 0, 0.1);
-  content: "";
-  display: block;
-  min-height: 1em;
-}
-
-.demo .grid.nested.examples .grid .grid {
-  box-shadow: 0px 0px 0px 1px #F0F0F0 inset;
-}
-.demo .grid.nested.examples .grid .grid .column:after {
-  background-color: #AAAAAA;
-  content: "";
-  display: block;
-  min-height: 1em;
-}
-
-.demo .grid.simple.examples .grid .column:not(.row):not(.grid):after {
-  content: "";
-  display: block;
-  min-height: 50px;
-}
-
-
-/* Animation */
-.demo .grid.examples {
-  margin: 0em !important;
-  padding: 0em !important;
-}
-
-</style>
+<table class="ui celled structured table">
+  <thead>
+    <tr>
+      <th rowspan="2">Name</th>
+      <th rowspan="2">Type</th>
+      <th rowspan="2">Files</th>
+      <th colspan="3">Languages</th>
+    </tr>
+    <tr>
+      <th>Ruby</th>
+      <th>JavaScript</th>
+      <th>Python</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alpha Team</td>
+      <td>Project 1</td>
+      <td class="right aligned">2</td>
+      <td class="center aligned">
+        <i class="large green checkmark icon"></i>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="3">Beta Team</td>
+      <td>Project 1</td>
+      <td class="right aligned">52</td>
+      <td class="center aligned">
+        <i class="large green checkmark icon"></i>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Project 2</td>
+      <td class="right aligned">12</td>
+      <td></td>
+      <td class="center aligned">
+        <i class="large green checkmark icon"></i>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Project 3</td>
+      <td class="right aligned">21</td>
+      <td class="center aligned">
+        <i class="large green checkmark icon"></i>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

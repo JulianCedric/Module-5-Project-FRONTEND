@@ -1,11 +1,22 @@
 import React from 'react';
 
 class Reminder extends React.Component {
-    state = {  }
+    state = { 
+        description: ''
+     }
 
     handleSubmit = (e) =>{
         e.preventDefault();
-        this.props.handleProgressCounter(this.props.remindedHabit.id, this.props.remindedHabit.progress)
+        if( this.props.remindedHabit.description === this.state.description ){
+            this.props.handleProgressCounter(this.props.remindedHabit.id, this.props.remindedHabit.progress)
+        } else {
+            alert('Incorrect');
+        }
+        this.setState({ description: '' })
+    }
+
+    onChange = (e) => {
+        this.setState({ description: e.target.value })
     }
 
     render() { 
@@ -14,7 +25,7 @@ class Reminder extends React.Component {
             <div>
                 <form className="ui form" onSubmit={ this.handleSubmit }>
                     <h2 className="mediumWhiteText">Please re-enter your habit: "{this.props.remindedHabit.description}"</h2>
-                    <input style={{width: "250px"}} type="text" placeholder={this.props.remindedHabit.description}></input>
+                    <input style={{width: "250px"}} type="text" placeholder={this.props.remindedHabit.description} name="description" value={ this.state.description } onChange={ this.onChange }></input>
                     <br></br>
                     <p></p>
                     <input className="ui mini green button" type="submit"></input>
