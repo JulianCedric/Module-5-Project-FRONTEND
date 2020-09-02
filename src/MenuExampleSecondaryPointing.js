@@ -11,8 +11,8 @@ export default class MenuExampleSecondaryPointing extends Component {
 
     return (
       <div>
-        <div class="ui inverted pointing secondary menu">
-          <Menu pointing secondary>
+        <div class="ui inverted fluid pointing secondary three item menu">
+          <Menu pointing secondary fluid widths={3}>
               <Menu.Item
                 name='bucket'
                 active={activeItem === 'bucket'}

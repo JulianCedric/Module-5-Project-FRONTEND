@@ -1,12 +1,32 @@
+import React, { Component } from 'react'
+import { Menu } from 'semantic-ui-react'
 
+export default class MenuExampleEvenlyDivided extends Component {
+  state = {}
 
-<a class="active item">Home</a>
-<a class="item">Messages</a>
-<a class="item">Friends</a>
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-<div class="right menu">
-<a class="item">Logout</a>
-</div>
+  render() {
+    const { activeItem } = this.state
 
-
-
+    return (
+      <Menu fluid widths={3}>
+        <Menu.Item
+          name='buy'
+          active={activeItem === 'buy'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name='sell'
+          active={activeItem === 'sell'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name='rent'
+          active={activeItem === 'rent'}
+          onClick={this.handleItemClick}
+        />
+      </Menu>
+    )
+  }
+}
