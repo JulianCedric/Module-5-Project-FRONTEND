@@ -109,6 +109,7 @@ export default class MenuExampleSecondaryPointing extends Component {
 
               <Button class="ui basic red button" color="red">Delete</Button>
             </Segment> : null }
+            <br></br>
     </div>
 
     )

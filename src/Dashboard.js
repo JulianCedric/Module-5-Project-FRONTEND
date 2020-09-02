@@ -13,6 +13,10 @@ import './App.css';
 import MenuExampleSecondaryPointing from './MenuExampleSecondaryPointing';
 // import PopupExampleFlowing from './PopupExampleFlowing';
 import ThemingLayout from './ThemingLayout';
+import AnotherGridLayout from './AnotherGridLayout';
+import { Sticky } from 'semantic-ui-react';
+import StickyLayout from './StickyLayout';
+import Sticcc from './Sticcc';
 
 
 let todoItems = [];
@@ -391,7 +395,10 @@ class Dashboard extends React.Component {
         <div className="dashboard">
             <p></p>
             <br></br>
+
             <h1 className="mediumWhiteText" >Habits Management Dashboard</h1>
+            {/* <Sticcc /> */}
+
             <p></p><br></br>
 
 
@@ -401,7 +408,7 @@ class Dashboard extends React.Component {
             <p></p><br></br>
             <MenuExampleSecondaryPointing habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } deleteHabit={ this.deleteHabit } />
             
-            <Spacing/>
+            {/* <Spacing/> */}
             
             <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
             <Spacing></Spacing>
@@ -412,8 +419,11 @@ class Dashboard extends React.Component {
             }
             <Spacing/>
             {/* <PopupExampleFlowing/> */}
-            <ThemingLayout />
+            <ThemingLayout /> 
+            {/* <div><AnotherGridLayout /></div> */}
 
+            <Spacing />
+            {/* <StickyLayout /> */}
             <Spacing/>
         </div>
         </div>

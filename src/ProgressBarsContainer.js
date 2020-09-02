@@ -10,7 +10,7 @@ class ProgressBarsContainer extends React.Component {
         return (
 
             <div className="ui container">
-                <hr />
+                <hr /><br></br>
                 <div class="ui three column grid">
 
                     {this.props.habits.map(habit => {

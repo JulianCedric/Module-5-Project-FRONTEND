@@ -67,7 +67,7 @@ class Login extends React.Component {
             <div className="ui centered grid">
             <div className="twelve wide column">
             <div className="login">
-                 <Segment placeholder>
+                 <Segment inverted secondary placeholder>
     <Grid columns={2} relaxed='very' stackable>
       <Grid.Column>
         <Form>
