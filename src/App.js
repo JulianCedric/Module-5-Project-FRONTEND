@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
-import LoginTT from './LoginTT';
+// import LoginTT from './LoginTT';
+import Login from './Login';
 import Dashboard from './Dashboard';
 import Footer from './Footer';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
@@ -29,6 +30,10 @@ class App extends React.Component {
     username: '',
     loggedIn: false
   }
+
+  setLogin = value => {
+    this.setState({ loggedIn: !this.state.loggedIn })
+  }  
 
   componentDidMount = () => {
     fetch(API_USERS)
@@ -62,7 +67,7 @@ class App extends React.Component {
               <Navbar loggedIn={this.state.loggedIn} setLogin={this.setLogin}/>
             </Sticky>
             <Route exact path = '/' render={(props) => (<Home {...props} loggedIn={this.state.loggedIn} />)}></Route>
-            <Route path = '/login' render={(props) => (<LoginTT {...props} setLogin={this.setLogin} setLogout={this.setLogout} changeCurrentView={this.changeCurrentView} changeUsernameGreeting={this.changeUsernameGreeting}/>)}></Route>
+            <Route path = '/login' render={(props) => (<Login {...props} setLogin={this.setLogin} setLogout={this.setLogout} changeCurrentView={this.changeCurrentView} changeUsernameGreeting={this.changeUsernameGreeting}/>)}></Route>
             <Route path='/dashboard' render={(props) => (<Dashboard {...props} />)}></Route>
               {!this.state.loggedIn 
                 ? <Redirect to="/" component={ Home } /> 

@@ -71,11 +71,11 @@ class Login extends React.Component {
                                 <form action="#">
                                     <h2 style={{ color: 'Violet' }}>Login</h2>
                                     <div class="text-input">
-                                        <input type="text" name="username" value={this.state.username} onChange={this.handleChange} id="username" placeholder="Username" style={{width: "250px"}}/>
+                                        <input type="text" name="username" value={this.state.username} onChange={this.handleLoginChange} id="username" placeholder="Username" style={{width: "250px"}}/>
                                         <span class="separator"> </span><br></br><br></br>
                                     </div>   
                                     <div class="text-input">
-                                        <input type="password" name="password" value={this.state.password} onChange={this.handleChange} id="password" placeholder="Password" style={{width: "250px"}}/>
+                                        <input type="password" name="password" value={this.state.password} onChange={this.handleLoginChange} id="password" placeholder="Password" style={{width: "250px"}}/>
                                         <span class="separator"> </span><br></br><br></br>
                                     </div>  
                                     <div class="form-bottom">
