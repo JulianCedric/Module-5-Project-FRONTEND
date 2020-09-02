@@ -29,10 +29,10 @@ class ProgressBarsContainer extends React.Component {
 
 
 
-        <Card.Header>"{ habit.description }"</Card.Header>
+        <Card.Header  >"{ habit.description }"</Card.Header>
         </div>
 
-        <Card.Meta>{ habit.quote }</Card.Meta>
+        <Card.Meta  style={{ height: '75px' }} >{ habit.quote }</Card.Meta>
         <Card.Description>
 
 

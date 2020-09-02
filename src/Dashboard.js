@@ -153,7 +153,7 @@ const HABITS2 = [
     user_id: 1,
     name: '',
     description: 'Water plants in my room!',
-    quote: "'Drop by drop is the water pot filled.' -Buddha",
+    quote: "'Drop by drop is the water pot filled.' -BUDDHA",
     dateCreated: '',
     column: 'B',
     progress: {
@@ -167,7 +167,7 @@ const HABITS2 = [
     user_id: 1,
     name: '',
     description: 'Drink 1 more glass of water today',
-    quote: "'The chains of habit are too weak to be felt until they are too strong to be broken.' ―Samuel Johnson",
+    quote: "'I fear not the man who has practiced 10,000 kicks, but I do fear the man who has practiced one kick 10,000 times.' -BRUCE LEE",
     dateCreated: '',
     column: 'B',
     progress: {
@@ -181,7 +181,7 @@ const HABITS2 = [
     user_id: 1,
     name: '',
     description: 'Make bed before morning jog',
-    quote: "'I fear not the man who has practiced 10,000 kicks, but I do fear the man who has practiced one kick 10,000 times.' -Bruce Lee",
+    quote: "'The chains of habit are too weak to be felt until they are too strong to be broken.'   --Samuel Johnson",
     dateCreated: '',
     column: 'C',
     counter: '',
