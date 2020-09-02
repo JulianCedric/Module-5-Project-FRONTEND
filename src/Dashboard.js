@@ -12,6 +12,7 @@ import TodoApp from './TodoApp';
 import './App.css';
 // import HabitsManagementDashboard from './MenuExampleSecondaryPointing';
 import MenuExampleSecondaryPointing from './MenuExampleSecondaryPointing';
+import PopupExampleFlowing from './PopupExampleFlowing';
 
 
 let todoItems = [];
@@ -493,6 +494,7 @@ class Dashboard extends React.Component {
             <Spacing />
             <Menu habits={this.state.habits}/>
                 <Spacing />
+                <PopupExampleFlowing/>
                 <Spacing />
         </div>
         );
