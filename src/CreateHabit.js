@@ -55,6 +55,34 @@ class CreateHabit extends React.Component {
         })
     }
 
+    handleStikify = () => {
+      let newHabit = {
+          id: 10,
+          description: this.state.description,
+          type: 'good',
+          stickify: false,
+          created: date,
+          tag: '',
+          progress: {
+              counter: 1,
+              percentage: 0,
+              dailyWinConfirmation: false
+            //   User clicks submit on dailyReminderForm, which
+                // (1) sets dailyWinConfirmation attribute to true, and
+                // (2) increments habit.progress.counter by 1 [day]
+          }
+      }
+      this.props.handleNewHabit(newHabit)
+      this.setState({
+          id: '',
+          description: '',
+          type: 'good',
+          stickify: false,
+          created: date,
+          tag: ''
+      })
+    }
+
     render() {
         return (
             <div className="ui form">
@@ -63,16 +91,16 @@ class CreateHabit extends React.Component {
                     <form onSubmit={ this.handleSubmit }>
                       <input type="text" style={{ width: '350px' }} placeholder="Add a Habit.." name="description" value={this.state.description} onChange={this.handleChange}/>
                       <br />
-                      <Segment inverted>
+                      <Segment inverted secondary>
                       <Grid columns={2} relaxed>
                         <Grid.Column>
-                          <Button primary type="submit" class="huge violet angle double right arrow basic icon">Save</Button>
+                          <Button primary type="submit" class="green basic icon">Save</Button>
                         </Grid.Column>
                         <Grid.Column>
-                          <i class="huge orange angle double right arrow basic icon"></i>
+                        <i class="huge orange angle double right arrow basic icon" onClick={ this.handleStikify }></i>
                         </Grid.Column>
                       </Grid>
-                      <Divider vertical>Or</Divider>
+                      <Divider inverted vertical>Or</Divider>
                       </Segment>
                     </form>
                   </Container>

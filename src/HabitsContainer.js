@@ -10,7 +10,7 @@ class HabitsContainer extends React.Component {
                     <h2 className="mediumWhiteText" >Habits Container</h2>
                     <p></p>
                     <br></br>
-                // </div>
+                 </div>
                 <div className="ui centered grid">
                     <div className="fifteen wide column">
                         <table className="ui inverted sortable celled table">

@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import EditHabit from './EditHabit';
-import { Menu, Segment, Icon, Divider, Button, Input } from 'semantic-ui-react'
+import { Menu, Segment, Icon, Divider, Button, Input, Popup, Grid } from 'semantic-ui-react'
 
 export default class MenuExampleSecondaryPointing extends Component {
   state = {
     activeItem: 'bucket',
     editSegment: false,
+    open: false,
+    setOpen: false
   }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -19,15 +21,21 @@ export default class MenuExampleSecondaryPointing extends Component {
     this.setState({ editSegment: false });
   }
 
+  deleteHabit = ( id ) => {
+    this.props.deleteHabit( id );
+  }
+
+  onStikify = ( id ) => {
+    this.props.startStikify( id );
+  }
+
   render() {
     const { activeItem } = this.state
 
     return (
-      <div className="ui centered grid">
-
-      <div className="twelve wide column">
+<div>
         <div className="ui inverted pointing secondary menu">
-          <Menu pointing secondary>
+          <Menu pointing secondary fluid widths={3}>
               <Menu.Item
                 name='bucket'
                 active={activeItem === 'bucket'}
@@ -51,7 +59,13 @@ export default class MenuExampleSecondaryPointing extends Component {
             {
               this.props.habits.map( habit =>
                 habit.progress.counter === 0
-                ? <div key={ habit.id } className="item" style={{ padding: '15px 5px', textAlign: 'left' }}><h3><Icon name="edit" onClick={ this.editHabit.bind( this, habit.id ) } /> - { habit.description }</h3></div>
+                ? <Popup  key={ habit.id }
+                          style={{ textAlign: 'center' }}
+                          trigger={<h3 style={{ textAlign: 'left' }}><Icon name="angle double right" size="big" color="orange" onClick={ this.onStikify.bind(this, habit.id) } />{ habit.description }</h3>} flowing hoverable
+                          > <EditHabit editHabit={ this.editHabit } editSubmit={ this.editSubmit } habit={ habit } />
+                            <Divider />
+                            <Button color="red" onClick={ this.deleteHabit.bind(this, habit.id) }>Delete</Button>
+                          </Popup>
                 : null
               )
             }
@@ -62,7 +76,7 @@ export default class MenuExampleSecondaryPointing extends Component {
             {
               this.props.habits.map( habit =>
                 habit.progress.counter > 0 && habit.progress.counter < 21
-                ? <div key={ habit.id } className="item" style={{ padding: '15px 5px', textAlign: 'left' }}><h3><Icon name="clock outline" /> - { habit.description }</h3></div>
+                ? <div key={ habit.id } className="item" style={{ padding: '15px 5px', textAlign: 'left' }}><h3><Icon name="clock outline" size="big" color="orange" /> - { habit.description }</h3></div>
                 : null
               )
             }
@@ -73,7 +87,7 @@ export default class MenuExampleSecondaryPointing extends Component {
             {
               this.props.habits.map( habit =>
                 habit.progress.counter === 21
-                ? <div key={ habit.id } className="item" style={{ padding: '15px 5px', textAlign: 'left' }}><h3><Icon name="check" /> - { habit.description }</h3></div>
+                ? <div key={ habit.id } className="item" style={{ padding: '15px 5px', textAlign: 'left' }}><h3><Icon name="check" size="big" color="green" /> - { habit.description }</h3></div>
                 : null
               )
             }
@@ -93,13 +107,10 @@ export default class MenuExampleSecondaryPointing extends Component {
 
               <Divider horizontal>Or</Divider>
 
-              <Button color="red">Delete</Button>
+              <Button class="ui basic red button" color="red">Delete</Button>
             </Segment> : null }
     </div>
-    <p></p>
-    <br></br>
-    <p></p>
-    </div>
+
     )
   }
 }

@@ -23,7 +23,7 @@ class EditHabit extends React.Component {
     render() {
         return (
           <React.Fragment>
-            <h3>Edit Habit:</h3>
+
             <form onSubmit={ this.onSubmit }>
               <Input  type="text"
                       style={{ width: '350px' }}

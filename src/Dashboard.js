@@ -11,8 +11,7 @@ import TodoApp from './TodoApp';
 import './App.css';
 // import HabitsManagementDashboard from './MenuExampleSecondaryPointing';
 import MenuExampleSecondaryPointing from './MenuExampleSecondaryPointing';
-import PopupExampleFlowing from './PopupExampleFlowing';
-
+// import PopupExampleFlowing from './PopupExampleFlowing';
 
 
 let todoItems = [];
@@ -216,9 +215,9 @@ const HABITS2 = [
 }
 ]
 
-const API_USERS = 'http://localhost:3001/api/v1/users'
-const API_HABITS = 'http://localhost:3001/api/v1/habits'
-const API_REMINDERS = 'http://localhost:3001/api/v1/reminders'
+// const API_USERS = 'http://localhost:3001/api/v1/users'
+// const API_HABITS = 'http://localhost:3001/api/v1/habits'
+// const API_REMINDERS = 'http://localhost:3001/api/v1/reminders'
 
 class Dashboard extends React.Component {
     state = {
@@ -273,14 +272,9 @@ class Dashboard extends React.Component {
     }
 
     handleProgressCounter = (id, progress) => {
-    console.log(id)
-    console.log(progress)
-
     let copiedHabitsArray = [...this.state.habits]
     let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id)
     let newCount = progress.counter + 1
-
-    console.log(newCount)
 
     this.setState(prevState => ({
         habits: prevState.habits.map(eachItem => {
@@ -294,7 +288,7 @@ class Dashboard extends React.Component {
                 return eachItem
             }
         })
-    }), ()=>{ console.log( this.state.habits[0])})
+    }))
 
 
     }
@@ -355,14 +349,50 @@ class Dashboard extends React.Component {
       }))
     }
 
+    deleteHabit = ( id ) => {
+      let copiedHabitsArray = [...this.state.habits]
+      let copiedHabitObject = copiedHabitsArray.filter(habit => habit.id !== id)
+
+      this.setState({
+        habits: copiedHabitObject
+      })
+    }
+
+    startStikify = ( id ) => {
+      let copiedHabitsArray = [...this.state.habits]
+      let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id)
+
+      this.setState(prevState => ({
+          habits: prevState.habits.map(eachItem => {
+              let newCount = eachItem.progress.counter + 1;
+              if( eachItem === copiedHabitObject ){
+                  return { ...eachItem, progress: { ...eachItem.progress, counter: newCount }}
+              } else {
+                  return eachItem
+              }
+          })
+      }))
+    }
+
     render() {
         return (
+            <div className="ui centered grid">
+            <div className="twelve wide column">
         <div className="dashboard">
             <p></p>
             <br></br>
-            <h2 className="mediumWhiteText" >Habits Management Dashboard</h2>
+            <h1 className="mediumWhiteText" >Habits Management Dashboard</h1>
+            <p></p><br></br>
+            <p></p><br></br>
+
             <CreateHabit handleNewHabit={this.handleNewHabit} />
-            <MenuExampleSecondaryPointing habits={ this.state.habits } editHabit={ this.editHabit } />
+
+            <p></p><br></br>
+            <p></p><br></br>
+            <MenuExampleSecondaryPointing habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } deleteHabit={ this.deleteHabit } />
+            
+            <Spacing/>
+            
             <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
             <Spacing></Spacing>
             {
@@ -371,9 +401,11 @@ class Dashboard extends React.Component {
               : null
             }
             <Spacing/>
-            <PopupExampleFlowing/>
+            {/* <PopupExampleFlowing/> */}
 
             <Spacing/>
+        </div>
+        </div>
         </div>
         );
     }

@@ -16,7 +16,7 @@ class LoginTT extends React.Component {
                                 </div><div class="column">
                                     <img src="/images/wireframe/image.png" class="ui image"/>
                                     </div><div class="column">
-                                        <img src="/images/wireframe/image.png" class="ui image"/>
+<h1>Test1</h1>
                                         </div>
                                         </div>
                                         <div class="centered four column row">
