@@ -87,9 +87,9 @@ class CreateHabit extends React.Component {
         return (
             <div className="ui form">
                 <div className="field">
-                  <Container textAlign='center' style={{ width: '350px' }}>
+                  <Container textAlign='center' style={{ width: '400px' }}>
                     <form onSubmit={ this.handleSubmit }>
-                      <input type="text" style={{ width: '350px' }} placeholder="Add a Habit.." name="description" value={this.state.description} onChange={this.handleChange}/>
+                      <input type="text" style={{ width: '400px' }} placeholder="Add a Habit.." name="description" value={this.state.description} onChange={this.handleChange}/>
                       <br />
                       <Segment inverted secondary>
                       <Grid columns={2} relaxed>

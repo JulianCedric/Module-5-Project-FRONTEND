@@ -383,7 +383,7 @@ class Dashboard extends React.Component {
             <br></br>
             <h1 className="mediumWhiteText" >Habits Management Dashboard</h1>
             <p></p><br></br>
-            <p></p><br></br>
+
 
             <CreateHabit handleNewHabit={this.handleNewHabit} />
 
