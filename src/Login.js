@@ -1,5 +1,6 @@
 import React from 'react';  
 import './App.css';
+import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react';
 
 class Login extends React.Component {
     state = {  
@@ -63,11 +64,41 @@ class Login extends React.Component {
 
     render() { 
         return (  
+            <div className="ui centered grid">
+            <div className="twelve wide column">
             <div className="login">
-                <div class="ui segment">
+                 <Segment placeholder>
+    <Grid columns={2} relaxed='very' stackable>
+      <Grid.Column>
+        <Form>
+          <Form.Input
+            icon='user'
+            iconPosition='left'
+            label='Username'
+            placeholder='Username'
+          />
+          <Form.Input
+            icon='lock'
+            iconPosition='left'
+            label='Password'
+            type='password'
+          />
+
+          <Button content='Login' primary />
+        </Form>
+      </Grid.Column>
+
+      <Grid.Column verticalAlign='middle'>
+        <Button content='Sign up' icon='signup' size='big' />
+      </Grid.Column>
+    </Grid>
+
+    <Divider vertical>Or</Divider>
+  </Segment>
+                <Segment inverted>
                     <div className="login-grid" class="ui two column very relaxed grid">
                         <div class="column">
-                            <div class="ui form" onSubmit={this.handleLoginSubmit}>
+                            <Form inverted onSubmit={this.handleLoginSubmit}>
                                 <form action="#">
                                     <h2 style={{ color: 'Violet' }}>Login</h2>
                                     <div class="text-input">
@@ -82,7 +113,7 @@ class Login extends React.Component {
                                         <input type="submit" id="submit" value="Login" class="ui purple button" style={{width: "150px"}}/><p></p>
                                     </div>
                                 </form>  
-                            </div>
+                            </Form>
                         </div>
                         <div class="column">
                             <div class="ui form" onSubmit={this.handleSignUpSubmit}>
@@ -116,8 +147,10 @@ class Login extends React.Component {
                         </div>
 
                     </div>
-                </div>
+                </Segment>
+            </div> 
             </div>            
+            </div> 
         );
     };
 };

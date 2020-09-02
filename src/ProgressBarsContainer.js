@@ -11,7 +11,7 @@ class ProgressBarsContainer extends React.Component {
 
             <div className="ui container">
                 <hr />
-                <div class="ui center aligned three column grid">
+                <div class="ui three column grid">
 
                     {this.props.habits.map(habit => {
                         if( habit.progress.counter > 0 && habit.progress.counter < 21 ){
@@ -24,7 +24,7 @@ class ProgressBarsContainer extends React.Component {
                                   <Card fluid color='green'>
       <Card.Content>
       <h3>DAY { habit.progress.counter } / 21</h3>
-      <div class="ui secondary segment" color="green">
+      <div style={{ height: '75px' }} class="ui secondary segment" color="green">
       {/* <Segment color='green'></Segment> */}
 
 
@@ -32,7 +32,7 @@ class ProgressBarsContainer extends React.Component {
         <Card.Header>"{ habit.description }"</Card.Header>
         </div>
 
-        <Card.Meta>"What's easy to do is also easy NOT to do." —JRohn</Card.Meta>
+        <Card.Meta>{ habit.quote }</Card.Meta>
         <Card.Description>
 
 

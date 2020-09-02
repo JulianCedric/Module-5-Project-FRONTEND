@@ -89,20 +89,25 @@ class CreateHabit extends React.Component {
                 <div className="field">
                   <Container textAlign='center' style={{ width: '400px' }}>
                     <form onSubmit={ this.handleSubmit }>
-                      <input type="text" style={{ width: '400px' }} placeholder="Add a Habit.." name="description" value={this.state.description} onChange={this.handleChange}/>
+                      <input type="text" style={{ width: '400px' }} placeholder="Add a New Habit.." name="description" value={this.state.description} onChange={this.handleChange}/>
                       <br />
-                      <Segment inverted secondary>
-                      <Grid columns={2} relaxed>
-                        <Grid.Column>
-                          <Button primary type="submit" class="green basic icon">Save</Button>
-                        </Grid.Column>
-                        <Grid.Column>
-                        <i class="huge orange angle double right arrow basic icon" onClick={ this.handleStikify }></i>
-                        </Grid.Column>
-                      </Grid>
-                      <Divider inverted vertical>Or</Divider>
-                      </Segment>
-                    </form>
+                    
+                    <br></br>
+
+                    <Button.Group>
+          <Button type="submit" color='purple' style={{ width: '100px' }}>Save</Button>
+          {/* <Button inverted style={{ width: '100px' }}>Save</Button> */}
+          {/* <Button color='purple' inverted style={{ width: '100px' }}>Save</Button> */}
+          <Button.Or color='purple' inverted>or</Button.Or>
+          <Button onClick={ this.handleStikify } color='purple' style={{ width: '100px' }}>Stickify</Button>
+          {/* <Button inverted style={{ width: '100px' }}>Stickify</Button> */}
+          {/* <Button color='purple' inverted style={{ width: '100px' }}>Stickify</Button> */}
+        </Button.Group>
+
+
+
+
+                      </form>
                   </Container>
                 </div>
             </div>
