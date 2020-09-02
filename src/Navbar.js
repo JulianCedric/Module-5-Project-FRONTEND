@@ -1,16 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// notes = () => {
-// ////////// 1ST DRAFT CODE FOR POST-MVP VERSION //////////
-
-// // handleClick = e => {
-// //     // this.props.setLogout('false')
-// // }
-
-// /////////////////////////////////////////////////////////
-// }
-
 class Navbar extends React.Component {
     render() { 
         return (  
@@ -34,3 +24,13 @@ class Navbar extends React.Component {
 };
 
 export default Navbar; 
+
+// notes = () => {
+// ////////// 1ST DRAFT CODE FOR POST-MVP VERSION //////////
+
+// // handleClick = e => {
+// //     // this.props.setLogout('false')
+// // }
+
+// /////////////////////////////////////////////////////////
+// }

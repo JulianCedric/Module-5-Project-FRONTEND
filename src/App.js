@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
-import Login from './Login';
+import LoginTT from './LoginTT';
 import Dashboard from './Dashboard';
 import Footer from './Footer';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
@@ -51,7 +51,7 @@ class App extends React.Component {
           <div className="App">
             <Navbar loggedIn={this.state.loggedIn} setLogin={this.setLogin}/>
             <Route exact path = '/' render={(props) => (<Home {...props} loggedIn={this.state.loggedIn} />)}></Route>
-            <Route path = '/login' render={(props) => (<Login {...props} setLogin={this.setLogin} setLogout={this.setLogout} changeCurrentView={this.changeCurrentView} changeUsernameGreeting={this.changeUsernameGreeting}/>)}></Route>
+            <Route path = '/login' render={(props) => (<LoginTT {...props} setLogin={this.setLogin} setLogout={this.setLogout} changeCurrentView={this.changeCurrentView} changeUsernameGreeting={this.changeUsernameGreeting}/>)}></Route>
             <Route path='/dashboard' render={(props) => (<Dashboard {...props} />)}></Route>
               {!this.state.loggedIn 
                 ? <Redirect to="/" component={ Home } /> 

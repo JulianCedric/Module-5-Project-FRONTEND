@@ -3,13 +3,14 @@ import Habit from './Habit';
 
 class HabitsContainer extends React.Component {
     render() { 
+        console.log(this.props)
         return (  
             <div className="ui form">
                 <div className="field">
                     <h2 className="mediumWhiteText" >Habits Container</h2>
                     <p></p>
                     <br></br>
-                </div>
+                // </div>
                 <div className="ui centered grid">
                     <div className="fifteen wide column">
                         <table className="ui inverted sortable celled table">

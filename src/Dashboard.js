@@ -5,10 +5,20 @@ import Spacing from './Spacing';
 import ProgressBarsContainer from './ProgressBarsContainer';
 import EditModal from './EditHabit';
 import Reminder from './Reminder';
-import ReactCalendar from './ReactCalendar';
+// import ReactCalendar from './ReactCalendar';
 import Menu from './Menu';
 import $ from 'jquery';
-;
+import TodoApp from './TodoApp';
+import './App.css';
+// import HabitsManagementDashboard from './MenuExampleSecondaryPointing';
+import MenuExampleSecondaryPointing from './MenuExampleSecondaryPointing';
+
+
+let todoItems = [];
+todoItems.push({index: 1, value: "learn react", done: false});
+todoItems.push({index: 2, value: "Go shopping", done: true});
+todoItems.push({index: 3, value: "buy flowers", done: true});
+
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
 const HABITS = [
@@ -65,144 +75,144 @@ const HABITS = [
     }
     }
   ]
-  const HABITS2 = [
-    {
-        id: 1,
-        user_id: 1,
-        name: '', 
-        description: 'Write 1 new thing I learned today in my journal before bedtime',
-        dateCreated: date,
-        column: 'A',
-        counter: '',
-        percentage: '',
-        dailyWinConfirmation: '',
-        progress: {
-            counter: 20,
-            percentage: 33.33,
-            dailyWinConfirmation: false
-        }
-    },
-    {
-        id: 2,
-        user_id: 1,
-        name: '', 
-        description: 'Practice piano for at least 20 minutes',
-        dateCreated: '',
-        column: 'A',
-        counter: '',
-        percentage: '',
-        dailyWinConfirmation: '',
-        progress: {
-            counter: 7,
-            percentage: 33.33,
-            dailyWinConfirmation: false
-        }
-    },{
-        id: 3,
-        user_id: 1,
-        name: '', 
-        description: 'Read at least 3 pages of a fiction novel',
-        dateCreated: '',
-        column: 'A',
-        counter: '',
-        percentage: '',
-        dailyWinConfirmation: '',
-        progress: {
-            counter: 7,
-            percentage: 33.33,
-            dailyWinConfirmation: false
-        }
-    },
-    {
-        id: 4,
-        user_id: 1,
-        name: '', 
-        description: 'Do 10 push-ups before breakfast',
-        dateCreated: '',
-        column: 'A',
-        counter: '',
-        percentage: '',
-        dailyWinConfirmation: '',
-        progress: {
-            counter: 7,
-            percentage: 33.33,
-            dailyWinConfirmation: false
-        }
-    },
-    {
-        id: 5,
-        user_id: 1,
-        name: '', 
-        description: 'Drink 1 more glass of water today',
-        dateCreated: '',
-        column: 'B',
-        progress: {
-            counter: 7,
-            percentage: 33.33,
-            dailyWinConfirmation: false
-        },
-    },
-    {
-        id: 6,
-        user_id: 1,
-        name: '', 
-        description: 'Water plants in my room!',
-        dateCreated: '',
-        column: 'B',
-        progress: {
-            counter: 20,
-            percentage: 90.00,
-            dailyWinConfirmation: false
-        },
-    },
-    {
-        id: 7,
-        user_id: 1,
-        name: '', 
-        description: 'Make bed before morning jog',
-        dateCreated: '',
-        column: 'C',
-        counter: '',
-        percentage: '',
-        dailyWinConfirmation: '',
-        progress: {
-            counter: 7,
-            percentage: 33.33,
-            dailyWinConfirmation: false
-        }
-    },
-    {
-        id: 8,
-        user_id: 1,
-        name: '', 
-        description: 'Prep gym clothes next to bed the night before a work-out day',
-        dateCreated: '',
-        column: 'C',
-        counter: '',
-        percentage: '',
-        dailyWinConfirmation: '',
-        progress: {
-            counter: 7,
-            percentage: 33.33,
-            dailyWinConfirmation: false
-        }
-    },
-    {
-        id: 9,
-        user_id: 1,
-        name: '', 
-        description: 'Study / Practice Algorithms & Data Structures for at least an hour',
-        dateCreated: '',
-        column: 'C',
-        counter: '',
-        percentage: '',
-        dailyWinConfirmation: '',
-        progress: {
-            counter: 7,
-            percentage: 33.33,
-            dailyWinConfirmation: false
-        }
+const HABITS2 = [
+{
+    id: 1,
+    user_id: 1,
+    name: '', 
+    description: 'Write 1 new thing I learned today in my journal before bedtime',
+    dateCreated: date,
+    column: 'A',
+    counter: '',
+    percentage: '',
+    dailyWinConfirmation: '',
+    progress: {
+        counter: 20,
+        percentage: 33.33,
+        dailyWinConfirmation: false
     }
+},
+{
+    id: 2,
+    user_id: 1,
+    name: '', 
+    description: 'Practice piano for at least 20 minutes',
+    dateCreated: '',
+    column: 'A',
+    counter: '',
+    percentage: '',
+    dailyWinConfirmation: '',
+    progress: {
+        counter: 7,
+        percentage: 33.33,
+        dailyWinConfirmation: false
+    }
+},{
+    id: 3,
+    user_id: 1,
+    name: '', 
+    description: 'Read at least 3 pages of a fiction novel',
+    dateCreated: '',
+    column: 'A',
+    counter: '',
+    percentage: '',
+    dailyWinConfirmation: '',
+    progress: {
+        counter: 7,
+        percentage: 33.33,
+        dailyWinConfirmation: false
+    }
+},
+{
+    id: 4,
+    user_id: 1,
+    name: '', 
+    description: 'Do 10 push-ups before breakfast',
+    dateCreated: '',
+    column: 'A',
+    counter: '',
+    percentage: '',
+    dailyWinConfirmation: '',
+    progress: {
+        counter: 7,
+        percentage: 33.33,
+        dailyWinConfirmation: false
+    }
+},
+{
+    id: 5,
+    user_id: 1,
+    name: '', 
+    description: 'Drink 1 more glass of water today',
+    dateCreated: '',
+    column: 'B',
+    progress: {
+        counter: 7,
+        percentage: 33.33,
+        dailyWinConfirmation: false
+    },
+},
+{
+    id: 6,
+    user_id: 1,
+    name: '', 
+    description: 'Water plants in my room!',
+    dateCreated: '',
+    column: 'B',
+    progress: {
+        counter: 20,
+        percentage: 90.00,
+        dailyWinConfirmation: false
+    },
+},
+{
+    id: 7,
+    user_id: 1,
+    name: '', 
+    description: 'Make bed before morning jog',
+    dateCreated: '',
+    column: 'C',
+    counter: '',
+    percentage: '',
+    dailyWinConfirmation: '',
+    progress: {
+        counter: 7,
+        percentage: 33.33,
+        dailyWinConfirmation: false
+    }
+},
+{
+    id: 8,
+    user_id: 1,
+    name: '', 
+    description: 'Prep gym clothes next to bed the night before a work-out day',
+    dateCreated: '',
+    column: 'C',
+    counter: '',
+    percentage: '',
+    dailyWinConfirmation: '',
+    progress: {
+        counter: 7,
+        percentage: 33.33,
+        dailyWinConfirmation: false
+    }
+},
+{
+    id: 9,
+    user_id: 1,
+    name: '', 
+    description: 'Study / Practice Algorithms & Data Structures for at least an hour',
+    dateCreated: '',
+    column: 'C',
+    counter: '',
+    percentage: '',
+    dailyWinConfirmation: '',
+    progress: {
+        counter: 7,
+        percentage: 33.33,
+        dailyWinConfirmation: false
+    }
+}
 ]
 
 const API_USERS = 'http://localhost:3001/api/v1/users'
@@ -413,14 +423,55 @@ class Dashboard extends React.Component {
         //     }
         // })
 
-        // console.log(this.state.habits)
+        console.log(this.state.habits)
         return (  
+
             <div className="dashboard">
             <p></p>
             <br></br>
-            <h2 className="mediumWhiteText" >Dashboard</h2>
+            <h2 className="mediumWhiteText" >Habits Management Dashboard</h2>
+
+            <MenuExampleSecondaryPointing habits={ this.state.habits } />
+            {/* <HabitsManagementDashboard habits={this.state.habits} currentDate={this.state.currentDate} handleStickify={this.handleStickify} handleEdit={this.handleEdit} handleDelete={this.handleDelete} /> */}
+                <Spacing />
+
+
+
             <div className="ui basic modal">Modal</div>
-            <button onClick={ this.modalClick }>Modal</button>
+            {/* <button onClick={ this.modalClick }>Modal</button> */}
+            
+
+
+
+
+
+
+
+
+
+
+                <Spacing />
+            
+            
+            
+        
+
+            <TodoApp initItems={todoItems}/>
+            
+            
+            
+            
+                <Spacing />
+
+
+
+
+
+
+
+
+
+
             <CreateHabit handleNewHabit={this.handleNewHabit} />
                 <Spacing />
             <HabitsContainer habits={this.state.habits} currentDate={this.state.currentDate} handleStickify={this.handleStickify} handleEdit={this.handleEdit} handleDelete={this.handleDelete} />
@@ -438,7 +489,7 @@ class Dashboard extends React.Component {
             ? <Reminder habits={this.state.habits} remindedHabit={this.state.remindedHabit} handleProgressCounter={this.handleProgressCounter}/> 
             : null}
                 <Spacing />
-            <ReactCalendar />
+            {/* <ReactCalendar /> */}
             <Spacing />
             <Menu habits={this.state.habits}/>
                 <Spacing />
