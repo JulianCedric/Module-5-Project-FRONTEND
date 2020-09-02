@@ -6,6 +6,15 @@ import LoginTT from './LoginTT';
 import Dashboard from './Dashboard';
 import Footer from './Footer';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import {
+  Grid,
+  Header,
+  Image,
+  Rail,
+  Ref,
+  Segment,
+  Sticky,
+} from 'semantic-ui-react'
 
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
@@ -49,7 +58,9 @@ class App extends React.Component {
        <React.Fragment>
         <Switch>
           <div className="App">
-            <Navbar loggedIn={this.state.loggedIn} setLogin={this.setLogin}/>
+            <Sticky context={this.contextRef}>
+              <Navbar loggedIn={this.state.loggedIn} setLogin={this.setLogin}/>
+            </Sticky>
             <Route exact path = '/' render={(props) => (<Home {...props} loggedIn={this.state.loggedIn} />)}></Route>
             <Route path = '/login' render={(props) => (<LoginTT {...props} setLogin={this.setLogin} setLogout={this.setLogout} changeCurrentView={this.changeCurrentView} changeUsernameGreeting={this.changeUsernameGreeting}/>)}></Route>
             <Route path='/dashboard' render={(props) => (<Dashboard {...props} />)}></Route>
