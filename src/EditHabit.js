@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Input } from 'semantic-ui-react'
+import { Button, Icon, Input } from 'semantic-ui-react'
 
 class EditHabit extends React.Component {
     state = {
@@ -30,7 +30,7 @@ class EditHabit extends React.Component {
                       value={ this.state.editHabit }
                       name="editHabit"
                       onChange={ this.onChange }
-                      label={<Button type="submit" color="orange">Edit</Button>}
+                      label={<Button inverted type="submit" icon='edit' color="orange"/>}
                       labelPosition='right' />
             </form>
           </React.Fragment>

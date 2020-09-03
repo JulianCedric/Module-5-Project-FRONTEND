@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import EditHabit from './EditHabit';
-import { Menu, Segment, Icon, Divider, Button, Input, Popup, Grid } from 'semantic-ui-react'
+import { Menu, Segment, Icon, Divider, Button, Input, Content, Popup, Grid } from 'semantic-ui-react'
 
 export default class MenuExampleSecondaryPointing extends Component {
   state = {
@@ -64,7 +64,16 @@ export default class MenuExampleSecondaryPointing extends Component {
                           trigger={<h3 style={{ textAlign: 'left' }}><Icon name="angle double right" size="big" color="orange" onClick={ this.onStikify.bind(this, habit.id) } />{ habit.description }</h3>} flowing hoverable
                           > <EditHabit editHabit={ this.editHabit } editSubmit={ this.editSubmit } habit={ habit } />
                             <Divider />
-                            <Button color="red" onClick={ this.deleteHabit.bind(this, habit.id) }>Delete</Button>
+
+                              {/* <Button circular compact inverted color='red' animated='fade'>
+                                <Button.Content inverted color='red' visible></Button.Content>
+                                <Button.Content inverted color="red" icon='trash' onClick={ this.deleteHabit.bind(this, habit.id) } hidden><span><Icon icon='trash'/></span></Button.Content>
+                              </Button> */}
+
+<Button inverted color="red" icon='trash' onClick={ this.deleteHabit.bind(this, habit.id) }/>
+  
+                              
+
                           </Popup>
                 : null
               )
