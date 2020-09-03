@@ -1,6 +1,6 @@
 import React from 'react';  
 import './App.css';
-import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, Divider, Header, Image, Message, Segment } from 'semantic-ui-react'
 
 class Login extends React.Component {
     state = {  
@@ -64,10 +64,10 @@ class Login extends React.Component {
 
     render() { 
         return (  
-            <div className="ui centered grid">
+            <div className="login-g" class="ui centered grid">
             <div className="twelve wide column">
-            <div className="login">
-                 <Segment inverted secondary placeholder>
+            {/* <div className="login"> */}
+                 {/* <Segment inverted secondary placeholder>
     <Grid columns={2} relaxed='very' stackable>
       <Grid.Column>
         <Form>
@@ -94,28 +94,30 @@ class Login extends React.Component {
     </Grid>
 
     <Divider vertical>Or</Divider>
-  </Segment>
-                <Segment inverted>
-                    <div className="login-grid" class="ui two column very relaxed grid">
-                        <div class="column">
+  </Segment> */}
+                <Segment textAlign='center' className="login-s" inverted>
+                <Grid columns={2} relaxed='very' stackable textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+    <Grid.Column style={{ maxWidth: 450 }}>
+
+
                             <Form inverted onSubmit={this.handleLoginSubmit}>
                                 <form action="#">
                                     <h2 style={{ color: 'Violet' }}>Login</h2>
-                                    <div class="text-input">
-                                        <input type="text" name="username" value={this.state.username} onChange={this.handleLoginChange} id="username" placeholder="Username" style={{width: "250px"}}/>
-                                        <span class="separator"> </span><br></br><br></br>
+                                    <div icon='user' iconPosition='left' class="text-input">
+                                        <Form.Input icon='user' iconPosition='left' type="text" name="username" value={this.state.username} onChange={this.handleLoginChange} id="username" placeholder="Username" style={{width: "250px"}}/>
+                                        {/* <span class="separator"> </span><br></br><br></br> */}
                                     </div>   
                                     <div class="text-input">
-                                        <input type="password" name="password" value={this.state.password} onChange={this.handleLoginChange} id="password" placeholder="Password" style={{width: "250px"}}/>
-                                        <span class="separator"> </span><br></br><br></br>
+                                        <Form.Input icon='lock' iconPosition='left' type="password" name="password" value={this.state.password} onChange={this.handleLoginChange} id="password" placeholder="Password" style={{width: "250px"}}/>
+                                        <span class="separator"> </span><br></br>
                                     </div>  
                                     <div class="form-bottom">
-                                        <input type="submit" id="submit" value="Login" class="ui purple button" style={{width: "150px"}}/><p></p>
+                                        <input type="submit" id="submit" value="Login" class="ui inverted purple button" style={{width: "250px"}}/><p></p>
                                     </div>
                                 </form>  
                             </Form>
-                        </div>
-                        <div class="column">
+                            </Grid.Column>
+                            <Grid.Column>
                             <div class="ui form" onSubmit={this.handleSignUpSubmit}>
                                 <form action="#">
                                     <h2 style={{ color: 'Violet' }}>Sign Up</h2>
@@ -137,20 +139,20 @@ class Login extends React.Component {
                                     </div>
                                     <div class="text-input">
                                         <input type="password" name="confirmpasswordNew" value={this.state.confirmpasswordNew} onChange={this.handleChange} id="confirmpassword" placeholder="Confirm Password" style={{width: "250px"}}/>
-                                        <span class="separator"> </span><br></br><br></br>
+                                        <span class="separator"> </span><br></br>                                        <span class="separator"> </span><br></br><br></br>
+
                                     </div>  
                                     <div class="form-bottom">
-                                        <input type="submit" id="submit" value="Create Account" class="ui purple button" style={{width: "150px"}}/><p></p>
+                                        <input type="submit" id="submit" value="Create Account" class="ui inverted purple button" style={{width: "250px"}}/><p></p>
                                     </div>
                                 </form>  
                             </div>
-                        </div>
-
-                    </div>
+                        </Grid.Column>
+                    </Grid>
                 </Segment>
             </div> 
             </div>            
-            </div> 
+            // </div> 
         );
     };
 };

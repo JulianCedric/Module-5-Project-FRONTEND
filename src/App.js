@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
-// import LoginTT from './LoginTT';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import Footer from './Footer';
@@ -16,6 +15,7 @@ import {
   Segment,
   Sticky,
 } from 'semantic-ui-react'
+import LoginForm from './LoginForm';
 
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
