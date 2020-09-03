@@ -29,6 +29,8 @@ html, body {
   bottom: 0;
   width: 100%;
   text-align: center;
+  background-image: url('./Images/plainBackground.png');
+
 }
 
 .progress-bar {

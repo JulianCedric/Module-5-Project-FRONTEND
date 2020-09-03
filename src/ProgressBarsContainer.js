@@ -22,14 +22,16 @@ class ProgressBarsContainer extends React.Component {
 
 
                                   <Card fluid color='green'>
-      <Card.Content>
+      <Card.Content textAlign='center'>
       <h3>DAY { habit.progress.counter } / 21</h3>
       <div style={{ height: '75px' }} class="ui secondary segment" color="green">
       {/* <Segment color='green'></Segment> */}
 
 
 
-        <Card.Header  >"{ habit.description }"</Card.Header>
+        <Card.Header  >
+          <h4>"{ habit.description }"</h4>
+        </Card.Header>
         </div>
 
         <Card.Meta  style={{ height: '75px' }} >{ habit.quote }</Card.Meta>

@@ -22,11 +22,11 @@ class Reminder extends React.Component {
     render() {
         console.log(this.props.remindedHabit) 
         return (
-            <div>
+            <div className="reminder-form">
                 <form className="ui form" onSubmit={ this.handleSubmit }>
-                    <h3 className="mediumWhiteText">Please re-enter your habit:</h3>
-                    <h2>"{this.props.remindedHabit.description}"</h2>
-                    <input style={{width: "250px"}} type="text" placeholder={this.props.remindedHabit.description} name="description" value={ this.state.description } onChange={ this.handleChange }></input>
+                    <h5 className="mediumWhiteText">Please Re-type Your Habit:</h5>
+                    <h3 className="mediumWhiteText">"{this.props.remindedHabit.description}"</h3>
+                    <input style={{width: "350px"}} type="text" placeholder={this.props.remindedHabit.description} name="description" value={ this.state.description } onChange={ this.handleChange }></input>
                     <br></br>
                     <p></p>
                     <input className="ui big green basic button" type="submit" value="Another Won"></input>
