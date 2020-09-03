@@ -1,9 +1,10 @@
-html, body {
+/* html, body {
   background-image: url('./Images/plainBackground.png');
-}
+} */
 
 .App {
   background-image: url('./Images/plainBackground.png');
+  background: 1b1c1d;
   background-repeat: no-repeat;
   background-size: cover;
   /* background-position: center; */

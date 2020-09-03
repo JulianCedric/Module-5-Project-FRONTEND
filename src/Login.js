@@ -64,7 +64,8 @@ class Login extends React.Component {
 
     render() { 
         return (  
-            <div className="login-g" class="ui centered grid">
+            <div>
+            {/* // <div className="login-g" class="ui centered grid"> */}
             <div className="twelve wide column">
             {/* <div className="login"> */}
                  {/* <Segment inverted secondary placeholder>
@@ -95,14 +96,13 @@ class Login extends React.Component {
 
     <Divider vertical>Or</Divider>
   </Segment> */}
-                <Segment textAlign='center' className="login-s" inverted>
-                <Grid columns={2} relaxed='very' stackable textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+                <Grid columns={2} relaxed='very' stackable textAlign='center' style={{ height: '0vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
 
 
                             <Form inverted onSubmit={this.handleLoginSubmit}>
                                 <form action="#">
-                                    <h2 style={{ color: 'Violet' }}>Login</h2>
+                                    <h2 style={{ color: 'white' }}>Login</h2>
                                     <div icon='user' iconPosition='left' class="text-input">
                                         <Form.Input icon='user' iconPosition='left' type="text" name="username" value={this.state.username} onChange={this.handleLoginChange} id="username" placeholder="Username" style={{width: "250px"}}/>
                                         {/* <span class="separator"> </span><br></br><br></br> */}
@@ -117,10 +117,12 @@ class Login extends React.Component {
                                 </form>  
                             </Form>
                             </Grid.Column>
-                            <Grid.Column>
+                            <Grid.Column style={{ maxWidth: 450 }}>                            
                             <div class="ui form" onSubmit={this.handleSignUpSubmit}>
                                 <form action="#">
-                                    <h2 style={{ color: 'Violet' }}>Sign Up</h2>
+                                    <br></br>
+
+                                    <h2 style={{ color: 'white' }}>Sign Up</h2>
                                     <div class="text-input">
                                         <input type="text" name="nameNewFirst" value={this.state.nameNewFirst} onChange={this.handleChange} id="nameNewFirst" placeholder="First Name" style={{width: "250px"}}/>
                                         <span class="separator"> </span><br></br><br></br>                                        
@@ -148,11 +150,16 @@ class Login extends React.Component {
                                 </form>  
                             </div>
                         </Grid.Column>
+                   
                     </Grid>
-                </Segment>
+                                            {/* <Divider inverted vertical>Or</Divider> */}
+
             </div> 
+            
+
+
+
             </div>            
-            // </div> 
         );
     };
 };
