@@ -14,7 +14,7 @@ import MenuExampleSecondaryPointing from './MenuExampleSecondaryPointing';
 // import PopupExampleFlowing from './PopupExampleFlowing';
 import ThemingLayout from './ThemingLayout';
 import AnotherGridLayout from './AnotherGridLayout';
-import { Sticky, Dimmer, Segment } from 'semantic-ui-react';
+import { Sticky, Dimmer, Card, Segment } from 'semantic-ui-react';
 import StickyLayout from './StickyLayout';
 import Sticcc from './Sticcc';
 
@@ -419,7 +419,16 @@ class Dashboard extends React.Component {
             <MenuExampleSecondaryPointing habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } deleteHabit={ this.deleteHabit } />
             {
                 this.state.congrats.show
-                ? <Dimmer active><Segment inverted><h3>Congrats! You have Stickify'd your new habit!</h3><p>{ this.state.congrats.habit }</p><button onClick={ this.closeCongrats }>Okay</button></Segment></Dimmer>
+                ? <Dimmer active>
+                        <Segment inverted>
+                            <Card inverted fluid color="purple">
+                                <Card.Content inverted textAlign="center">
+                                    <Card.Header>Congrats! You have Stickify'd your new habit!</Card.Header>
+                                    <p>{ this.state.congrats.habit }</p>
+                                    <button class="ui small inverted green button" onClick={ this.closeCongrats }>Okay</button>
+                                </Card.Content>
+                            </Card>
+                    </Segment></Dimmer>
                 : null
             }
             {/* <Spacing/> */}

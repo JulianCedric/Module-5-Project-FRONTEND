@@ -40,17 +40,17 @@ export default class MenuExampleSecondaryPointing extends Component {
                 name='bucket'
                 active={activeItem === 'bucket'}
                 onClick={this.handleItemClick}
-              />
+              >Bucket List</Menu.Item>
               <Menu.Item
                 name='progress'
                 active={activeItem === 'progress'}
                 onClick={this.handleItemClick}
-              />
+              >In Progress..</Menu.Item>
               <Menu.Item
                 name='stikified'
                 active={activeItem === 'stikified'}
                 onClick={this.handleItemClick}
-              />
+              >Stickify'd</Menu.Item>
           </Menu>
         </div>
           {

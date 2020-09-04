@@ -21,7 +21,7 @@ class ProgressBarsContainer extends React.Component {
 
 
 
-                                  <Card fluid color='green'>
+<Card fluid color='green'>
       <Card.Content textAlign='center'>
       <h3>DAY { habit.progress.counter } / 21</h3>
       <div style={{ height: '75px' }} class="ui secondary segment" color="green">
