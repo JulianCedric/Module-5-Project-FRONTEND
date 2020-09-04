@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import EditHabit from './EditHabit';
-import { Menu, Segment, Icon, Divider, Button, Input, Content, Popup, Grid } from 'semantic-ui-react'
+import { Menu, Segment, Icon, Divider, Button, Input, Content, Popup, Grid, Container } from 'semantic-ui-react'
 
 export default class MenuExampleSecondaryPointing extends Component {
   state = {
@@ -35,7 +35,7 @@ export default class MenuExampleSecondaryPointing extends Component {
     return (
 <div>
         <div className="ui inverted pointing secondary menu">
-          <Menu pointing secondary fluid widths={3}>
+          <Menu size="massive" pointing secondary fluid widths={3}>
               <Menu.Item
                 name='bucket'
                 active={activeItem === 'bucket'}
@@ -53,6 +53,7 @@ export default class MenuExampleSecondaryPointing extends Component {
               >Stickify'd</Menu.Item>
           </Menu>
         </div>
+        <Container style={{ height: '300px', overflowY: 'scroll' }}>
           {
           this.state.activeItem === 'bucket' ?
           <Segment>
@@ -85,7 +86,7 @@ export default class MenuExampleSecondaryPointing extends Component {
             {
               this.props.habits.map( habit =>
                 habit.progress.counter > 0 && habit.progress.counter < 21
-                ? <div key={ habit.id } className="item" style={{ padding: '15px 5px', textAlign: 'left' }}><h3><Icon name="clock outline" size="big" color="orange" /> - { habit.description }</h3></div>
+                ? <div key={ habit.id } className="item" style={{ padding: '15px 5px', textAlign: 'left' }}><h3><Icon name="clock outline" size="big" color="orange" /> { habit.description }</h3></div>
                 : null
               )
             }
@@ -96,7 +97,7 @@ export default class MenuExampleSecondaryPointing extends Component {
             {
               this.props.habits.map( habit =>
                 habit.progress.counter === 21
-                ? <div key={ habit.id } className="item" style={{ padding: '15px 5px', textAlign: 'left' }}><h3><Icon name="check" size="big" color="green" /> - { habit.description }</h3></div>
+                ? <div key={ habit.id } className="item" style={{ padding: '15px 5px', textAlign: 'left' }}><h3><Icon name="check" size="big" color="green" /> { habit.description }</h3></div>
                 : null
               )
             }
@@ -118,6 +119,7 @@ export default class MenuExampleSecondaryPointing extends Component {
 
               <Button class="ui basic red button" color="red">Delete</Button>
             </Segment> : null }
+        </Container>
             <br></br>
     </div>
 
