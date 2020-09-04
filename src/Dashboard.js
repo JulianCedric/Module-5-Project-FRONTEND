@@ -405,7 +405,8 @@ class Dashboard extends React.Component {
             <CreateHabit handleNewHabit={this.handleNewHabit} />
 
             <p></p><br></br>
-            <p></p><br></br>
+            {/* <hr /> */}
+
             <MenuExampleSecondaryPointing habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } deleteHabit={ this.deleteHabit } />
             
             {/* <Spacing/> */}

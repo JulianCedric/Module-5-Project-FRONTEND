@@ -31,6 +31,7 @@ class CreateHabit extends React.Component {
         let newHabit = {
             id: 10,
             description: this.state.description,
+            quote: '',
             type: 'good',
             stickify: false,
             created: date,
@@ -48,6 +49,7 @@ class CreateHabit extends React.Component {
         this.setState({
             id: '',
             description: '',
+            quote: '',
             type: 'good',
             stickify: false,
             created: date,
@@ -59,6 +61,7 @@ class CreateHabit extends React.Component {
       let newHabit = {
           id: 10,
           description: this.state.description,
+          quote: '',
           type: 'good',
           stickify: false,
           created: date,
@@ -76,6 +79,7 @@ class CreateHabit extends React.Component {
       this.setState({
           id: '',
           description: '',
+          quote: '',
           type: 'good',
           stickify: false,
           created: date,
