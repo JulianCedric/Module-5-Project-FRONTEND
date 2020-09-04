@@ -15,7 +15,8 @@
     "react-scripts": "3.4.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^1.2.1",
-    "sortablejs": "^1.10.2"
+    "sortablejs": "^1.10.2",
+    "uuid": "^8.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -17,7 +17,7 @@ import AnotherGridLayout from './AnotherGridLayout';
 import { Sticky, Dimmer, Card, Segment } from 'semantic-ui-react';
 import StickyLayout from './StickyLayout';
 import Sticcc from './Sticcc';
-
+import { v4 as uuidv4 } from 'uuid';
 
 let todoItems = [];
 todoItems.push({index: 1, value: "learn react", done: false});
@@ -82,7 +82,7 @@ const HABITS = [
   ]
 const HABITS2 = [
 {
-    id: 1,
+    id: uuidv4(),
     user_id: 1,
     name: '',
     description: 'Write 1 new thing I learned today in my journal before bedtime',
@@ -99,7 +99,7 @@ const HABITS2 = [
     }
 },
 {
-    id: 2,
+    id: uuidv4(),
     user_id: 1,
     name: '',
     description: 'Practice piano for at least 20 minutes',
@@ -115,7 +115,7 @@ const HABITS2 = [
         dailyWinConfirmation: false
     }
 },{
-    id: 3,
+    id: uuidv4(),
     user_id: 1,
     name: '',
     description: 'Read at least 3 pages of a fiction novel',
@@ -132,7 +132,7 @@ const HABITS2 = [
     }
 },
 {
-    id: 4,
+    id: uuidv4(),
     user_id: 1,
     name: '',
     description: 'Do 10 push-ups before breakfast',
@@ -149,7 +149,7 @@ const HABITS2 = [
     }
 },
 {
-    id: 5,
+    id: uuidv4(),
     user_id: 1,
     name: '',
     description: 'Water plants in my room!',
@@ -163,7 +163,7 @@ const HABITS2 = [
     },
 },
 {
-    id: 6,
+    id: uuidv4(),
     user_id: 1,
     name: '',
     description: 'Drink 1 more glass of water today',
@@ -177,7 +177,7 @@ const HABITS2 = [
     },
 },
 {
-    id: 7,
+    id: uuidv4(),
     user_id: 1,
     name: '',
     description: 'Make bed before morning jog',
@@ -194,7 +194,7 @@ const HABITS2 = [
     }
 },
 {
-    id: 8,
+    id: uuidv4(),
     user_id: 1,
     name: '',
     description: 'Prep gym clothes next to bed the night before a work-out day',
@@ -211,7 +211,7 @@ const HABITS2 = [
     }
 },
 {
-    id: 9,
+    id: uuidv4(),
     user_id: 1,
     name: '',
     description: 'Study / Practice Algorithms & Data Structures for at least an hour',
@@ -299,8 +299,8 @@ class Dashboard extends React.Component {
             if( eachItem === copiedHabitObject ){
                 if( newCount === 21 ){
                     this.setState({ congrats: { show: true, habit: eachItem.description } });
-                    return { ...eachItem, progress: { ...eachItem.progress, counter: newCount }}
                 }
+                return { ...eachItem, progress: { ...eachItem.progress, counter: newCount }}
             } else {
                 return eachItem
             }

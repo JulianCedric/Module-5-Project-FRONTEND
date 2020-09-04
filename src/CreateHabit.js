@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { Container, Button, Grid, Divider, Segment } from 'semantic-ui-react';
 
 const today = new Date()
@@ -29,7 +30,7 @@ class CreateHabit extends React.Component {
     handleSubmit = e => {
         e.preventDefault()
         let newHabit = {
-            id: 10,
+            id: uuidv4(),
             description: this.state.description,
             quote: '',
             type: 'good',
@@ -57,9 +58,10 @@ class CreateHabit extends React.Component {
         })
     }
 
-    handleStikify = () => {
+    handleStikify = (e) => {
+      e.preventDefault();
       let newHabit = {
-          id: 10,
+          id: uuidv4(),
           description: this.state.description,
           quote: '',
           type: 'good',
