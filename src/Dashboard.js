@@ -14,7 +14,7 @@ import MenuExampleSecondaryPointing from './MenuExampleSecondaryPointing';
 // import PopupExampleFlowing from './PopupExampleFlowing';
 import ThemingLayout from './ThemingLayout';
 import AnotherGridLayout from './AnotherGridLayout';
-import { Sticky } from 'semantic-ui-react';
+import { Sticky, Dimmer, Segment } from 'semantic-ui-react';
 import StickyLayout from './StickyLayout';
 import Sticcc from './Sticcc';
 
@@ -241,6 +241,10 @@ class Dashboard extends React.Component {
         showEditModal: false,
         time: 24,
         showReminder: false,
+        congrats: {
+            show: false,
+            habit: ''
+        },
         remindedHabit: {}
     }
 
@@ -265,7 +269,7 @@ class Dashboard extends React.Component {
 
                 let copiedHabitsArray = [...this.state.habits]
                 let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id)
-                let newCount = 0
+                let newCount = 1
 
                 console.log(newCount)
 
@@ -294,17 +298,22 @@ class Dashboard extends React.Component {
         habits: prevState.habits.map(eachItem => {
             if( eachItem === copiedHabitObject ){
                 if( newCount === 21 ){
-                    return { ...eachItem, progress: { ...eachItem.progress, counter: newCount }, column: 'C' }
-                } else {
+                    this.setState({ congrats: { show: true, habit: eachItem.description } });
                     return { ...eachItem, progress: { ...eachItem.progress, counter: newCount }}
                 }
             } else {
                 return eachItem
             }
         })
-    }))
+        }), ()=>{ this.closeReminder() })
+    }
 
+    closeCongrats = () => {
+        this.setState({ congrats: { show: false, habit: '' }})
+    }
 
+    closeReminder = () => {
+        this.setState({ showReminder: false });
     }
 
     handleNewHabit = newHabit => {
@@ -408,19 +417,23 @@ class Dashboard extends React.Component {
             {/* <hr /> */}
 
             <MenuExampleSecondaryPointing habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } deleteHabit={ this.deleteHabit } />
-            
+            {
+                this.state.congrats.show
+                ? <Dimmer active><Segment inverted><h3>Congrats! You have Stickify'd your new habit!</h3><p>{ this.state.congrats.habit }</p><button onClick={ this.closeCongrats }>Okay</button></Segment></Dimmer>
+                : null
+            }
             {/* <Spacing/> */}
-            
-            <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
-            <Spacing></Spacing>
             {
               this.state.showReminder
-              ? <Reminder habits={this.state.habits} remindedHabit={this.state.remindedHabit} handleProgressCounter={this.handleProgressCounter}/>
+              ? <Dimmer active><Segment inverted><Reminder habits={this.state.habits} remindedHabit={this.state.remindedHabit} handleProgressCounter={this.handleProgressCounter}/></Segment></Dimmer>
               : null
             }
+            <Segment>{ this.state.time }</Segment>
+            <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
+            <Spacing></Spacing>
             <Spacing/>
             {/* <PopupExampleFlowing/> */}
-            <ThemingLayout /> 
+            {/* <ThemingLayout />  */}
             {/* <div><AnotherGridLayout /></div> */}
 
             <Spacing />

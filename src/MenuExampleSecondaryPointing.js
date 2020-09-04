@@ -55,7 +55,7 @@ export default class MenuExampleSecondaryPointing extends Component {
         </div>
           {
           this.state.activeItem === 'bucket' ?
-          <Segment bucket>
+          <Segment>
             {
               this.props.habits.map( habit =>
                 habit.progress.counter === 0
@@ -81,7 +81,7 @@ export default class MenuExampleSecondaryPointing extends Component {
           </Segment> : null }
           {
           this.state.activeItem === 'progress' ?
-          <Segment progress>
+          <Segment>
             {
               this.props.habits.map( habit =>
                 habit.progress.counter > 0 && habit.progress.counter < 21
@@ -92,7 +92,7 @@ export default class MenuExampleSecondaryPointing extends Component {
           </Segment> : null }
           {
           this.state.activeItem === 'stikified' ?
-          <Segment stikified>
+          <Segment>
             {
               this.props.habits.map( habit =>
                 habit.progress.counter === 21
