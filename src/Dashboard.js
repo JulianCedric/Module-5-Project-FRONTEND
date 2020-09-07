@@ -403,7 +403,7 @@ class Dashboard extends React.Component {
             <div className="twelve wide column">
         <div className="dashboard">
             <p></p>
-            <br></br>
+
 
             <h1 className="mediumWhiteText" >Habits Management Dashboard</h1>
             {/* <Sticcc /> */}
@@ -413,7 +413,7 @@ class Dashboard extends React.Component {
 
             <CreateHabit handleNewHabit={this.handleNewHabit} />
 
-            <p></p><br></br>
+            <p></p>
             {/* <hr /> */}
 
             <MenuExampleSecondaryPointing habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } deleteHabit={ this.deleteHabit } />
@@ -447,7 +447,7 @@ class Dashboard extends React.Component {
 
             <Spacing />
             {/* <StickyLayout /> */}
-            <Spacing/>
+            {/* <Spacing/> */}
         </div>
         </div>
         </div>
