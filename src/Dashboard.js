@@ -403,7 +403,7 @@ class Dashboard extends React.Component {
             <div className="twelve wide column">
         <div className="dashboard">
             <p></p>
-            <br></br>
+
 
             <h1 className="mediumWhiteText" >Habits Management Dashboard</h1>
             {/* <Sticcc /> */}
