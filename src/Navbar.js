@@ -14,7 +14,11 @@ class Navbar extends React.Component {
                     </a>
                     <div className="right menu">
                         <a className="item">
-                        <Link to="/login" onClick={this.handleClick} className="link">{this.props.loggedIn ? "Logout" : "Login | Sign Up"}</Link>
+                        {
+                            this.props.loggedIn
+                            ? <Link to="/login" onClick={this.props.setLogin} className="link">Logout</Link>
+                            : <Link to="/login" className="link">Login | Sign Up</Link>
+                        }
                     </a>
                     </div>
                 </div>

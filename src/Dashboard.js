@@ -265,7 +265,7 @@ class Dashboard extends React.Component {
             } else {
                 this.stopTimer();
                 this.setState({ showReminder: false });
-                alert("Alert: Your progress for this habit has been reset back to Day 0");
+                alert("Alert: Your progress for this habit has been reset back to Day 1");
 
                 let copiedHabitsArray = [...this.state.habits]
                 let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id)
@@ -403,7 +403,7 @@ class Dashboard extends React.Component {
             <div className="twelve wide column">
         <div className="dashboard">
             <p></p>
-
+            <br></br>
 
             <h1 className="mediumWhiteText" >Habits Management Dashboard</h1>
             {/* <Sticcc /> */}
@@ -413,7 +413,7 @@ class Dashboard extends React.Component {
 
             <CreateHabit handleNewHabit={this.handleNewHabit} />
 
-            <p></p>
+            <p></p><br></br>
             {/* <hr /> */}
 
             <MenuExampleSecondaryPointing habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } deleteHabit={ this.deleteHabit } />
@@ -437,7 +437,7 @@ class Dashboard extends React.Component {
               ? <Dimmer active><Segment inverted><Reminder habits={this.state.habits} remindedHabit={this.state.remindedHabit} handleProgressCounter={this.handleProgressCounter}/></Segment></Dimmer>
               : null
             }
-            <Segment>{ this.state.time }</Segment>
+            <Segment>Hey, Brendon - You have { this.state.time } hours to re-type your latest 'In Progress' habit.</Segment>
             <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
             <Spacing></Spacing>
             <Spacing/>
@@ -447,7 +447,7 @@ class Dashboard extends React.Component {
 
             <Spacing />
             {/* <StickyLayout /> */}
-            {/* <Spacing/> */}
+            <Spacing/>
         </div>
         </div>
         </div>

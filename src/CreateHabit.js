@@ -32,7 +32,7 @@ class CreateHabit extends React.Component {
         let newHabit = {
             id: uuidv4(),
             description: this.state.description,
-            quote: '',
+            quote: "'Practice isn't the thing you do once you're good. It's the thing you do that makes you good.' - MALCOLM GLADWELL",
             type: 'good',
             stickify: false,
             created: date,
@@ -50,7 +50,7 @@ class CreateHabit extends React.Component {
         this.setState({
             id: '',
             description: '',
-            quote: '',
+            quote: "'Practice isn't the thing you do once you're good. It's the thing you do that makes you good.' -MALCOLM GLADWELL",
             type: 'good',
             stickify: false,
             created: date,
@@ -63,7 +63,7 @@ class CreateHabit extends React.Component {
       let newHabit = {
           id: uuidv4(),
           description: this.state.description,
-          quote: '',
+          quote: "'Practice isn't the thing you do once you're good. It's the thing you do that makes you good.' -MALCOLM GLADWELL",
           type: 'good',
           stickify: false,
           created: date,
@@ -81,7 +81,7 @@ class CreateHabit extends React.Component {
       this.setState({
           id: '',
           description: '',
-          quote: '',
+          quote: "'Practice isn't the thing you do once you're good. It's the thing you do that makes you good.' -MALCOLM GLADWELL",
           type: 'good',
           stickify: false,
           created: date,
