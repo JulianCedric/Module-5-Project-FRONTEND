@@ -24,6 +24,10 @@ todoItems.push({index: 1, value: "learn react", done: false});
 todoItems.push({index: 2, value: "Go shopping", done: true});
 todoItems.push({index: 3, value: "buy flowers", done: true});
 
+const USER = {
+    name: "Brendon"
+}
+
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
 const HABITS = [
@@ -235,6 +239,7 @@ const HABITS2 = [
 
 class Dashboard extends React.Component {
     state = {
+        user: USER,
         habits: HABITS2,
         stickifiedHabits: [],
         currentDate: date,
@@ -398,6 +403,7 @@ class Dashboard extends React.Component {
     }
 
     render() {
+
         return (
             <div className="ui centered grid">
             <div className="twelve wide column">
@@ -437,7 +443,7 @@ class Dashboard extends React.Component {
               ? <Dimmer active><Segment inverted><Reminder habits={this.state.habits} remindedHabit={this.state.remindedHabit} handleProgressCounter={this.handleProgressCounter}/></Segment></Dimmer>
               : null
             }
-            <Segment>Hey, Brendon - You have { this.state.time } hours to re-type your latest 'In Progress' habit.</Segment>
+            <Segment><h3>Hey, { USER.name }! You have { this.state.time } hours to re-type your latest 'In Progress' habit.</h3></Segment>
             <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
             <Spacing></Spacing>
             <Spacing/>

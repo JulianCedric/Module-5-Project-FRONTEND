@@ -14,7 +14,7 @@ class Reminder extends React.Component {
         if( this.props.remindedHabit.description === this.state.description ){
             this.props.handleProgressCounter(this.props.remindedHabit.id, this.props.remindedHabit.progress)
         } else {
-            alert('Incorrect');
+            alert('Error: Please re-type your habit.');
         }
         this.setState({ description: '' })
     }
