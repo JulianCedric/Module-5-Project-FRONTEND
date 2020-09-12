@@ -6,6 +6,7 @@ import ProgressBarsContainer from './ProgressBarsContainer';
 import CreateHabit from './CreateHabit';
 import Reminder from './Reminder';
 import { v4 as uuidv4 } from 'uuid';
+import TestingArea from './TestingArea';
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
@@ -169,6 +170,7 @@ class Dashboard extends React.Component {
     state = {
         user: USER,
         habits: [],
+        reminders: [],
         stickifiedHabits: [],
         currentDate: date,
         showEditModal: false,
@@ -343,8 +345,8 @@ class Dashboard extends React.Component {
     }
 
     render() {
-        console.log(this.state.users)
-        console.log(this.state.habits)
+        // console.log(this.state.users)
+        // console.log(this.state.habits)
         console.log(this.state.reminders)
         return (
             <div className="ui centered grid">
@@ -388,12 +390,12 @@ class Dashboard extends React.Component {
             <Segment><h3>Hey, { USER.name }! You have { this.state.time } hours to re-type your latest 'In Progress' habit.</h3></Segment>
             <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
 
-
+            <TestingArea reminders={this.state.reminders}/>
         </div>
         </div>
         </div>
         );
-    }
-}
+    };
+};
 
 export default Dashboard;
