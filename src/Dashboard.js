@@ -4,6 +4,7 @@ import { Dimmer, Card, Segment } from 'semantic-ui-react';
 import MenuExampleSecondaryPointing from './MenuExampleSecondaryPointing';
 import ProgressBarsContainer from './ProgressBarsContainer';
 import CreateHabit from './CreateHabit';
+import CreateReminder from './CreateReminder';
 import Reminder from './Reminder';
 import { v4 as uuidv4 } from 'uuid';
 import TestingArea from './TestingArea';
@@ -182,20 +183,16 @@ class Dashboard extends React.Component {
         },
         remindedHabit: {}
     }
-
-    componentDidMount = () => {
+      
+      componentDidMount = () => {
         fetch(API_USERS)
         .then(r => r.json())
         .then(usersData => this.setState({ users: usersData }))
-      }
-      
-      componentDidMount = () => {
+
         fetch(API_HABITS)
         .then(r => r.json())
         .then(habitsData => this.setState({ habits: habitsData }))
-      }
-    
-      componentDidMount = () => {
+
         fetch(API_REMINDERS)
         .then(r => r.json())
         .then(remindersData => this.setState({ reminders: remindersData }))
@@ -344,9 +341,13 @@ class Dashboard extends React.Component {
       }))
     }
 
+    addReminder = newReminder => {
+        console.log("POST ---", "ID of newly-created reminder object:", newReminder.id)
+    }
+
     render() {
-        // console.log(this.state.users)
-        // console.log(this.state.habits)
+        console.log(this.state.users)
+        console.log(this.state.habits)
         console.log(this.state.reminders)
         return (
             <div className="ui centered grid">
@@ -391,6 +392,7 @@ class Dashboard extends React.Component {
             <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
 
             <TestingArea reminders={this.state.reminders}/>
+            <CreateReminder addReminder={this.addReminder}/>
         </div>
         </div>
         </div>
