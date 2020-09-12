@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon, Input } from 'semantic-ui-react'
+import { Button, Input } from 'semantic-ui-react';
 
 class EditHabit extends React.Component {
     state = {

@@ -1,6 +1,6 @@
 import React from 'react';  
 import './App.css';
-import { Button, Form, Grid, Divider, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Form, Grid } from 'semantic-ui-react'
 
 class Login extends React.Component {
     state = {  

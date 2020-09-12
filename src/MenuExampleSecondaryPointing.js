@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import EditHabit from './EditHabit';
-import { Menu, Segment, Icon, Divider, Button, Input, Content, Popup, Grid, Container } from 'semantic-ui-react'
+import { Menu, Segment, Icon, Divider, Button, Popup, Container } from 'semantic-ui-react'
 
 export default class MenuExampleSecondaryPointing extends Component {
   state = {
@@ -108,7 +108,7 @@ export default class MenuExampleSecondaryPointing extends Component {
               {
                 this.props.habits.map( habit => {
                   if( habit.id === this.state.editId ){
-                    return(
+                    return (
                         <EditHabit editHabit={ this.editHabit } editSubmit={ this.editSubmit } habit={ habit } />
                     )
                   }

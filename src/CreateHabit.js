@@ -1,6 +1,6 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Container, Button, Grid, Divider, Segment } from 'semantic-ui-react';
+import { Container, Button } from 'semantic-ui-react';
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()

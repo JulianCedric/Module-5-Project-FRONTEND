@@ -1,12 +1,9 @@
 import React from 'react';
 import ProgressBar from 'react-customizable-progressbar';
-import { Button, Card, Grid, Image, Segment } from 'semantic-ui-react'
-
-
+import { Button, Card } from 'semantic-ui-react';
 
 class ProgressBarsContainer extends React.Component {
     render() {
-        let { stickifiedHabits } = this.props
         return (
 
             <div className="ui container">

@@ -1,89 +1,14 @@
 import React from 'react';
-// import HabitsContainer from './HabitsContainer';
-import CreateHabit from './CreateHabit';
-
-import ProgressBarsContainer from './ProgressBarsContainer';
-import EditModal from './EditHabit';
-import Reminder from './Reminder';
-// import ReactCalendar from './ReactCalendar';
-import Menu from './Menu';
-
 import './App.css';
-// import HabitsManagementDashboard from './MenuExampleSecondaryPointing';
+import { Dimmer, Card, Segment } from 'semantic-ui-react';
 import MenuExampleSecondaryPointing from './MenuExampleSecondaryPointing';
-// import PopupExampleFlowing from './PopupExampleFlowing';
-
-import AnotherGridLayout from './AnotherGridLayout';
-import { Sticky, Dimmer, Card, Segment } from 'semantic-ui-react';
-
-
+import ProgressBarsContainer from './ProgressBarsContainer';
+import CreateHabit from './CreateHabit';
+import Reminder from './Reminder';
 import { v4 as uuidv4 } from 'uuid';
-
-let todoItems = [];
-todoItems.push({index: 1, value: "learn react", done: false});
-todoItems.push({index: 2, value: "Go shopping", done: true});
-todoItems.push({index: 3, value: "buy flowers", done: true});
-
-const USER = {
-    name: "Brendon"
-}
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
-const HABITS = [
-    {
-      id: 1,
-      description: 'medidate',
-      type: 'good',
-      stickify: false,
-      created: '2020-8-24',
-      tag: 'health',
-      progress: {
-          counter: 1,
-          percentage: 4.76,
-          dailyWinConfirmation: false
-        //   User clicks submit on dailyReminderForm, which
-            // (1) sets dailyWinConfirmation attribute to true, and
-            // (2) increments habit.progress.counter by 1 [day]
-      },
-      dailyWin: ( time )=>{
-        // if user clicks submit within day range, increment progress.counter, else progress.counter = 0
-        // progress.percentage = progress.counter/21
-      }
-    },
-    {
-      id: 2,
-      description: 'push-ups',
-      type: 'good',
-      stickify: false,
-      created: '2020-8-25',
-      tag: 'health',
-      progress: {
-        counter: 7,
-        percentage: 33.33
-    },
-    dailyWin: ()=>{
-      // if user clicks submit within day range, increment progress.counter, else progress.counter = 0
-      // progress.percentage = progress.counter/21
-    }
-    },
-    {
-      id: 3,
-      description: 'fast',
-      type: 'good',
-      stickify: false,
-      created: '2020-8-26',
-      tag: 'health',
-      progress: {
-        counter: 0,
-        percentage: 0
-    },
-    dailyWin: ()=>{
-      // if user clicks submit within day range, increment progress.counter, else progress.counter = 0
-      // progress.percentage = progress.counter/21
-    }
-    }
-  ]
 const HABITS2 = [
 {
     id: uuidv4(),
@@ -232,6 +157,9 @@ const HABITS2 = [
     }
 }
 ]
+const USER = {
+    name: "Brendon"
+}
 
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
@@ -240,7 +168,7 @@ const API_REMINDERS = 'http://localhost:3001/api/v1/reminders'
 class Dashboard extends React.Component {
     state = {
         user: USER,
-        habits: HABITS2,
+        habits: [],
         stickifiedHabits: [],
         currentDate: date,
         showEditModal: false,
@@ -254,10 +182,22 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount = () => {
+        fetch(API_USERS)
+        .then(r => r.json())
+        .then(usersData => this.setState({ users: usersData }))
+      }
+      
+      componentDidMount = () => {
         fetch(API_HABITS)
         .then(r => r.json())
-        .then(habitsData => this.setState({habits: habitsData}), () => console.log(this.state.habits))
-    }
+        .then(habitsData => this.setState({ habits: habitsData }))
+      }
+    
+      componentDidMount = () => {
+        fetch(API_REMINDERS)
+        .then(r => r.json())
+        .then(remindersData => this.setState({ reminders: remindersData }))
+      }
 
     timeout = 0
     timer = (id, progress) => {
@@ -403,7 +343,9 @@ class Dashboard extends React.Component {
     }
 
     render() {
+        console.log(this.state.users)
         console.log(this.state.habits)
+        console.log(this.state.reminders)
         return (
             <div className="ui centered grid">
             <div className="twelve wide column">
