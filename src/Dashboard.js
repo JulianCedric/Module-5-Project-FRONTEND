@@ -1,22 +1,22 @@
 import React from 'react';
 // import HabitsContainer from './HabitsContainer';
 import CreateHabit from './CreateHabit';
-import Spacing from './Spacing';
+
 import ProgressBarsContainer from './ProgressBarsContainer';
 import EditModal from './EditHabit';
 import Reminder from './Reminder';
 // import ReactCalendar from './ReactCalendar';
 import Menu from './Menu';
-import TodoApp from './TodoApp';
+
 import './App.css';
 // import HabitsManagementDashboard from './MenuExampleSecondaryPointing';
 import MenuExampleSecondaryPointing from './MenuExampleSecondaryPointing';
 // import PopupExampleFlowing from './PopupExampleFlowing';
-import ThemingLayout from './ThemingLayout';
+
 import AnotherGridLayout from './AnotherGridLayout';
 import { Sticky, Dimmer, Card, Segment } from 'semantic-ui-react';
-import StickyLayout from './StickyLayout';
-import Sticcc from './Sticcc';
+
+
 import { v4 as uuidv4 } from 'uuid';
 
 let todoItems = [];
@@ -412,7 +412,7 @@ class Dashboard extends React.Component {
 
 
             <h1 className="mediumWhiteText" >Habits Management Dashboard</h1>
-            {/* <Sticcc /> */}
+
 
             <p></p><br></br>
 
@@ -437,7 +437,7 @@ class Dashboard extends React.Component {
                     </Segment></Dimmer>
                 : null
             }
-            {/* <Spacing/> */}
+
             {
               this.state.showReminder
               ? <Dimmer active><Segment inverted><Reminder habits={this.state.habits} remindedHabit={this.state.remindedHabit} handleProgressCounter={this.handleProgressCounter}/></Segment></Dimmer>
@@ -445,15 +445,8 @@ class Dashboard extends React.Component {
             }
             <Segment><h3>Hey, { USER.name }! You have { this.state.time } hours to re-type your latest 'In Progress' habit.</h3></Segment>
             <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
-            <Spacing></Spacing>
-            <Spacing/>
-            {/* <PopupExampleFlowing/> */}
-            {/* <ThemingLayout />  */}
-            {/* <div><AnotherGridLayout /></div> */}
 
-            <Spacing />
-            {/* <StickyLayout /> */}
-            <Spacing/>
+
         </div>
         </div>
         </div>

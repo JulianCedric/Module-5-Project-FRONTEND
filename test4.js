@@ -1,7 +1,7 @@
 /*
 Todo app structure
 
-TodoApp
+
 	- TodoHeader
 	- TodoList                  
     - TodoListItem #1           
@@ -59,4 +59,3 @@ class TodoListItem extends React.Component {
   
 
 
-ReactDOM.render(<TodoApp initItems={todoItems}/>, document.getElementById('app'));
