@@ -233,9 +233,9 @@ const HABITS2 = [
 }
 ]
 
-// const API_USERS = 'http://localhost:3001/api/v1/users'
-// const API_HABITS = 'http://localhost:3001/api/v1/habits'
-// const API_REMINDERS = 'http://localhost:3001/api/v1/reminders'
+const API_USERS = 'http://localhost:3001/api/v1/users'
+const API_HABITS = 'http://localhost:3001/api/v1/habits'
+const API_REMINDERS = 'http://localhost:3001/api/v1/reminders'
 
 class Dashboard extends React.Component {
     state = {
@@ -254,9 +254,9 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount = () => {
-        // fetch(API_HABITS)
-        // .then(r => r.json())
-        // .then(habitsObjects => this.setState({habits: habitsObjects}), () => console.log(this.state.habits))
+        fetch(API_HABITS)
+        .then(r => r.json())
+        .then(habitsData => this.setState({habits: habitsData}), () => console.log(this.state.habits))
     }
 
     timeout = 0
@@ -403,7 +403,7 @@ class Dashboard extends React.Component {
     }
 
     render() {
-
+        console.log(this.state.habits)
         return (
             <div className="ui centered grid">
             <div className="twelve wide column">

@@ -14,8 +14,7 @@ import {
   Ref,
   Segment,
   Sticky,
-} from 'semantic-ui-react'
-// import LoginForm from './LoginForm';
+} from 'semantic-ui-react';
 
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
@@ -29,22 +28,18 @@ class App extends React.Component {
     currentView: 'home',
     username: '',
     loggedIn: false
-  }
-
-  setLogin = value => {
-    this.setState({ loggedIn: !this.state.loggedIn })
-  }  
+  } 
 
   componentDidMount = () => {
     fetch(API_USERS)
     .then(r => r.json())
-    .then(users => this.setState({ users }))
+    .then(usersData => this.setState({ users: usersData }))
   }
   
   componentDidMount = () => {
     fetch(API_HABITS)
     .then(r => r.json())
-    .then(habits => this.setState({ habits }))
+    .then(habitsData => this.setState({ habits: habitsData }))
   }
 
   componentDidMount = () => {
@@ -52,6 +47,10 @@ class App extends React.Component {
     .then(r => r.json())
     .then(users => this.setState({ users }))
   }
+
+  setLogin = value => {
+    this.setState({ loggedIn: !this.state.loggedIn })
+  } 
 
   changeView = view => {
     this.setState({ currentView: view })
@@ -66,7 +65,7 @@ class App extends React.Component {
             <Sticky context={this.contextRef}>
               <Navbar loggedIn={this.state.loggedIn} setLogin={this.setLogin}/>
             </Sticky>
-            <Route exact path = '/' render={(props) => (<Home {...props} loggedIn={this.state.loggedIn} />)}></Route>
+            <Route exact path = '/' render={(props) => (<Home {...props} users={this.state.users} loggedIn={this.state.loggedIn} />)}></Route>
             <Route path = '/login' render={(props) => (<Login {...props} setLogin={this.setLogin} setLogout={this.setLogout} changeCurrentView={this.changeCurrentView} changeUsernameGreeting={this.changeUsernameGreeting}/>)}></Route>
             <Route path='/dashboard' render={(props) => (<Dashboard {...props} />)}></Route>
               {!this.state.loggedIn 
@@ -83,12 +82,3 @@ class App extends React.Component {
 };
  
 export default App;
-
-
-////////// 1ST DRAFT CODE FOR POST-MVP VERSION //////////
-  
-// changeUsernameGreeting = name => {
-//   this.setState({username: name})
-// }
-  
-/////////////////////////////////////////////////////////

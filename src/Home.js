@@ -3,6 +3,7 @@ import './App.css';
 
 class Home extends React.Component {
     render() { 
+        console.log(this.props.users)
         return (  
             <div className="home-container" >
             </div>
