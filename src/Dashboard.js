@@ -396,7 +396,7 @@ class Dashboard extends React.Component {
         </div>
         </div>
         </div>
-        );
+        )
     };
 };
 
