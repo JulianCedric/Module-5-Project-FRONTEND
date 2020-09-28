@@ -16,13 +16,6 @@ const API_REMINDERS = 'http://localhost:3001/api/v1/reminders'
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
 
-// const USERS = [
-//     {
-//         id: 1, firstName: 'Brendon', lastName: 'Clark', email: 'bclark@email.com', username: 'bclark', password: 'abc123'
-//     }
-// ]
-
-
 class Dashboard extends React.Component {
     state = {
         users: [],
