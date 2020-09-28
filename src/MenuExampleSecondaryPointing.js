@@ -45,7 +45,7 @@ export default class MenuExampleSecondaryPointing extends Component {
                 name='progress'
                 active={activeItem === 'progress'}
                 onClick={this.handleItemClick}
-              >In Progress..</Menu.Item>
+              >In .</Menu.Item>
               <Menu.Item
                 name='stikified'
                 active={activeItem === 'stikified'}
@@ -59,7 +59,7 @@ export default class MenuExampleSecondaryPointing extends Component {
           <Segment>
             {
               this.props.habits.map( habit =>
-                habit.progress.counter === 0
+                habit.counter === 0
                 ? <Popup  key={ habit.id }
                           style={{ textAlign: 'center' }}
                           trigger={<h3 style={{ textAlign: 'left' }}><Icon name="angle double right" size="big" color="orange" onClick={ this.onStikify.bind(this, habit.id) } />{ habit.description }</h3>} flowing hoverable
@@ -85,7 +85,7 @@ export default class MenuExampleSecondaryPointing extends Component {
           <Segment>
             {
               this.props.habits.map( habit =>
-                habit.progress.counter > 0 && habit.progress.counter < 21
+                habit.counter > 0 && habit.counter < 21
                 ? <div key={ habit.id } className="item" style={{ padding: '15px 5px', textAlign: 'left' }}><h3><Icon name="clock outline" size="big" color="orange" /> { habit.description }</h3></div>
                 : null
               )
@@ -96,7 +96,7 @@ export default class MenuExampleSecondaryPointing extends Component {
           <Segment>
             {
               this.props.habits.map( habit =>
-                habit.progress.counter === 21
+                habit.counter === 21
                 ? <div key={ habit.id } className="item" style={{ padding: '15px 5px', textAlign: 'left' }}><h3><Icon name="check" size="big" color="green" /> { habit.description }</h3></div>
                 : null
               )

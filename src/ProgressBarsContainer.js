@@ -11,7 +11,7 @@ class ProgressBarsContainer extends React.Component {
                 <div class="ui three column grid">
 
                     {this.props.habits.map(habit => {
-                        if( habit.progress.counter > 0 && habit.progress.counter < 21 ){
+                        if( habit.counter > 0 && habit.counter < 21 ){
                             return(
                               <div class="column">
                                   <div class="ui segment">
@@ -20,7 +20,7 @@ class ProgressBarsContainer extends React.Component {
 
 <Card fluid color='green'>
       <Card.Content textAlign='center'>
-      <h3>DAY { habit.progress.counter } / 21</h3>
+      <h3>DAY { habit.counter } / 21</h3>
       <div style={{ height: '75px' }} class="ui secondary segment" color="green">
       {/* <Segment color='green'></Segment> */}
 
@@ -37,7 +37,7 @@ class ProgressBarsContainer extends React.Component {
 
         <ProgressBar
                                           className="progress-bar"
-                                          progress={ (habit.progress.counter/21)*100 }
+                                          progress={ (habit.counter/21)*100 }
                                           radius={100}
                                           strokeColor='violet'
                                           strokeWidth={20}
@@ -48,7 +48,7 @@ class ProgressBarsContainer extends React.Component {
       <Card.Content extra>
         <div className='ui two buttons'>
          
-        <Button className="ui mini blue basic button" onClick={() => this.props.startTimer(habit.id, habit.progress)} basic color='red'>
+        <Button className="ui mini blue basic button" onClick={() => this.props.startTimer(habit.id, habit)} basic color='red'>
             PROcrastinate
           </Button>
           <Button className="ui mini green basic button" onClick={() => this.props.onFFClick(habit.id)} basic color='green'>
