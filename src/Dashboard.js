@@ -9,167 +9,23 @@ import Reminder from './Reminder';
 import { v4 as uuidv4 } from 'uuid';
 import TestingArea from './TestingArea';
 
-const today = new Date()
-const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
-// const HABITS2 = [
-// {
-//     id: uuidv4(),
-//     user_id: 1,
-//     name: '',
-//     description: 'Write 1 new thing I learned today in my journal before bedtime',
-//     quote: "'Practice isn't the thing you do once you're good. It's the thing you do that makes you good.' -Malcolm Gladwell",
-//     dateCreated: date,
-//     column: 'A',
-//     counter: '',
-//     percentage: '',
-//     dailyWinConfirmation: '',
-//     progress: {
-//         counter: 0,
-//         percentage: 0,
-//         dailyWinConfirmation: false
-//     }
-// },
-// {
-//     id: uuidv4(),
-//     user_id: 1,
-//     name: '',
-//     description: 'Practice piano for at least 20 minutes',
-//     quote: "'Successful people are simply those with successful habits.' -Brian Tracy", 
-//     dateCreated: '',
-//     column: 'A',
-//     counter: '',
-//     percentage: '',
-//     dailyWinConfirmation: '',
-//     progress: {
-//         counter: 0,
-//         percentage: 0,
-//         dailyWinConfirmation: false
-//     }
-// },{
-//     id: uuidv4(),
-//     user_id: 1,
-//     name: '',
-//     description: 'Read at least 3 pages of a fiction novel',
-//     quote: "'The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking.' -Albert Einstein",
-//     dateCreated: '',
-//     column: 'A',
-//     counter: '',
-//     percentage: '',
-//     dailyWinConfirmation: '',
-//     progress: {
-//         counter: 0,
-//         percentage: 0,
-//         dailyWinConfirmation: false
-//     }
-// },
-// {
-//     id: uuidv4(),
-//     user_id: 1,
-//     name: '',
-//     description: 'Do 10 push-ups before breakfast',
-//     quote: "'Winning is not a sometime thing; it’s an all-time thing. You don’t win once in a while, you don’t do things right once in a while, you do them right all the time. Winning is a habit. Unfortunately, so is losing.' -Vince Lombardi",
-//     dateCreated: '',
-//     column: 'A',
-//     counter: '',
-//     percentage: '',
-//     dailyWinConfirmation: '',
-//     progress: {
-//         counter: 0,
-//         percentage: 0,
-//         dailyWinConfirmation: false
-//     }
-// },
-// {
-//     id: uuidv4(),
-//     user_id: 1,
-//     name: '',
-//     description: 'Water plants in my room!',
-//     quote: "'Drop by drop is the water pot filled.' -BUDDHA",
-//     dateCreated: '',
-//     column: 'B',
-//     progress: {
-//         counter: 20,
-//         percentage: 90.00,
-//         dailyWinConfirmation: false
-//     },
-// },
-// {
-//     id: uuidv4(),
-//     user_id: 1,
-//     name: '',
-//     description: 'Drink 1 more glass of water today',
-//     quote: "'I fear not the man who has practiced 10,000 kicks, but I do fear the man who has practiced one kick 10,000 times.' -BRUCE LEE",
-//     dateCreated: '',
-//     column: 'B',
-//     progress: {
-//         counter: 7,
-//         percentage: 33.33,
-//         dailyWinConfirmation: false
-//     },
-// },
-// {
-//     id: uuidv4(),
-//     user_id: 1,
-//     name: '',
-//     description: 'Make bed before morning jog',
-//     quote: "'The chains of habit are too weak to be felt until they are too strong to be broken.'   --Samuel Johnson",
-//     dateCreated: '',
-//     column: 'C',
-//     counter: '',
-//     percentage: '',
-//     dailyWinConfirmation: '',
-//     progress: {
-//         counter: 21,
-//         percentage: 100,
-//         dailyWinConfirmation: false
-//     }
-// },
-// {
-//     id: uuidv4(),
-//     user_id: 1,
-//     name: '',
-//     description: 'Prep gym clothes next to bed the night before a work-out day',
-//     quote: "'Let today be the day you give up who you've been for who you can become.' -Hal Elrod",
-//     dateCreated: '',
-//     column: 'C',
-//     counter: '',
-//     percentage: '',
-//     dailyWinConfirmation: '',
-//     progress: {
-//         counter: 21,
-//         percentage: 100,
-//         dailyWinConfirmation: false
-//     }
-// },
-// {
-//     id: uuidv4(),
-//     user_id: 1,
-//     name: '',
-//     description: 'Study / Practice Algorithms & Data Structures for at least an hour',
-//     quote: "'It's not what we do once in a while that shapes our lives, but what we do consistently.' -Tony Robbins",
-//     dateCreated: '',
-//     column: 'C',
-//     counter: '',
-//     percentage: '',
-//     dailyWinConfirmation: '',
-//     progress: {
-//         counter: 21,
-//         percentage: 100,
-//         dailyWinConfirmation: false
-//     }
-// }
-// ]
-const USER = {
-    name: "Brendon"
-}
-
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
 const API_REMINDERS = 'http://localhost:3001/api/v1/reminders'
 
+const today = new Date()
+const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+
+// const USERS = [
+//     {
+//         id: 1, firstName: 'Brendon', lastName: 'Clark', email: 'bclark@email.com', username: 'bclark', password: 'abc123'
+//     }
+// ]
+
+
 class Dashboard extends React.Component {
     state = {
-        user: USER,
+        users: [],
         habits: [],
         reminders: [],
         stickifiedHabits: [],
@@ -346,9 +202,9 @@ class Dashboard extends React.Component {
     }
 
     render() {
-        console.log(this.state.users)
-        console.log(this.state.habits)
-        console.log(this.state.reminders)
+        console.log("Users from DB:", this.state.users)
+        console.log("Habits from DB:", this.state.habits)
+        console.log("Reminders from DB:", this.state.reminders)
         return (
             <div className="ui centered grid">
             <div className="twelve wide column">
@@ -388,7 +244,7 @@ class Dashboard extends React.Component {
               ? <Dimmer active><Segment inverted><Reminder habits={this.state.habits} remindedHabit={this.state.remindedHabit} handleProgressCounter={this.handleProgressCounter}/></Segment></Dimmer>
               : null
             }
-            <Segment><h3>Hey, { USER.name }! You have { this.state.time } hours to re-type your latest 'In Progress' habit.</h3></Segment>
+            <Segment><h3>Hey, Brendon! You have { this.state.time } hours to re-type your latest 'In Progress' habit.</h3></Segment>
             <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
 
             <TestingArea reminders={this.state.reminders}/>

@@ -45,7 +45,7 @@ export default class MenuExampleSecondaryPointing extends Component {
                 name='progress'
                 active={activeItem === 'progress'}
                 onClick={this.handleItemClick}
-              >In .</Menu.Item>
+              >In Progress.. </Menu.Item>
               <Menu.Item
                 name='stikified'
                 active={activeItem === 'stikified'}

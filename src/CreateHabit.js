@@ -58,7 +58,7 @@ class CreateHabit extends React.Component {
         })
     }
 
-    handleStikify = (e) => {
+    handleStickify = (e) => {
       e.preventDefault();
       let newHabit = {
           id: uuidv4(),
@@ -105,7 +105,7 @@ class CreateHabit extends React.Component {
           {/* <Button inverted style={{ width: '100px' }}>Save</Button> */}
           {/* <Button color='purple' inverted style={{ width: '100px' }}>Save</Button> */}
           <Button.Or color='purple' inverted>or</Button.Or>
-          <Button onClick={ this.handleStikify } color='purple' style={{ width: '100px' }}>Stickify</Button>
+          <Button onClick={ this.handleStickify } color='purple' style={{ width: '100px' }}>Stickify</Button>
           {/* <Button inverted style={{ width: '100px' }}>Stickify</Button> */}
           {/* <Button color='purple' inverted style={{ width: '100px' }}>Stickify</Button> */}
         </Button.Group>

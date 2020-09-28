@@ -8,7 +8,7 @@ const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.ge
 class TestingArea extends React.Component {
     state = {  }
     render() { 
-        console.log(this.props.reminders)
+        // console.log(this.props.reminders)
         return (  
             <div>
                 <br></br>
