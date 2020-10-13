@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import { Dimmer, Card, Segment } from 'semantic-ui-react';
-import MenuExampleSecondaryPointing from './MenuExampleSecondaryPointing';
+import HabitsContainer from './HabitsContainer';
 import ProgressBarsContainer from './ProgressBarsContainer';
 import CreateHabit from './CreateHabit';
 import CreateReminder from './CreateReminder';
 import ReminderItem from './ReminderItem';
 import { v4 as uuidv4 } from 'uuid';
 import TestingArea from './TestingArea';
-import HabitsContainer from './HabitsContainer';
+
 
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
@@ -214,7 +214,7 @@ class Dashboard extends React.Component {
 
 
 
-    
+
     render() {
         console.log("Users from DB:", this.state.users)
         console.log("Habits from DB:", this.state.habits)
@@ -228,9 +228,8 @@ class Dashboard extends React.Component {
                         <br></br>
                     <CreateHabit handleNewHabit={this.handleNewHabit} />
                         <br></br>
-                        <HabitsContainer habits={this.state.habits}/>
                         <br></br>
-                    <MenuExampleSecondaryPointing habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } deleteHabit={ this.deleteHabit } />
+                    <HabitsContainer habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } deleteHabit={ this.deleteHabit } />
             {
                 this.state.congrats.show
                 ? <Dimmer active>
