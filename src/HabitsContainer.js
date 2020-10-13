@@ -21,9 +21,19 @@ class HabitsContainer extends React.Component {
     this.setState({ editSegment: false });
   }
 
-  deleteHabit = ( id ) => {
-    this.props.deleteHabit( id );
-  }
+  // handleDelete = id => {
+  //   fetch(`http://localhost:3001/api/v1/habits/${id}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Accept: 'application/json'
+  //     }
+  //   })
+  //   .then(r => r.json())
+  //   .then(() => {
+  //     this.props.deleteHabit(id)
+  //   })
+  // }
 
   onStikify = ( id ) => {
     this.props.startStikify( id );
@@ -57,7 +67,7 @@ class HabitsContainer extends React.Component {
                         <Icon name="angle double right" size="big" color="orange" onClick={ this.onStikify.bind(this, habit.id) } />{ habit.description }</h3>} flowing hoverable>
                         <EditHabit editHabit={ this.editHabit } editSubmit={ this.editSubmit } habit={ habit }/>
                         <Divider/>
-                        <Button inverted color="red" icon='trash' onClick={ this.deleteHabit.bind(this, habit.id) }/>            
+                        <Button inverted color="red" icon='trash' onClick={() => this.props.handleDelete(habit.id)}/>            
                       </Popup> : null)
                 }
               </Segment> : null

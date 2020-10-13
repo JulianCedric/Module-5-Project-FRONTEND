@@ -141,10 +141,18 @@ class Dashboard extends React.Component {
 
     handleDelete = id => {
         console.log("DELETE ---", "ID of habit object being deleted:", id)
-
-        let newArr = this.state.habits.filter(habit => habit.id !== id)
-        this.setState({habits: newArr})
-    }
+        fetch(`http://localhost:3001/api/v1/habits/${id}`, { 
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json"
+            }
+          })
+          .then(() => {
+            let newArr = this.state.habits.filter(habit => habit.id !== id)
+            this.setState({habits: newArr})
+          })
+        }
 
     onFFClick = id => {
         let updatedHabitObject = this.state.habits.find(habit => habit.id === id)
@@ -164,15 +172,6 @@ class Dashboard extends React.Component {
               }
           })
       }))
-    }
-
-    deleteHabit = ( id ) => {
-      let copiedHabitsArray = [...this.state.habits]
-      let copiedHabitObject = copiedHabitsArray.filter(habit => habit.id !== id)
-
-      this.setState({
-        habits: copiedHabitObject
-      })
     }
 
     startStikify = ( id ) => {
@@ -229,7 +228,7 @@ class Dashboard extends React.Component {
                     <CreateHabit handleNewHabit={this.handleNewHabit} />
                         <br></br>
                         <br></br>
-                    <HabitsContainer habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } deleteHabit={ this.deleteHabit } />
+                    <HabitsContainer habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } handleDelete={this.handleDelete} />
             {
                 this.state.congrats.show
                 ? <Dimmer active>
