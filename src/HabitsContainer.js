@@ -21,20 +21,6 @@ class HabitsContainer extends React.Component {
     this.setState({ editSegment: false });
   }
 
-  // handleDelete = id => {
-  //   fetch(`http://localhost:3001/api/v1/habits/${id}`, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Accept: 'application/json'
-  //     }
-  //   })
-  //   .then(r => r.json())
-  //   .then(() => {
-  //     this.props.deleteHabit(id)
-  //   })
-  // }
-
   onStikify = ( id ) => {
     this.props.startStikify( id );
   }
@@ -64,7 +50,7 @@ class HabitsContainer extends React.Component {
                   this.props.habits.map(habit =>
                     habit.counter === 0 ? 
                       <Popup key={ habit.id } style={{ textAlign: 'center' }} trigger={<h3 style={{ textAlign: 'left' }}>
-                        <Icon name="angle double right" size="big" color="orange" onClick={ this.onStikify.bind(this, habit.id) } />{ habit.description }</h3>} flowing hoverable>
+                        <Icon name="angle double right" size="big" color="orange" onClick={ this.onStikify.bind(this, habit.id) }/>{ habit.description }</h3>} flowing hoverable>
                         <EditHabit editHabit={ this.editHabit } editSubmit={ this.editSubmit } habit={ habit }/>
                         <Divider/>
                         <Button inverted color="red" icon='trash' onClick={() => this.props.handleDelete(habit.id)}/>            
@@ -77,9 +63,13 @@ class HabitsContainer extends React.Component {
               <Segment>
                 {
                   this.props.habits.map(habit =>
-                    habit.counter > 0 && habit.counter < 21
-                      ? <div key={ habit.id } className="item" style={{ padding: '15px 5px', textAlign: 'left' }}><h3><Icon name="clock outline" size="big" color="orange" /> { habit.description }</h3></div>
-                      : null)
+                    habit.counter > 0 && habit.counter < 21 ?
+                      <Popup key={ habit.id } style={{ textAlign: 'center' }} trigger={<h3 style={{ textAlign: 'left' }}>
+                        <Icon name="clock outline" size="big" color="orange" onClick={ this.onStikify.bind(this, habit.id) }/>{ habit.description }</h3>} flowing hoverable>
+                        <EditHabit editHabit={ this.editHabit } editSubmit={ this.editSubmit } habit={ habit }/>
+                        <Divider/>
+                        <Button inverted color="red" icon='trash' onClick={() => this.props.handleDelete(habit.id)}/>            
+                      </Popup> : null)
                 }
               </Segment> : null 
           }
