@@ -7,114 +7,77 @@ const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.ge
 
 class CreateHabit extends React.Component {
     state = {
-        id: null,
+        id: '',
+        name: '',
         description: '',
-        type: 'good',
-        stickify: false,
-        created: date,
-        tag: '',
-        progress: {
-            counter: 0,
-            percentage: 0,
-            dailyWinConfirmation: false
-          //   User clicks submit on dailyReminderForm, which
-              // (1) sets dailyWinConfirmation attribute to true, and
-              // (2) increments habit.progress.counter by 1 [day]
-        }
+        quote: '',
+        dateCreated: date,
+        column: '',
+        counter: 0,
+        percentage: 0,
+        dailyWinConfirmation: false
     }
 
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    handleSubmit = e => {
+    handleSaveClick = e => {
         e.preventDefault()
-        let newHabit = {
-            id: uuidv4(),
-            description: this.state.description,
-            quote: "'Practice isn't the thing you do once you're good. It's the thing you do that makes you good.' - MALCOLM GLADWELL",
-            type: 'good',
-            stickify: false,
-            created: date,
-            tag: '',
-            progress: {
-                counter: 0,
-                percentage: 0,
-                dailyWinConfirmation: false
-              //   User clicks submit on dailyReminderForm, which
-                  // (1) sets dailyWinConfirmation attribute to true, and
-                  // (2) increments habit.progress.counter by 1 [day]
-            }
-        }
+        let newHabit = this.state 
         this.props.handleNewHabit(newHabit)
         this.setState({
             id: '',
+            name: '',
             description: '',
-            quote: "'Practice isn't the thing you do once you're good. It's the thing you do that makes you good.' -MALCOLM GLADWELL",
-            type: 'good',
-            stickify: false,
-            created: date,
-            tag: ''
+            quote: '',
+            dateCreated: date,
+            column: '',
+            counter: 0,
+            percentage: 0,
+            dailyWinConfirmation: false
         })
     }
 
-    handleStickify = (e) => {
-      e.preventDefault();
-      let newHabit = {
-          id: uuidv4(),
-          description: this.state.description,
-          quote: "'Practice isn't the thing you do once you're good. It's the thing you do that makes you good.' -MALCOLM GLADWELL",
-          type: 'good',
-          stickify: false,
-          created: date,
-          tag: '',
-          progress: {
-              counter: 1,
-              percentage: 0,
-              dailyWinConfirmation: false
-            //   User clicks submit on dailyReminderForm, which
-                // (1) sets dailyWinConfirmation attribute to true, and
-                // (2) increments habit.progress.counter by 1 [day]
-          }
-      }
-      this.props.handleNewHabit(newHabit)
-      this.setState({
-          id: '',
-          description: '',
-          quote: "'Practice isn't the thing you do once you're good. It's the thing you do that makes you good.' -MALCOLM GLADWELL",
-          type: 'good',
-          stickify: false,
-          created: date,
-          tag: ''
-      })
+    handleStickifyClick = e => {
+        e.preventDefault();
+        let newHabit = this.state 
+        this.props.handleNewHabit(newHabit)
+        this.setState({
+            id: '',
+            name: '',
+            description: '',
+            quote: '',
+            dateCreated: date,
+            column: '',
+            counter: 0,
+            percentage: 0,
+            dailyWinConfirmation: false
+        })
     }
 
     render() {
         return (
             <div className="ui form">
                 <div className="field">
-                  <Container textAlign='center' style={{ width: '400px' }}>
-                    <form onSubmit={ this.handleSubmit }>
-                      <input type="text" style={{ width: '400px' }} placeholder="Add a New Habit.." name="description" value={this.state.description} onChange={this.handleChange}/>
-                      <br />
-                    
-                    <br></br>
-
-                    <Button.Group>
-          <Button type="submit" color='purple' style={{ width: '100px' }}>Save</Button>
-          {/* <Button inverted style={{ width: '100px' }}>Save</Button> */}
-          {/* <Button color='purple' inverted style={{ width: '100px' }}>Save</Button> */}
-          <Button.Or color='purple' inverted>or</Button.Or>
-          <Button onClick={ this.handleStickify } color='purple' style={{ width: '100px' }}>Stickify</Button>
-          {/* <Button inverted style={{ width: '100px' }}>Stickify</Button> */}
-          {/* <Button color='purple' inverted style={{ width: '100px' }}>Stickify</Button> */}
-        </Button.Group>
-
-
-
-
-                      </form>
-                  </Container>
+                    <Container textAlign='center' style={{ width: '400px' }}>
+                        <form>
+                            <input type="text" style={{ width: '400px' }} placeholder="Add a New Habit.." name="description" value={this.state.description} onChange={this.handleChange}/>
+                                <br></br>
+                                <br></br>
+                            <Button.Group>
+                                <Button onClick={this.handleSaveClick} type="submit" color='purple' style={{ width: '100px' }}>
+                                    Save
+                                </Button>
+                                <Button.Or color='purple' inverted>            
+                                    or
+                                </Button.Or>
+                                <Button onClick={this.handleStickifyClick} type="submit" color='purple' style={{ width: '100px' }}>
+                                    Stickify
+                                </Button>
+                            </Button.Group>
+                        </form>
+                    </Container>
                 </div>
             </div>
         );

@@ -8,6 +8,7 @@ import CreateReminder from './CreateReminder';
 import ReminderItem from './ReminderItem';
 import { v4 as uuidv4 } from 'uuid';
 import TestingArea from './TestingArea';
+import HabitsContainer from './HabitsContainer';
 
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
@@ -194,29 +195,42 @@ class Dashboard extends React.Component {
         console.log("POST ---", "ID of newly-created reminder object:", newReminder.id)
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     render() {
         console.log("Users from DB:", this.state.users)
         console.log("Habits from DB:", this.state.habits)
         console.log("Reminders from DB:", this.state.reminders)
         return (
             <div className="ui centered grid">
-            <div className="twelve wide column">
-        <div className="dashboard">
-            <p></p>
-
-
-            <h1 className="mediumWhiteText" >Habits Management Dashboard</h1>
-
-
-            <p></p><br></br>
-
-
-            <CreateHabit handleNewHabit={this.handleNewHabit} />
-
-            <p></p><br></br>
-            {/* <hr /> */}
-
-            <MenuExampleSecondaryPointing habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } deleteHabit={ this.deleteHabit } />
+                <div className="twelve wide column">
+                    <div className="dashboard">
+                        <br></br>
+                    <h1 className="mediumWhiteText">Habits Management Dashboard</h1>
+                        <br></br>
+                    <CreateHabit handleNewHabit={this.handleNewHabit} />
+                        <br></br>
+                        <HabitsContainer habits={this.state.habits}/>
+                        <br></br>
+                    <MenuExampleSecondaryPointing habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } deleteHabit={ this.deleteHabit } />
             {
                 this.state.congrats.show
                 ? <Dimmer active>
@@ -234,7 +248,7 @@ class Dashboard extends React.Component {
 
             {
               this.state.showReminder
-              ? <Dimmer active><Segment inverted><Reminder habits={this.state.habits} remindedHabit={this.state.remindedHabit} handleProgressCounter={this.handleProgressCounter}/></Segment></Dimmer>
+              ? <Dimmer active><Segment inverted><ReminderItem habits={this.state.habits} remindedHabit={this.state.remindedHabit} handleProgressCounter={this.handleProgressCounter}/></Segment></Dimmer>
               : null
             }
             <Segment><h3>Hey, Brendon! You have { this.state.time } hours to re-type your latest 'In Progress' habit.</h3></Segment>
@@ -242,9 +256,7 @@ class Dashboard extends React.Component {
 
             <TestingArea reminders={this.state.reminders}/>
             <CreateReminder addReminder={this.addReminder}/>
-        </div>
-        </div>
-        </div>
+        </div></div></div>
         )
     };
 };

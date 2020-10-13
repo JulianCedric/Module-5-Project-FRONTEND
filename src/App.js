@@ -3,8 +3,8 @@ import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
 import Login from './Login';
-import Dashboard from './Dashboard';
 import Footer from './Footer';
+import Dashboard from './Dashboard';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Sticky } from 'semantic-ui-react';
 

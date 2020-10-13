@@ -36,4 +36,4 @@ class ReminderItem extends React.Component {
     }
 }
 
-export default ReminderItem;
+export default ReminderItem; 

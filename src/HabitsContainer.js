@@ -3,7 +3,7 @@ import HabitItem from './HabitItem';
 
 class HabitsContainer extends React.Component {
     render() { 
-        console.log(this.props)
+        console.log(this.props.habits)
         return (  
             <div className="ui form">
                 <div className="field">
@@ -22,7 +22,7 @@ class HabitsContainer extends React.Component {
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
-                                {this.props.habits.map(habit => <Habit key={habit.id} habit={habit} currentDate={this.props.currentDate} handleStickify={this.props.handleStickify} handleEdit={this.props.handleEdit} handleDelete={this.props.handleDelete} temporaryID={this.props.temporaryID}/>)}
+                                {this.props.habits.map(habit => <HabitItem key={habit.id} habit={habit} currentDate={this.props.currentDate} handleStickify={this.props.handleStickify} handleEdit={this.props.handleEdit} handleDelete={this.props.handleDelete} temporaryID={this.props.temporaryID}/>)}
                             </thead>
                             <tbody>
                             </tbody>
