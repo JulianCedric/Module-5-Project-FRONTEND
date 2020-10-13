@@ -9,7 +9,6 @@ import ReminderItem from './ReminderItem';
 import { v4 as uuidv4 } from 'uuid';
 import TestingArea from './TestingArea';
 
-
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
 const API_REMINDERS = 'http://localhost:3001/api/v1/reminders'
