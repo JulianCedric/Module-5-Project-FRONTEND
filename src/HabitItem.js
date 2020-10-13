@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Habit extends React.Component {
+class HabitItem extends React.Component {
     render() { 
         return (  
             <tr>
@@ -18,4 +18,4 @@ class Habit extends React.Component {
     };
 };
  
-export default Habit;
+export default HabitItem;

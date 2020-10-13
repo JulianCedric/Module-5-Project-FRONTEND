@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Reminder extends React.Component {
+class ReminderItem extends React.Component {
     state = {
         description: ''
      }
@@ -36,4 +36,4 @@ class Reminder extends React.Component {
     }
 }
 
-export default Reminder;
+export default ReminderItem;

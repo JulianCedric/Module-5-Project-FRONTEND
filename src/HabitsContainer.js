@@ -1,5 +1,5 @@
 import React from 'react';
-import Habit from './Habit';
+import HabitItem from './HabitItem';
 
 class HabitsContainer extends React.Component {
     render() { 

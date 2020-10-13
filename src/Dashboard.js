@@ -5,7 +5,7 @@ import MenuExampleSecondaryPointing from './MenuExampleSecondaryPointing';
 import ProgressBarsContainer from './ProgressBarsContainer';
 import CreateHabit from './CreateHabit';
 import CreateReminder from './CreateReminder';
-import Reminder from './Reminder';
+import ReminderItem from './ReminderItem';
 import { v4 as uuidv4 } from 'uuid';
 import TestingArea from './TestingArea';
 
