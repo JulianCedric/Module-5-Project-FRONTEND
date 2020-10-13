@@ -18,12 +18,11 @@ class EditHabit extends React.Component {
     onSubmit = (e) => {
       e.preventDefault()
       this.props.editSubmit(this.props.habit.id, this.state.editHabit);
-    }
+    } 
 
     render() {
         return (
           <React.Fragment>
-
             <form onSubmit={ this.onSubmit }>
               <Input  type="text"
                       style={{ width: '350px' }}
