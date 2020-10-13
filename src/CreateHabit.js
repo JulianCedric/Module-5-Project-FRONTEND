@@ -1,7 +1,5 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { Container, Button } from 'semantic-ui-react';
-import { post } from 'jquery';
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
@@ -24,7 +22,7 @@ class CreateHabit extends React.Component {
     }
 
     handleSaveClick = e => {
-        e.preventDefault()
+        e.preventDefault() 
         fetch("http://localhost:3001/api/v1/habits", {
             method: 'POST',
             headers: {
@@ -60,20 +58,39 @@ class CreateHabit extends React.Component {
     }
     
     handleStickifyClick = e => {
-        e.preventDefault();
-        let newHabit = this.state 
-        this.props.handleNewHabit(newHabit)
-        this.setState({
-            id: '',
-            name: '',
-            description: '',
-            quote: '',
-            dateCreated: date,
-            column: '',
-            counter: 0,
-            percentage: 0,
-            dailyWinConfirmation: false
-        })
+        e.preventDefault() 
+        fetch("http://localhost:3001/api/v1/habits", {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify({
+                id: this.state.id,
+                name: this.state.name,
+                description: this.state.description,
+                quote: this.state.quote,
+                dateCreated: date,
+                column: this.state.column,
+                counter: 1,
+                percentage: this.state.percentage,
+                dailyWinConfirmation: this.state.dailyWinConfirmation
+            })})
+            .then(r => r.json())
+            .then(newHabit => {
+                this.props.handleNewHabit(newHabit)
+                this.setState({
+                    id: '',
+                    name: '',
+                    description: '',
+                    quote: '',
+                    dateCreated: date,
+                    column: '',
+                    counter: 0,
+                    percentage: 0,
+                    dailyWinConfirmation: false
+                })
+            })
     }
 
     render() {

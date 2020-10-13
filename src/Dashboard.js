@@ -111,8 +111,9 @@ class Dashboard extends React.Component {
 
     handleNewHabit = newHabit => {
         console.log("POST ---", "Description of newly-created habit object:", newHabit.description)
-        let newArr = [...this.state.habits, newHabit]
-        this.setState({habits: newArr})
+        fetch(API_HABITS)
+        .then(r => r.json())
+        .then(habitsData => this.setState({ habits: habitsData }))
     }
 
     handleStickify = id => {
