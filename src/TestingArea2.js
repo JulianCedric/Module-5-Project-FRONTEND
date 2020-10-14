@@ -6,17 +6,13 @@ const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.ge
 
 class TestingArea2 extends React.Component {
     render() { 
-        let { habit_id, duration, startDate, endDate, active, stickified } = this.props.reminder
         return (  
             <div>
-                <h3 className="mediumWhiteText">My Reminders</h3>
+                <h3 className="mediumWhiteText">My Habits</h3>
                 <Segment inverted>
                     <List divided inverted relaxed>
                         <List.Item>
-                            <List.Header>Habit ID: {habit_id}</List.Header>
-                            <List.Content>Duration in Days: {duration}</List.Content>
-                            <List.Content>Start Date: UNDER CONSTRUCTION | {date}</List.Content>
-                            <List.Content>End Date: UNDER CONSTRUCTION | {date}</List.Content>
+                            <List.Header>{this.props.habit}</List.Header>
                         </List.Item>
                     </List>
                 </Segment>

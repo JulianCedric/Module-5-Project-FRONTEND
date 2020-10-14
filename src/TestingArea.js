@@ -8,14 +8,13 @@ const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.ge
 class TestingArea extends React.Component {
     state = {  }
     render() { 
-        // console.log(this.props.reminders)
         return (  
             <div>
                 <br></br>
                 <h2 className="mediumWhiteText">Testing Area | {date}</h2>
                 <br></br>
 
-                    {this.props.reminders.map(reminder => <TestingArea2 key={reminder.id} reminder={reminder} />)}
+                    {this.props.habits.map(habit => <TestingArea2 key={habit.id} habit={habit} />)}
 
                 <br></br>
                 <br></br>

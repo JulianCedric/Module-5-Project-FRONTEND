@@ -4,7 +4,6 @@ import { Dimmer, Card, Segment } from 'semantic-ui-react';
 import HabitsContainer from './HabitsContainer';
 import ProgressBarsContainer from './ProgressBarsContainer';
 import CreateHabit from './CreateHabit';
-import CreateReminder from './CreateReminder';
 import ReminderItem from './ReminderItem';
 import { v4 as uuidv4 } from 'uuid';
 import TestingArea from './TestingArea';
@@ -252,8 +251,8 @@ class Dashboard extends React.Component {
             <Segment><h3>Hey, Brendon! You have { this.state.time } hours to re-type your latest 'In Progress' habit.</h3></Segment>
             <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
 
-            <TestingArea reminders={this.state.reminders}/>
-            <CreateReminder addReminder={this.addReminder}/>
+            <TestingArea habits={this.state.habits}/>
+
         </div></div></div>
         )
     };
