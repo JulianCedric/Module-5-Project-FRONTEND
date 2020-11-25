@@ -6,7 +6,7 @@ import ProgressBarsContainer from './ProgressBarsContainer';
 import CreateHabit from './CreateHabit';
 import ReminderItem from './ReminderItem';
 import { v4 as uuidv4 } from 'uuid';
-import TestingArea from './TestingArea';
+
 
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
@@ -251,7 +251,7 @@ class Dashboard extends React.Component {
             <Segment><h3>Hey, Brendon! You have { this.state.time } hours to re-type your latest 'In Progress' habit.</h3></Segment>
             <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
 
-            <TestingArea habits={this.state.habits}/>
+
 
         </div></div></div>
         )
