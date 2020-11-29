@@ -4,12 +4,19 @@ import Read from './Read';
 import Update from './Update';
 import Delete from './Delete';
 
+const allHabits = ['a','b','c']
+
 class Lab extends React.Component {
     state = {  
-        habits: ['a','b','c']
+        habits: allHabits
+    }
+
+    handleNewHabit = newHabit => {
+        this.setState({habits: [...this.state.habits, newHabit]})
     }
 
     render() { 
+        console.log(allHabits)
         console.log(this.state.habits)
         return (  
             <div style={{color: 'white'}}>
@@ -22,13 +29,13 @@ class Lab extends React.Component {
                 <p>C</p>
                 <br></br>
 
-                <Create />
+                <Create handleNewHabit={this.handleNewHabit}/>
 
                 <br></br>
                 <p>R</p>
                 <br></br>
 
-                <Read />
+                <Read habits={this.state.habits}/>
 
                 <br></br>
                 <p>U</p>
