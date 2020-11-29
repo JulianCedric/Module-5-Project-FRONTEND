@@ -1,6 +1,6 @@
 import React from 'react';  
 import './App.css';
-import { Form, Grid } from 'semantic-ui-react'
+import { Form, Grid } from 'semantic-ui-react';
 
 class Login extends React.Component {
     state = {  
@@ -65,37 +65,9 @@ class Login extends React.Component {
     render() { 
         return (  
             <div>
-            {/* // <div className="login-g" class="ui centered grid"> */}
+
             <div className="twelve wide column">
-            {/* <div className="login"> */}
-                 {/* <Segment inverted secondary placeholder>
-    <Grid columns={2} relaxed='very' stackable>
-      <Grid.Column>
-        <Form>
-          <Form.Input
-            icon='user'
-            iconPosition='left'
-            label='Username'
-            placeholder='Username'
-          />
-          <Form.Input
-            icon='lock'
-            iconPosition='left'
-            label='Password'
-            type='password'
-          />
-
-          <Button content='Login' primary />
-        </Form>
-      </Grid.Column>
-
-      <Grid.Column verticalAlign='middle'>
-        <Button content='Sign up' icon='signup' size='big' />
-      </Grid.Column>
-    </Grid>
-
-    <Divider vertical>Or</Divider>
-  </Segment> */}
+            
                 <Grid columns={2} relaxed='very' stackable textAlign='center' style={{ height: '0vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
 
