@@ -9,9 +9,15 @@ class Navbar extends React.Component {
                     <a className="item">
                         <Link to="/" className="link"><i class="big home icon"></i></Link>
                     </a>
+                    
                     <a class="item">
                         <Link to="/dashboard" className="link">Dashboard</Link>
                     </a>
+                    
+                    <a class='item'>
+                        <Link to='/lab' className='lab'>Lab</Link>
+                    </a>
+                    
                     <div className="right menu">
                         <a className="item">
                         {

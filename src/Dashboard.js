@@ -83,7 +83,7 @@ class Dashboard extends React.Component {
 
     handleProgressCounter = (id, progress) => {
     let copiedHabitsArray = [...this.state.habits]
-    let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id)
+    let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id) 
     let newCount = progress.counter + 1
 
     this.setState(prevState => ({

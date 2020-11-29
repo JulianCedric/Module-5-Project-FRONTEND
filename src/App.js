@@ -5,6 +5,7 @@ import Home from './Home';
 import Login from './Login';
 import Footer from './Footer';
 import Dashboard from './Dashboard';
+import Lab from './Lab';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Sticky } from 'semantic-ui-react';
 
@@ -33,6 +34,7 @@ class App extends React.Component {
             <Route exact path = '/' render={(props) => (<Home {...props} users={this.state.users} loggedIn={this.state.loggedIn} />)}></Route>
             <Route path = '/login' render={(props) => (<Login {...props} setLogin={this.setLogin} setLogout={this.setLogout} changeCurrentView={this.changeCurrentView} changeUsernameGreeting={this.changeUsernameGreeting}/>)}></Route>
             <Route path='/dashboard' render={(props) => (<Dashboard {...props} />)}></Route>
+            <Route path='/lab' render={(props) => (<Lab {...props} />)}></Route>
               {!this.state.loggedIn 
                 ? <Redirect to="/" component={ Home } /> 
                 : <Redirect to="/dashboard" component={ Dashboard } /> 
