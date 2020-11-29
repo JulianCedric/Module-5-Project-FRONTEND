@@ -7,10 +7,11 @@ import CreateHabit from './CreateHabit';
 import ReminderItem from './ReminderItem';
 import { v4 as uuidv4 } from 'uuid';
 
-
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
 const API_REMINDERS = 'http://localhost:3001/api/v1/reminders'
+
+const HABITS = ['a','b','c']
 
 const today = new Date()
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
@@ -18,7 +19,8 @@ const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.ge
 class Dashboard extends React.Component {
     state = {
         users: [],
-        habits: [],
+        // habits: [],
+        habits: HABITS,
         reminders: [],
         stickifiedHabits: [],
         currentDate: date,

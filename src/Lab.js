@@ -1,14 +1,12 @@
 import React from 'react';
 import Create from './Create';
-import Read from './Read';
-import Update from './Update';
-import Delete from './Delete';
+import ReadUpdateDelete from './ReadUpdateDelete';
 
-const allHabits = ['a','b','c']
+const HABITS = ['a','b','c']
 
 class Lab extends React.Component {
     state = {  
-        habits: allHabits
+        habits: HABITS
     }
 
     handleNewHabit = newHabit => {
@@ -16,7 +14,6 @@ class Lab extends React.Component {
     }
 
     render() { 
-        console.log(allHabits)
         console.log(this.state.habits)
         return (  
             <div style={{color: 'white'}}>
@@ -32,22 +29,10 @@ class Lab extends React.Component {
                 <Create handleNewHabit={this.handleNewHabit}/>
 
                 <br></br>
-                <p>R</p>
+                <p>R / U / D</p>
                 <br></br>
 
-                <Read habits={this.state.habits}/>
-
-                <br></br>
-                <p>U</p>
-                <br></br>
-
-                <Update />
-
-                <br></br>
-                <p>D</p>
-                <br></br>
-
-                <Delete />
+                <ReadUpdateDelete habits={this.state.habits}/>
 
             </div>
         );
