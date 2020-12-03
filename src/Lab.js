@@ -2,11 +2,11 @@ import React from 'react';
 import Create from './Create';
 import ReadUpdateDelete from './ReadUpdateDelete';
 
-const HABIT = []
+const HABITS = ['a','b','c']
 
 class Lab extends React.Component {
     state = {  
-        habits: HABIT
+        habits: HABITS
     }
 
     deleteHabit = habitBeingDeleted => {
@@ -45,6 +45,8 @@ class Lab extends React.Component {
                 <br></br>
 
                 <ReadUpdateDelete deleteHabit={this.deleteHabit} habits={this.state.habits} handleEditFormSubmit={this.handleEditFormSubmit}/>
+
+                <h1>2020.12.03 Notes: When user clicks Submit Changes button, the Edit Form should be hidden.</h1>
 
             </div>
         );
