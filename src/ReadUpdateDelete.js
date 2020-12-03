@@ -1,15 +1,24 @@
 import React from 'react';
 import { Button, Segment, Table } from 'semantic-ui-react';
+import EditForm from './EditForm';
 
 class ReadUpdateDelete extends React.Component {
-    state = {  }
-
-    handleEditClick = e => {
-        console.log('BUTTON CLICKED: [ Edit Habit ]')
+    state = {  
+        showEditForm: false,
+        editHabit: ''
     }
 
-    handleDeleteClick = e => {
+    handleEditClick = habit => {
+        console.log('BUTTON CLICKED: [ Edit Habit ]')
+        console.log(habit)
+        this.setState({showEditForm: true})
+        this.setState({editHabit: habit})
+    }
+
+    handleDeleteClick = habit => {
         console.log('BUTTON CLICKED: [ Delete Habit ]')
+        console.log(habit)
+        this.props.deleteHabit(habit)
     }
 
     render() { 
@@ -32,12 +41,17 @@ class ReadUpdateDelete extends React.Component {
                             {this.props.habits.map(habit => 
                             <Table.Row key={habit.id} habit={habit}>
                                 <Table.Cell>{habit}</Table.Cell>
-                                <Table.Cell><Button inverted onClick={this.handleEditClick}>Edit Habit</Button></Table.Cell>
-                                <Table.Cell><Button inverted onClick={this.handleDeleteClick}>Delete Habit</Button></Table.Cell>
+                                <Table.Cell><Button inverted onClick={() => this.handleEditClick(habit)}>Edit Habit</Button></Table.Cell>
+                                <Table.Cell><Button inverted onClick={() => this.handleDeleteClick(habit)}>Delete Habit</Button></Table.Cell>
                             </Table.Row>)}
                         </Table.Body>
 
                     </Table>
+
+                    {this.state.showEditForm
+                        ? <EditForm editHabit={this.state.editHabit} handleEditFormSubmit={this.props.handleEditFormSubmit}/>
+                        : null
+                    }
 
                 </Segment>
 

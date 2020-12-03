@@ -15,6 +15,7 @@ class Create extends React.Component {
         console.log('[ Add Habit ] BUTTON CLICKED')
         let newHabit = this.state.name
         this.props.handleNewHabit(newHabit)
+        this.setState({name: ''})
     }
 
     render() { 
