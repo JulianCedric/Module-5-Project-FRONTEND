@@ -15,7 +15,7 @@ class EditHabit extends React.Component {
       this.setState({ editHabit: e.target.value })
     }
 
-    onSubmit = (e) => {
+    handleSubmit = (e) => {
       e.preventDefault()
       this.props.editSubmit(this.props.habit.id, this.state.editHabit);
     } 
@@ -23,13 +23,13 @@ class EditHabit extends React.Component {
     render() {
         return (
           <React.Fragment>
-            <form onSubmit={ this.onSubmit }>
+            <form onSubmit={ this.handleSubmit }>
               <Input  type="text"
                       style={{ width: '350px' }}
                       value={ this.state.editHabit }
                       name="editHabit"
                       onChange={ this.onChange }
-                      label={<Button inverted type="submit" icon='edit' color="orange"/>}
+                      label={<Button inverted type="submit" icon='edit' color="orange"/>} 
                       labelPosition='right' />
             </form>
           </React.Fragment>

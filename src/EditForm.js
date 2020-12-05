@@ -4,7 +4,7 @@ import { Form } from 'semantic-ui-react';
 class EditForm extends React.Component {
     state = {  
         name: ''
-    }
+    } 
 
     handleChange = e => {
         e.preventDefault()
@@ -12,7 +12,6 @@ class EditForm extends React.Component {
     }
 
     handleSubmitChange = e => {
-        console.log(this.state.name)
         let updatedHabit = this.state.name
         this.setState({name: updatedHabit})
         let updatedHabit2 = this.state.name
@@ -25,11 +24,11 @@ class EditForm extends React.Component {
             <div>
                 <Form onSubmit={this.handleSubmitChange}> 
                     <Form.Input name='name' onChange={this.handleChange} placeholder='Your Changes...' style={{width: '250px'}} type='text' value={this.state.name}/>
-                    <Form.Button onSubmit={() => this.handleClickSubmitChange} style={{width: '250px'}} type='submit' >Submit Change</Form.Button>
+                    <Form.Button style={{width: '250px'}} type='submit' >Submit Change</Form.Button>
                 </Form>
             </div>    
         );
     }
 }
  
-export default EditForm;
+export default EditForm; 

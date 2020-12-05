@@ -126,18 +126,34 @@ class Dashboard extends React.Component {
     }
 
     handleEdit = (id, description) => {
-        console.log("PATCH ---", "ID of habit object being edited:", id, "Pre-Edit Description of habit object being edited:", description)
-
+        
+        // First, we want to find the object we're updating within the habits array. 
         let updatedHabitObject = this.state.habits.find(habit => habit.id === id)
 
+        // Then, we want to replace that object with the new, updated object.
         let updatedHabitsArr = this.state.habits.map(habit => {
             if (habit.id === id) {
-                return updatedHabitObject
+                return updatedHabitObject.description
             }
             return habit
         })
-        this.setState({showEditModal: !this.state.showEditModal})
-        this.setState({habits: updatedHabitsArr})
+
+        fetch(`http://localhost:3001/api/v1/habits/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify(description)
+        })
+        .then(description => {
+            updatedHabitsArr.map(habit => {
+                if (habit.description === description) {
+                    return updatedHabitObject
+                }
+                return habit
+            })
+        })
     }
 
     handleDelete = id => {

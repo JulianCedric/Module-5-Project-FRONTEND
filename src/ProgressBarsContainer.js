@@ -1,6 +1,6 @@
 import React from 'react';
 import ProgressBar from 'react-customizable-progressbar';
-import { Button, Card } from 'semantic-ui-react';
+import { Button, Card, Progress } from 'semantic-ui-react';
 
 class ProgressBarsContainer extends React.Component {
     render() {
@@ -19,6 +19,7 @@ class ProgressBarsContainer extends React.Component {
 
 
 <Card fluid color='green'>
+  <Progress color='blue' value='3' total='5' progress='ratio' />
       <Card.Content textAlign='center'>
       <h3>DAY { habit.counter } / 21</h3>
       <div style={{ height: '75px' }} class="ui secondary segment" color="green">
