@@ -21,11 +21,6 @@ class ReadUpdateDelete extends React.Component {
         this.props.deleteHabit(habit)
     }
 
-    handleSubmitClick() {
-        this.setState({showEditForm: false})
-        console.log(this.state.showEditForm)
-    }
-
     render() { 
         console.log(this.state.showEditForm)
         return (  
@@ -55,7 +50,7 @@ class ReadUpdateDelete extends React.Component {
                     </Table>
 
                     {this.state.showEditForm
-                        ? <EditForm editHabit={this.state.editHabit} handleEditFormSubmit={this.props.handleEditFormSubmit} handleSubmitClick={this.handleSubmitClick} showEditFormFalse={this.showEditFormFalse}/>
+                        ? <EditForm showEditFormFalse={this.showEditFormFalse} updateArrayWithUpdatedHabit={this.props.updateArrayWithUpdatedHabit}/>
                         : null
                     }
 

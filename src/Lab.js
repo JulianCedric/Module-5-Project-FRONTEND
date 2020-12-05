@@ -26,6 +26,18 @@ class Lab extends React.Component {
         this.setState({habits: [...this.state.habits, newHabit]})
     }
 
+    updateArrayWithUpdatedHabit = updatedHabit => {
+        console.log('UPDATED HABIT:', updatedHabit)
+
+        let newArr = this.state.habits.filter(habit => habit !== 'c')
+        
+        this.setState({habits: newArr})
+
+        let newArr2 = [...newArr, updatedHabit]
+
+        this.setState({habits: newArr2})
+    }
+
     render() { 
         return (  
             <div style={{color: 'white'}}>
@@ -44,10 +56,24 @@ class Lab extends React.Component {
                 <p>R / U / D</p>
                 <br></br>
 
-                <ReadUpdateDelete deleteHabit={this.deleteHabit} habits={this.state.habits} handleEditFormSubmit={this.handleEditFormSubmit}/>
+                <ReadUpdateDelete deleteHabit={this.deleteHabit} habits={this.state.habits} updateArrayWithUpdatedHabit={this.updateArrayWithUpdatedHabit}/>
 
-                <h1>2020.12.03 Notes: When user clicks Submit Change button, the Edit Form should be hidden.</h1>  
-                <h1>2020.12.04 Notes: Still haven't figured out how to engineer yesterday's task for today.</h1></h1> 
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+
+                <ul>
+                    <li>2020.12.03 Notes: When user clicks Submit Change button, the Edit Form should be hidden.</li>  
+                    <li>2020.12.04 Notes: Still haven't figured out how to engineer yesterday's task for today.</li> 
+                    <li>2020.12.05 Notes: 'Brute Force' solution found for current problem.</li>
+                </ul>
 
             </div>
         );

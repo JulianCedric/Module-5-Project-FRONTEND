@@ -1,3 +1,110 @@
+// 2020.12.04 - FRI - CRUD PRACTICE:    
+
+// USER ACTION:         ELEMENT:                    EVENT:                                                          CALLBACK ACTION:
+
+// CREATE:                   
+//                      FORM INPUT FIELD & BUTTON   ONCLICK                                                         NEWLY-CREATED DATA RENDERED ONTO DOM
+
+// READ:                
+//                      *COMPONENTDIDMOUNT*         *DATA AUTOMATICALLY RENDERED UPON PAGE LOAD*                    *DATA AUTOMATICALLY RENDERED ONTO DOM UPON PAGE LOAD*
+
+// UPDATE:              
+//                      BUTTON                      ONCLICK                                                         EDIT FORM & BUTTON RENDERED ONTO DOM    
+//                      FORM INPUT FIELD & BUTTON   ONSUBMIT                                                        EDIT FORM & BUTTON HIDDEN FROM DOM -- AND -- UPDATED USER INPUT RENDERED ONTO DOM 
+
+// DELETE:              
+//                      BUTTON                      ONCLICK                                                         DATA DELETED FROM DATABASE 
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #

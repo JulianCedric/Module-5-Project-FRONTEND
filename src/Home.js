@@ -41,6 +41,28 @@ class Home extends React.Component {
                 <br></br>
 
                 <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+
+                <br></br>
                 <h2 style={{color:'white'}}>Lab</h2>
                 <br></br>
                 <Lab/>
