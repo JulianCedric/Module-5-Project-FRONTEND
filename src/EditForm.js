@@ -1,8 +1,9 @@
 import React from 'react';
-import { Form } from 'semantic-ui-react';
+import { Button, Input } from 'semantic-ui-react';
 
 class EditForm extends React.Component {
     state = {  
+        name: '',
         updatedHabit: ''
     }
 
@@ -10,23 +11,17 @@ class EditForm extends React.Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    handleSubmit = e => {
-        console.log('BUTTON CLICKED: [ Submit Change ]')
-        console.log('from: ', this.props.editHabit, 'to:', this.state.updatedHabit)
-        let editHabit = this.props.editHabit
-        let updatedHabit = this.state.updatedHabit
-        this.props.handleEditFormSubmit(editHabit, updatedHabit)
-        this.setState({updatedHabit: ''})
-    }
+    // handleClick = e => {
+    //     e.preventDefault()
+    //     console.log('handleClick')
+    // }
 
     render() { 
         return (  
             <div>
                 <h1>EDIT FORM</h1>
-                <Form>
-                    <Form.Input name='updatedHabit' onChange={this.handleChange} placeholder={this.props.editHabitw} style={{width: '250px'}} type='text' value={this.state.updatedHabit}/>
-                    <Form.Button inverted onClick={this.handleSubmit} style={{width: '250px'}} type='submit'>Submit Change</Form.Button>
-                </Form>
+                    <Input name='name' onChange={this.handleChange} placeholder='Your Changes...' style={{width: '250px'}} type='text' value={this.state.name}/><br></br><br></br>
+                    <Button inverted onClick={() => this.props.handleSubmitClick} style={{width: '250px'}} type='submit'>Submit Change</Button>
             </div>
         );
     }

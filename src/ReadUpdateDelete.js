@@ -10,7 +10,7 @@ class ReadUpdateDelete extends React.Component {
 
     handleEditClick = habit => {
         console.log('BUTTON CLICKED: [ Edit Habit ]')
-        console.log(habit)
+        console.log('ELEMENT BEING UPDATED: ', habit)
         this.setState({showEditForm: true})
         this.setState({editHabit: habit})
     }
@@ -21,7 +21,13 @@ class ReadUpdateDelete extends React.Component {
         this.props.deleteHabit(habit)
     }
 
+    handleSubmitClick() {
+        this.setState({showEditForm: false})
+        console.log(this.state.showEditForm)
+    }
+
     render() { 
+        console.log(this.state.showEditForm)
         return (  
             <div>
 
@@ -49,7 +55,7 @@ class ReadUpdateDelete extends React.Component {
                     </Table>
 
                     {this.state.showEditForm
-                        ? <EditForm editHabit={this.state.editHabit} handleEditFormSubmit={this.props.handleEditFormSubmit}/>
+                        ? <EditForm editHabit={this.state.editHabit} handleEditFormSubmit={this.props.handleEditFormSubmit} handleSubmitClick={this.handleSubmitClick} showEditFormFalse={this.showEditFormFalse}/>
                         : null
                     }
 
