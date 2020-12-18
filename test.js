@@ -1,3 +1,111 @@
+// 12/17: Lab.js
+
+import React from 'react';
+import Create from './Create';
+import ReadUpdateDelete from './ReadUpdateDelete';
+import { Dropdown, Pagination } from 'semantic-ui-react';
+
+// const HABITS = [
+//     { id: 1, name: 'a' },
+//     { id: 2, name: 'b' },
+//     { id: 3, name: 'c' }    
+// ]
+
+const HABITS = ['a','b','c']
+
+class Lab extends React.Component {
+    state = {  
+        habits: HABITS
+    }
+
+    deleteHabit = (id, habitBeingDeleted) => {
+        console.log('NAME OF HABIT BEING DELETED:', habitBeingDeleted)
+        console.log('ID OF HABIT BEING DELETED:', id)
+        let newArr = this.state.habits.filter(habit => habit !== habitBeingDeleted)
+        this.setState({habits: newArr})
+    }
+
+    handleEditFormSubmit = (oldHabit, newHabit) => {
+        console.log('OLD HABIT:', oldHabit)
+        console.log('NEW HABIT:', newHabit)
+        let newArr = this.state.habits.filter(habit => habit !== oldHabit)
+        this.setState({habits: [...newArr, newHabit]})
+    }
+
+    handleNewHabit = newHabit => {
+        this.setState({habits: [...this.state.habits, newHabit]})
+    }
+
+    updateArrayWithUpdatedHabit = updatedHabit => {
+        console.log('UPDATED HABIT:', updatedHabit)
+
+        let updatedObject = this.state.habits.find(habit => habit === updatedHabit)
+
+        let copiedArr = [...this.state.habits]
+
+        let updatedArr = copiedArr.map(habit => {
+            if (habit === updatedHabit) {
+                return updatedObject
+            }
+            return habit
+        })
+        this.setState({habits: updatedArr})
+        console.log(this.state.habits)
+        console.log(updatedArr)
+    }
+
+    render() { 
+        console.log(HABITS[0])
+        return (  
+            <div style={{color: 'white'}}>
+
+                <br></br>
+                <p>CRUD PRACTICE</p>
+                <br></br>
+
+                <Dropdown inverted
+                    placeholder='Select Habit'
+                    fluid
+                    selection
+                    options={this.state.habits.map(habit => console.log(habit))}
+                />
+
+                <br></br>
+                <p>C</p>
+                <br></br>
+                <Create handleNewHabit={this.handleNewHabit} hideCreateForm={this.hideCreateForm}/>
+
+                <br></br>
+                <p>R / U / D</p>
+                <br></br>
+
+                <ReadUpdateDelete deleteHabit={this.deleteHabit} habits={this.state.habits} updateArrayWithUpdatedHabit={this.updateArrayWithUpdatedHabit}/>
+
+                <ul>
+                    <li>2020.12.03 Notes: When user clicks Submit Change button, the Edit Form should be hidden.</li>  
+                    <li>2020.12.04 Notes: Still haven't figured out how to engineer yesterday's task for today.</li> 
+                    <li>2020.12.05 Notes: 'Brute Force' solution found for current problem.</li>
+                </ul>
+
+                <Pagination
+                    boundaryRange={0}
+                    defaultActivePage={1}
+                    ellipsisItem={null}
+                    firstItem={null}
+                    lastItem={null}
+                    siblingRange={1}
+                    totalPages={10}
+                />
+        
+            </div>
+        );
+    }
+}
+ 
+export default Lab;
+
+//
+
 import React from 'react'
 import { Pagination } from 'semantic-ui-react'
 

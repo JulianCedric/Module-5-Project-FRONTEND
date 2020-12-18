@@ -15,7 +15,7 @@ class ReadUpdateDelete extends React.Component {
         this.setState({editHabit: habit})
     }
 
-    handleDeleteClick = habit => {
+    handleDeleteClick = (id, habit) => {
         console.log('BUTTON CLICKED: [ Delete Habit ]')
         console.log(habit)
         this.props.deleteHabit(habit)

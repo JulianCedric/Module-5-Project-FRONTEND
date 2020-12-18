@@ -125,36 +125,36 @@ class Dashboard extends React.Component {
         this.timer();
     }
 
-    handleEdit = (id, description) => {
+    // handleEdit = (id, description) => {
         
-        // First, we want to find the object we're updating within the habits array. 
-        let updatedHabitObject = this.state.habits.find(habit => habit.id === id)
+    //     // First, we want to find the object we're updating within the habits array. 
+    //     let updatedHabitObject = this.state.habits.find(habit => habit.id === id)
 
-        // Then, we want to replace that object with the new, updated object.
-        let updatedHabitsArr = this.state.habits.map(habit => {
-            if (habit.id === id) {
-                return updatedHabitObject.description
-            }
-            return habit
-        })
+    //     // Then, we want to replace that object with the new, updated object.
+    //     let updatedHabitsArr = this.state.habits.map(habit => {
+    //         if (habit.id === id) {
+    //             return updatedHabitObject.description
+    //         }
+    //         return habit
+    //     })
 
-        fetch(`http://localhost:3001/api/v1/habits/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json'
-            },
-            body: JSON.stringify(description)
-        })
-        .then(description => {
-            updatedHabitsArr.map(habit => {
-                if (habit.description === description) {
-                    return updatedHabitObject
-                }
-                return habit
-            })
-        })
-    }
+        // fetch(`http://localhost:3001/api/v1/habits/${id}`, {
+        //     method: 'PATCH',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         Accept: 'application/json'
+        //     },
+        //     body: JSON.stringify(description)
+        // })
+    //     .then(description => {
+    //         updatedHabitsArr.map(habit => {
+    //             if (habit.description === description) {
+    //                 return updatedHabitObject
+    //             }
+    //             return habit
+    //         })
+    //     })
+    // }
 
     handleDelete = id => {
         console.log("DELETE ---", "ID of habit object being deleted:", id)
@@ -176,20 +176,45 @@ class Dashboard extends React.Component {
         this.setState({showReminder: true, remindedHabit: updatedHabitObject})
     }
 
-    editHabit = ( id, data ) => {
-      let copiedHabitsArray = [...this.state.habits]
-      let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id)
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
-      this.setState(prevState => ({
-          habits: prevState.habits.map(eachItem => {
-              if( eachItem === copiedHabitObject ){
-                  return { ...eachItem, description: data }
-              } else {
-                  return eachItem
-              }
-          })
-      }))
+    editHabit = ( id, data ) => {
+        console.log('EVENT NOTIFICATION: USER CLICKED [ EDIT ] BUTTON.', 'ID: ', id)
+        console.log('EVENT NOTIFICATION: USER CLICKED [ EDIT ] BUTTON.', 'DATA: ', data)
+      
+        let copiedHabitsArray = [...this.state.habits]
+        let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id)
+
+        console.log('copiedHabitsArray: ', copiedHabitsArray)
+        console.log('copiedHabitObject: ', copiedHabitObject)
+
+        // let elem = this.state.habits.find(habit => habit.id === id)
+        // let description = elem.description
+
+        fetch(`http://localhost:3001/api/v1/habits/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify({
+                "description": data
+            }) 
+        })
+        .then(description => {
+            this.setState(prevState => ({
+                habits: prevState.habits.map(eachItem => {
+                    if( eachItem === copiedHabitObject ){
+                        return { ...eachItem, description: data }
+                    } else {
+                        return eachItem
+                    }
+                })
+            }))
+        })
     }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// 
 
     startStikify = ( id ) => {
       let copiedHabitsArray = [...this.state.habits]
