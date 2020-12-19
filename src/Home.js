@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Lab from './Lab';
 
 class Home extends React.Component {

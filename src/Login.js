@@ -1,25 +1,26 @@
 import React from 'react';  
-import './App.css';
 import { Form, Grid } from 'semantic-ui-react';
 
 class Login extends React.Component {
     state = {  
-        username: "",
-        password: "",
-        nameNewFirst: "",
-        nameNewLast: "",
-        usernameNew: "",
-        passwordNew: "",
-        confirmpasswordNew: ""
+        firstName: '',
+        lastName: '',
+        username: '',
+        password: '',
+        confirmPassword: '',
+        usernameLogin: '',
+        passwordLogin: ''
     }
 
-    handleLoginChange = e => {
-        this.setState(
-            {[e.target.name] : e.target.value}
-        )
+    handleChangeLogin = e => {
+        this.setState({[e.target.name]: e.target.value})
     }
 
-    // handleLoginSubmit = e => {
+    handleChangeSignUp = e => {
+        this.setState({[e.target.name]: e.target.value})
+    }
+
+    // handleSubmitLogin = e => {
     //     e.preventDefault()
     //     fetch(API_USERS_inProgress, { 
     //     method: 'POST',
@@ -39,48 +40,44 @@ class Login extends React.Component {
     //     })
     // }
 
-    handleLoginSubmit = e => {
-        console.log(this.state.username)
-        this.props.setLogin('true')
-        // e.preventDefault()
-        // this.props.changeCurrentView('home')
-        // this.props.changeUsernameGreeting(this.state.username)
+    handleSubmitSignUp = e => {
+        e.preventDefault()
+        fetch('http://localhost:3001/api/v1/users', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                username: this.state.username,
+                password: this.state.password,
+                confirmPassword: this.state.confirmPassword
+            })
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (!data.error) {
+                this.props.setLogin(data)
+            }
+        })
     }
-
-    // handleSignUpSubmit = e => {
-    //     e.preventDefault()
-    //     fetch('http://localhost:8080/users', {
-    //         method: 'POST',
-    //         headers: {accepts: 'application/json', 'Content-Type' : 'application/json'},
-    //         body: JSON.stringify({user: {username: this.state.usernameNew,
-    //         password: this.state.passwordNew}})
-    //     }).then(resp => resp.json())
-    //         .then(data => {
-    //             if (!data.error) {
-    //                 this.props.setLogin(data)
-    //             }
-    //         })
-    // }
 
     render() { 
         return (  
             <div>
-
-            <div className="twelve wide column">
-            
-                <Grid columns={2} relaxed='very' stackable textAlign='center' style={{ height: '0vh' }} verticalAlign='middle'>
-    <Grid.Column style={{ maxWidth: 450 }}>
-
-
-                            <Form inverted onSubmit={this.handleLoginSubmit}>
+                <div className="twelve wide column">
+                    <Grid columns={2} relaxed='very' stackable textAlign='center' style={{ height: '0vh' }} verticalAlign='middle'>
+                        <Grid.Column style={{ maxWidth: 450 }}>
+                            <Form inverted onSubmit={this.handleSubmitLogin}>
                                 <form action="#">
                                     <h2 style={{ color: 'white' }}>Login</h2>
                                     <div icon='user' iconPosition='left' class="text-input">
-                                        <Form.Input icon='user' iconPosition='left' type="text" name="username" value={this.state.username} onChange={this.handleLoginChange} id="username" placeholder="Username" style={{width: "250px"}}/>
-                                        {/* <span class="separator"> </span><br></br><br></br> */}
+                                        <Form.Input icon='user' iconPosition='left' type="text" name="usernameLogin" value={this.state.usernameLogin} onChange={this.handleChangeLogin} id="username" placeholder="Username" style={{width: "250px"}}/>
                                     </div>   
                                     <div class="text-input">
-                                        <Form.Input icon='lock' iconPosition='left' type="password" name="password" value={this.state.password} onChange={this.handleLoginChange} id="password" placeholder="Password" style={{width: "250px"}}/>
+                                        <Form.Input icon='lock' iconPosition='left' type="password" name="passwordLogin" value={this.state.passwordLogin} onChange={this.handleChangeLogin} id="password" placeholder="Password" style={{width: "250px"}}/>
                                         <span class="separator"> </span><br></br>
                                     </div>  
                                     <div class="form-bottom">
@@ -88,31 +85,30 @@ class Login extends React.Component {
                                     </div>
                                 </form>  
                             </Form>
-                            </Grid.Column>
-                            <Grid.Column style={{ maxWidth: 450 }}>                            
-                            <div class="ui form" onSubmit={this.handleSignUpSubmit}>
+                        </Grid.Column>
+                        <Grid.Column style={{ maxWidth: 450 }}>                            
+                            <div class="ui form" onSubmit={this.handleSubmitSignUp}>
                                 <form action="#">
-                                    <br></br>
-
+                                    <br/>
                                     <h2 style={{ color: 'white' }}>Sign Up</h2>
                                     <div class="text-input">
-                                        <input type="text" name="nameNewFirst" value={this.state.nameNewFirst} onChange={this.handleChange} id="nameNewFirst" placeholder="First Name" style={{width: "250px"}}/>
+                                        <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleChangeSignUp} id="firstName" placeholder="First Name" style={{width: "250px"}}/>
                                         <span class="separator"> </span><br></br><br></br>                                        
                                     </div>
                                     <div class="text-input">
-                                        <input type="text" name="nameNewLast" value={this.state.nameNewLast} onChange={this.handleChange} id="nameNewLast" placeholder="Last Name" style={{width: "250px"}}/>
+                                        <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleChangeSignUp} id="lastName" placeholder="Last Name" style={{width: "250px"}}/>
                                         <span class="separator"> </span><br></br><br></br>                                        
                                     </div>
                                     <div class="text-input">
-                                        <input type="text" name="usernameNew" value={this.state.usernameNew} onChange={this.handleChange} id="username" placeholder="Username" style={{width: "250px"}}/>
+                                        <input type="text" name="username" value={this.state.username} onChange={this.handleChangeSignUp} id="username" placeholder="Username" style={{width: "250px"}}/>
                                         <span class="separator"> </span><br></br><br></br>
                                     </div>   
                                     <div class="text-input">
-                                        <input type="password" name="passwordNew" value={this.state.passwordNew} onChange={this.handleChange} id="password" placeholder="Password" style={{width: "250px"}}/>
+                                        <input type="password" name="password" value={this.state.password} onChange={this.handleChangeSignUp} id="password" placeholder="Password" style={{width: "250px"}}/>
                                         <span class="separator"> </span><br></br><br></br>
                                     </div>
                                     <div class="text-input">
-                                        <input type="password" name="confirmpasswordNew" value={this.state.confirmpasswordNew} onChange={this.handleChange} id="confirmpassword" placeholder="Confirm Password" style={{width: "250px"}}/>
+                                        <input type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChangeSignUp} id="confirmPassword" placeholder="Confirm Password" style={{width: "250px"}}/>
                                         <span class="separator"> </span><br></br>                                        <span class="separator"> </span><br></br><br></br>
 
                                     </div>  
@@ -122,15 +118,8 @@ class Login extends React.Component {
                                 </form>  
                             </div>
                         </Grid.Column>
-                   
                     </Grid>
-                                            {/* <Divider inverted vertical>Or</Divider> */}
-
-            </div> 
-            
-
-
-
+                </div> 
             </div>            
         );
     };

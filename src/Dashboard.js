@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { Dimmer, Card, Segment } from 'semantic-ui-react';
 import HabitsContainer from './HabitsContainer';
 import ProgressBarsContainer from './ProgressBarsContainer';
@@ -112,9 +111,15 @@ class Dashboard extends React.Component {
 
     handleNewHabit = newHabit => {
         console.log("POST ---", "Description of newly-created habit object:", newHabit.description)
-        fetch(API_HABITS)
+        
+        // let newArr = [...this.state.habits, newHabit]
+        
+        fetch(API_HABITS) 
         .then(r => r.json())
         .then(habitsData => this.setState({ habits: habitsData }))
+
+        // console.log('habitsData:', habitsData)
+
     }
 
     handleStickify = id => {
