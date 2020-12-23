@@ -10,12 +10,13 @@ import {
   Search,
   Segment,
 } from 'semantic-ui-react';
+import CheckboxExampleDOMComparison from'./CheckboxExampleDOMComparison';
 
 class Lab extends React.Component {
     state = {  }
 
     handleClickCraving = e => {
-        console.log('ACTION')
+        console.log(' [ ACTION ] : Player ')
     }
 
     handleClickCue = e => {
@@ -91,17 +92,7 @@ class Lab extends React.Component {
                 <br/>
                 <br/>
 
-                {/* <p>In order to increase his belief in his ability to improve himself, is PROOF—UNDENIABLE Proof—that he is becoming someone who is consistent, focused, and reliable.</p>  */}
-
-                <br/>
-                <br/>
-                <br/>
-
-                <p>
-                
-                {/* Player needs to prove to himself that he is making progress towards a certain goal  Please describe  how exactly would he prove to himself? */}
-
-                </p>
+                <CheckboxExampleDOMComparison />
 
                 <br/>
                 <br/>
