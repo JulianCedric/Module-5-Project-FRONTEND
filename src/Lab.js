@@ -5,6 +5,7 @@ import CheckboxExampleDOMComparison from'./CheckboxExampleDOMComparison';
 import HumanBehaviorFramework from './HumanBehaviorFramework';
 import DailyScore from './DailyScore';
 import ScoreCard from './ScoreCard';
+import GridExampleGrid from './GridExampleGrid';
 
 class Lab extends React.Component {
     state = {  
@@ -82,6 +83,8 @@ class Lab extends React.Component {
                 <br/>
                 <br/>
                 <br/>
+
+                <GridExampleGrid />
 
                 <br/>
                 <br/>
