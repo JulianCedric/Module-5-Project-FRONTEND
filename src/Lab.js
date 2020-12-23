@@ -1,17 +1,30 @@
 import React from 'react';
 import './App.css';
-import { Checkbox, Grid, Header, Icon, Segment } from 'semantic-ui-react';
+import { Checkbox, Grid, Header, Icon, Segment, Table } from 'semantic-ui-react';
 import CheckboxExampleDOMComparison from'./CheckboxExampleDOMComparison';
 import HumanBehaviorFramework from './HumanBehaviorFramework';
+import DailyScore from './DailyScore';
+import ScoreCard from './ScoreCard';
 
 class Lab extends React.Component {
     state = {  
+        dailyPass: false,
         dailyWins: []
     }
 
+    dayWon() {
+        console.log('this.state.dailyWins.length:', this.state.dailyWins.length + 1)
+        {
+            if (this.state.dailyWins.length + 1 === 3) {
+                this.toggle() 
+            }
+        }
+    }
+
     handleClickCheckbox = e => {
-        console.log(' [ EVENT ] : Daily Wins: 1 / 3 ')
+        console.log(' [ EVENT ] : 1 Daily Win Added.')
         this.setState({dailyWins: [...this.state.dailyWins, 1]})
+        this.dayWon()
     }
 
     handleClickCraving = e => {
@@ -22,8 +35,14 @@ class Lab extends React.Component {
         console.log(' [ EVENT ] : PLAYER BECOMES AWARE OF HIS DAZED MENTAL STATE.')
     }
 
+    toggle() {
+        this.setState({dailyPass: !this.state.dailyPass})
+    }
+
     render() { 
-        console.log(this.state.dailyWins)
+        console.log('this.state.dailyScore', this.state.dailyScore)
+        console.log('this.state.dailyWins', this.state.dailyWins)
+        console.log('this.state.dailyWins.length:', this.state.dailyWins.length)
         return (  
             <div style={{color: 'white'}}>
                 <Segment style={{height: '140px'}}>
@@ -47,23 +66,30 @@ class Lab extends React.Component {
                 <br/>
                 <br/>
 
+                <ScoreCard handleClickCheckbox={this.handleClickCheckbox}/>
+                
+                <div>
+                    <p>Today's Score:</p>
+                    {
+                        this.state.dailyPass
+                            ? "PASS"
+                            : null 
+                    }
+                </div>
+                
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                
                 <CheckboxExampleDOMComparison />
-
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-
-                <Checkbox 
-                    onClick={this.handleClickCheckbox}
-                />
-
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
 
             </div>
         );
