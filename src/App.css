@@ -45,6 +45,16 @@ html, body {
     user-select: none;
 }
 
+.four-step-method {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  top: 0;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+}
+
 .home-container {
   background-image: url('./Images/Stickifyd.png');
   background-repeat: no-repeat;
@@ -102,7 +112,10 @@ html, body {
 
 }
 
-
+.cntered {
+    display: flex;
+    justify-content: center;
+}
 
 
 
