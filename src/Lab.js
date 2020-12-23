@@ -16,8 +16,8 @@ class Lab extends React.Component {
     render() { 
         return (  
             <div style={{color: 'white'}}>
-                <Segment placeholder>
-                    <Grid columns={1} stackable textAlign='center'>
+                <Segment style={{height: '140px'}}>
+                    <Grid textAlign='center'>
                         <Grid.Row verticalAlign='middle'>
                             <Grid.Column>
                                 <Header icon>
