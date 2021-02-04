@@ -27,6 +27,7 @@ class HabitsContainer extends React.Component {
 
   render() {
     const {activeItem} = this.state
+    console.log(this.props.habits)
     return (
       <div>
         <div className="ui inverted pointing secondary menu">

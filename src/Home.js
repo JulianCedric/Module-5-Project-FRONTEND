@@ -1,5 +1,4 @@
 import React from 'react';
-import Lab from './Lab';
 
 class Home extends React.Component {
     render() { 
@@ -28,7 +27,6 @@ class Home extends React.Component {
                 <br/>
                 <br/>
                 
-                <Lab />
             </div>
         );
     };

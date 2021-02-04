@@ -14,10 +14,6 @@ class Navbar extends React.Component {
                         <Link to="/dashboard" className="link">Dashboard</Link>
                     </a>
                     
-                    <a class='item'>
-                        <Link to='/lab' className='lab'>Lab</Link>
-                    </a>
-                    
                     <div className="right menu">
                         <a className="item">
                         {
@@ -33,14 +29,4 @@ class Navbar extends React.Component {
     };
 };
 
-export default Navbar; 
-
-// notes = () => {
-// ////////// 1ST DRAFT CODE FOR POST-MVP VERSION //////////
-
-// // handleClick = e => {
-// //     // this.props.setLogout('false')
-// // }
-
-// /////////////////////////////////////////////////////////
-// }
+export default Navbar;
