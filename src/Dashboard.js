@@ -1,9 +1,9 @@
 import React from 'react';
-import { Dimmer, Card, Segment } from 'semantic-ui-react';
 import HabitsContainer from './HabitsContainer';
 import ProgressBarsContainer from './ProgressBarsContainer';
 import CreateHabit from './CreateHabit';
 import ReminderItem from './ReminderItem';
+import { Dimmer, Card, Segment } from 'semantic-ui-react';
 import { v4 as uuidv4 } from 'uuid';
 
 const API_USERS = 'http://localhost:3001/api/v1/users'

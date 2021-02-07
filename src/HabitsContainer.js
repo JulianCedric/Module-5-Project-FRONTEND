@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import EditHabit from './EditHabit';
 import { Menu, Segment, Icon, Divider, Button, Popup, Container } from 'semantic-ui-react';
+import EditHabit from './EditHabit';
 
 class HabitsContainer extends React.Component {
   state = {
