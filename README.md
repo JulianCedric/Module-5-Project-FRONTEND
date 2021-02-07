@@ -1,3 +1,17 @@
+Gamified habits formation app based on scientific study on goal achievement. 
+
+Single-Page Application (SPA) built with JavaScript / React / client-side routing, Rails / Active Record / Postgres backend (RESTful API), and Semantic UI for design.
+
+
+
+
+
+
+
+
+
+
+--
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
