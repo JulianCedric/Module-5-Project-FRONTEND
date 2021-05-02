@@ -20,26 +20,6 @@ class Login extends React.Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    // handleSubmitLogin = e => {
-    //     e.preventDefault()
-    //     fetch(API_USERS_inProgress, { 
-    //     method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             Accept: 'application/json'
-    //         }
-    //         body: JSON.stringify({
-    //             user: {username: this.state.username, password: this.state.password}})
-
-    //     })
-    //         .then(r => r.json())
-    //         .then(data => {
-    //             if (!data.message) {
-    //                 this.props.setLogin(data)
-    //             }
-    //     })
-    // }
-
     handleSubmitSignUp = e => {
         e.preventDefault()
         fetch('http://localhost:3001/api/v1/users', {
