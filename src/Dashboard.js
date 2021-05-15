@@ -18,7 +18,6 @@ const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.ge
 class Dashboard extends React.Component {
     state = {
         users: [],
-        // habits: [],
         habits: HABITS,
         reminders: [],
         stickifiedHabits: [],
@@ -111,15 +110,9 @@ class Dashboard extends React.Component {
 
     handleNewHabit = newHabit => {
         console.log("POST ---", "Description of newly-created habit object:", newHabit.description)
-        
-        // let newArr = [...this.state.habits, newHabit]
-        
         fetch(API_HABITS) 
         .then(r => r.json())
         .then(habitsData => this.setState({ habits: habitsData }))
-
-        // console.log('habitsData:', habitsData)
-
     }
 
     handleStickify = id => {

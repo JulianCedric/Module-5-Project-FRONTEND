@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 import { Container, Button } from 'semantic-ui-react';
 
-const today = new Date()
-const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+// const today = new Date()
+// const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
 
 class CreateHabit extends React.Component {
     state = {
@@ -11,7 +11,7 @@ class CreateHabit extends React.Component {
         name: '',
         description: '',
         quote: '',
-        dateCreated: date,
+        dateCreated: '',
         column: '',
         counter: 0,
         percentage: 0,
@@ -35,7 +35,7 @@ class CreateHabit extends React.Component {
                 name: this.state.name,
                 description: this.state.description,
                 quote: this.state.quote,
-                dateCreated: date,
+                dateCreated: this.props.date,
                 column: this.state.column,
                 counter: this.state.counter,
                 percentage: this.state.percentage,
@@ -49,7 +49,7 @@ class CreateHabit extends React.Component {
                     name: '',
                     description: '',
                     quote: '',
-                    dateCreated: date,
+                    dateCreated: '',
                     column: '',
                     counter: 0,
                     percentage: 0,
@@ -71,7 +71,7 @@ class CreateHabit extends React.Component {
                 name: this.state.name,
                 description: this.state.description,
                 quote: this.state.quote,
-                dateCreated: date,
+                dateCreated: this.props.date,
                 column: this.state.column,
                 counter: 1,
                 percentage: this.state.percentage,
@@ -85,7 +85,7 @@ class CreateHabit extends React.Component {
                     name: '',
                     description: '',
                     quote: '',
-                    dateCreated: date,
+                    dateCreated: '',
                     column: '',
                     counter: 0,
                     percentage: 0,
@@ -95,6 +95,7 @@ class CreateHabit extends React.Component {
     }
 
     render() {
+        console.log("Date: ", this.props.date)
         return (
             <div className="ui form">
                 <div className="field">
