@@ -3,6 +3,7 @@ import './App.css';
 import CreateHabit from './CreateHabit';
 import HabitsContainer from './HabitsContainer';
 import ProgressBarsContainer from './ProgressBarsContainer';
+import { DatePicker, RangePicker, theme } from 'react-trip-date';
 
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
@@ -53,7 +54,6 @@ class Lab extends React.Component {
     }
 
     render() { 
-        console.log("Date(): ", Date())
         console.log("Date", date)
         console.log("Users from DB:", this.state.users)
         console.log("Habits from DB:", this.state.habits)
@@ -75,6 +75,7 @@ class Lab extends React.Component {
                                 <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits} date={date}/>
                             <br/>
                             <br/>
+                                <DatePicker/>
                         </div>
                     </div>
                 </div>
@@ -86,3 +87,5 @@ class Lab extends React.Component {
 export default Lab;
 
 // git@github.com:JulianCedric/Module-5-Project-FRONTEND.git
+
+// https://reactjsexample.com/a-date-range-picker-for-reactjs/
