@@ -210,26 +210,6 @@ class Dashboard extends React.Component {
         console.log("POST ---", "ID of newly-created reminder object:", newReminder.id)
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     render() {
         console.log("Users from DB:", this.state.users)
         console.log("Habits from DB:", this.state.habits)

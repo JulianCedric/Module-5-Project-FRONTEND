@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import CreateHabit from './CreateHabit';
+import HabitsContainer from './HabitsContainer';
 
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
@@ -39,6 +40,10 @@ class Lab extends React.Component {
                             <br/>
                                 <h1 className="mediumWhiteText">Habits Management Dashboard</h1>
                             <br/>
+                                <CreateHabit handleNewHabit={this.handleNewHabit}/>
+                            <br/>
+                            <br/>
+                                <HabitsContainer habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } handleDelete={this.handleDelete}/>
                         </div>
                     </div>
                 </div>
@@ -48,3 +53,5 @@ class Lab extends React.Component {
 }
  
 export default Lab;
+
+// git@github.com:JulianCedric/Module-5-Project-FRONTEND.git
