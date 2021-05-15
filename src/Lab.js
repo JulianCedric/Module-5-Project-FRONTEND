@@ -28,6 +28,12 @@ class Lab extends React.Component {
         .then(remindersData => this.setState({ reminders: remindersData }))
       }
 
+      handleNewHabit = newHabit => {
+        fetch(API_HABITS) 
+        .then(r => r.json())
+        .then(habitsData => this.setState({ habits: habitsData }))
+        }
+
     render() { 
         console.log("Users from DB:", this.state.users)
         console.log("Habits from DB:", this.state.habits)
