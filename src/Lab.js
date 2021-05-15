@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import CreateHabit from './CreateHabit';
 import HabitsContainer from './HabitsContainer';
+import ProgressBarsContainer from './ProgressBarsContainer';
 
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
@@ -50,6 +51,11 @@ class Lab extends React.Component {
                             <br/>
                             <br/>
                                 <HabitsContainer habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } handleDelete={this.handleDelete}/>
+                            <br/>
+                            <br/>
+                                <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
+                            <br/>
+                            <br/>
                         </div>
                     </div>
                 </div>
