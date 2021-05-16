@@ -4,6 +4,7 @@ import CreateHabit from './CreateHabit';
 import HabitsContainer from './HabitsContainer';
 import ProgressBarsContainer from './ProgressBarsContainer';
 import { DatePicker, RangePicker, theme } from 'react-trip-date';
+import Datetime from 'react-datetime';
 
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
