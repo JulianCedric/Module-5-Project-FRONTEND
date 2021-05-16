@@ -34,9 +34,22 @@ class Lab extends React.Component {
       }
 
     handleNewHabit = newHabit => {
+        console.log("newHabit: ", newHabit)
         fetch(API_HABITS) 
         .then(r => r.json())
         .then(habitsData => this.setState({ habits: habitsData }))
+        this.created_at()
+    }
+
+    created_at = () => {
+        const newestHabit = this.state.habits.pop()
+        const c_at_newestHabit = newestHabit.created_at
+        let arr = []
+        for (let i = 0; i<10; i++) {
+            arr.push(c_at_newestHabit[i])
+        } 
+        console.log(arr.join(""))
+        return arr.join("")
     }
 
     handleDelete = id => {
@@ -54,10 +67,11 @@ class Lab extends React.Component {
     }
 
     render() { 
-        console.log("Date", date)
-        console.log("Users from DB:", this.state.users)
-        console.log("Habits from DB:", this.state.habits)
-        console.log("Reminders from DB:", this.state.reminders)
+        // console.log("Date", date)
+        // console.log("Users from DB:", this.state.users)
+        // console.log("Habits from DB:", this.state.habits)
+        // console.log("Reminders from DB:", this.state.reminders)
+        console.log("created_at: ", this.created_at())
         return (  
             <div>
                 <div className="ui centered grid">
@@ -72,7 +86,7 @@ class Lab extends React.Component {
                                 <HabitsContainer habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } handleDelete={this.handleDelete}/>
                             <br/>
                             <br/>
-                                <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits} date={date}/>
+                                <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits} date={date} created_at={this.created_at}/>
                             <br/>
                             <br/>
                                 <DatePicker/>

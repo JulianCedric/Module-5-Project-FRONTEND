@@ -41,7 +41,7 @@ class ProgressBarsContainer extends React.Component {
                                         strokeColor='violet'
                                         strokeWidth={20}
                                       />
-                                      <h4>Today's Date: {this.props.date}</h4>
+                                      <h4>Date Created: {this.props.created_at}</h4>
                                     </Card.Description>
                                   </Card.Content>
                                   <Card.Content extra>
