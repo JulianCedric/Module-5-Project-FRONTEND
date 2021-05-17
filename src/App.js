@@ -8,6 +8,7 @@ import Dashboard from './Dashboard';
 import Lab from './Lab';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Sticky } from 'semantic-ui-react';
+// import "react-datetime/css/react-datetime.css";
 
 class App extends React.Component {
   state = {  
