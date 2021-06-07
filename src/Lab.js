@@ -90,7 +90,7 @@ class Lab extends React.Component {
                                 <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits} date={date} created_at={this.created_at}/>
                             <br/>
                             <br/>
-                                {/* <DatePicker/> */}
+                                <DatePicker/>
                                 <h4>Datetime: </h4>
                                 <br/>
                                 <Datetime />
@@ -106,5 +106,4 @@ class Lab extends React.Component {
 export default Lab;
 
 // git@github.com:JulianCedric/Module-5-Project-FRONTEND.git
-
 // https://reactjsexample.com/a-date-range-picker-for-reactjs/
