@@ -5,6 +5,7 @@ import HabitsContainer from './HabitsContainer';
 import ProgressBarsContainer from './ProgressBarsContainer';
 import { DatePicker, RangePicker, theme } from 'react-trip-date';
 import Datetime from 'react-datetime';
+import { Button, Progress } from 'semantic-ui-react';
 
 const API_USERS = 'http://localhost:3001/api/v1/users'
 const API_HABITS = 'http://localhost:3001/api/v1/habits'
@@ -84,7 +85,11 @@ class Lab extends React.Component {
                                 <CreateHabit handleNewHabit={this.handleNewHabit} date={date}/>
                             <br/>
                             <br/>
-                                <HabitsContainer habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } handleDelete={this.handleDelete}/>
+                                <Progress percent={this.state.percent} indicating />
+                                <Button onClick={this.increment}>Increment</Button>
+                            <br/>
+                            <br/>
+                                {/* <HabitsContainer habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } handleDelete={this.handleDelete}/>
                             <br/>
                             <br/>
                                 <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits} date={date} created_at={this.created_at}/>
@@ -93,7 +98,7 @@ class Lab extends React.Component {
                                 <DatePicker/>
                                 <h4>Datetime: </h4>
                                 <br/>
-                                <Datetime />
+                                <Datetime /> */}
                                 <br/>
                         </div>
                     </div>
