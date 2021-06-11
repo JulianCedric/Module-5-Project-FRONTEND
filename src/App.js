@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { Sticky } from 'semantic-ui-react';
 import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
@@ -6,8 +8,6 @@ import Login from './Login';
 import Footer from './Footer';
 import Dashboard from './Dashboard';
 import Lab from './Lab';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { Sticky } from 'semantic-ui-react';
 
 class App extends React.Component {
   state = {  
