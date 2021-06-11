@@ -27,7 +27,7 @@ class App extends React.Component {
       <Router>
        <React.Fragment>
         <Switch>
-          <div className="App">
+          <div class="App">
             <Sticky context={this.contextRef}>
               <Navbar loggedIn={this.state.loggedIn} setLogin={this.setLogin}/>
             </Sticky>
