@@ -153,9 +153,6 @@ class Dashboard extends React.Component {
         console.log('copiedHabitsArray: ', copiedHabitsArray)
         console.log('copiedHabitObject: ', copiedHabitObject)
 
-        // let elem = this.state.habits.find(habit => habit.id === id)
-        // let description = elem.description
-
         fetch(`http://localhost:3001/api/v1/habits/${id}`, {
             method: 'PATCH',
             headers: {
@@ -178,8 +175,6 @@ class Dashboard extends React.Component {
             }))
         })
     }
-
-//////////////////////////////////////////////////////////////////////////////////////////////////// 
 
     startStikify = ( id ) => {
       let copiedHabitsArray = [...this.state.habits]
