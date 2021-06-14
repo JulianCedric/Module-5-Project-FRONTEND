@@ -143,8 +143,6 @@ class Dashboard extends React.Component {
         this.setState({showReminder: true, remindedHabit: updatedHabitObject})
     }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
     editHabit = ( id, data ) => {
         console.log('EVENT NOTIFICATION: USER CLICKED [ EDIT ] BUTTON.', 'ID: ', id)
         console.log('EVENT NOTIFICATION: USER CLICKED [ EDIT ] BUTTON.', 'DATA: ', data)
