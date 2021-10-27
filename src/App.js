@@ -1,7 +1,7 @@
 import React from 'react';
+import './App.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Sticky } from 'semantic-ui-react';
-import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
 import Login from './Login';
