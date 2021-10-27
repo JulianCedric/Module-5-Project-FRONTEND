@@ -12,15 +12,15 @@ import Lab from './Lab';
 class App extends React.Component {
   state = {  
     loggedIn: false
-  } 
+  }; 
 
   setLogin = value => {
-    this.setState({ loggedIn: !this.state.loggedIn })
-  } 
+    this.setState({ loggedIn: !this.state.loggedIn });
+  }; 
 
   changeView = view => {
-    this.setState({ currentView: view })
-  }
+    this.setState({ currentView: view });
+  };
 
   render() { 
     return (
@@ -31,17 +31,17 @@ class App extends React.Component {
             <Sticky context={this.contextRef}>
               <Navbar loggedIn={this.state.loggedIn} setLogin={this.setLogin}/>
             </Sticky>
-            <Route exact path = '/' render={(props) => (<Home {...props} users={this.state.users} loggedIn={this.state.loggedIn} />)}></Route>
-            <Route path = '/login' render={(props) => (<Login {...props} setLogin={this.setLogin} setLogout={this.setLogout} changeCurrentView={this.changeCurrentView} changeUsernameGreeting={this.changeUsernameGreeting}/>)}></Route>
+            <Route exact path='/' render={(props) => (<Home {...props} users={this.state.users} loggedIn={this.state.loggedIn} />)}></Route>
+            <Route path='/login' render={(props) => (<Login {...props} setLogin={this.setLogin} setLogout={this.setLogout} changeCurrentView={this.changeCurrentView} changeUsernameGreeting={this.changeUsernameGreeting}/>)}></Route>
             <Route path='/dashboard' render={(props) => (<Dashboard {...props} />)}></Route>
             <Route path='/lab' render={(props) => (<Lab {...props} />)}></Route>
-              {!this.state.loggedIn 
-                ? <Redirect to="/" component={ Home } /> 
-                : <Redirect to="/dashboard" component={ Dashboard } /> 
+              { !this.state.loggedIn 
+                ? <Redirect to="/" component={ Home }/> 
+                : <Redirect to="/dashboard" component={ Dashboard }/> 
               }
           </div>
         </Switch>
-        <Footer />
+        <Footer/>
       </React.Fragment>
     </Router>
     );

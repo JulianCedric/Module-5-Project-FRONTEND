@@ -6,14 +6,14 @@ import CreateHabit from './CreateHabit';
 import ReminderItem from './ReminderItem';
 import { v4 as uuidv4 } from 'uuid';
 
-const API_USERS = 'http://localhost:3001/api/v1/users'
-const API_HABITS = 'http://localhost:3001/api/v1/habits'
-const API_REMINDERS = 'http://localhost:3001/api/v1/reminders'
+const API_USERS = 'http://localhost:3001/api/v1/users';
+const API_HABITS = 'http://localhost:3001/api/v1/habits';
+const API_REMINDERS = 'http://localhost:3001/api/v1/reminders';
 
-const HABITS = ['a','b','c']
+const HABITS = ['a','b','c'];
 
-const today = new Date()
-const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+const today = new Date();
+const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
 class Dashboard extends React.Component {
     state = {
@@ -30,9 +30,9 @@ class Dashboard extends React.Component {
             habit: ''
         },
         remindedHabit: {}
-    }
+    };
       
-      componentDidMount = () => {
+    componentDidMount = () => {
         fetch(API_USERS)
         .then(r => r.json())
         .then(usersData => this.setState({ users: usersData }))
@@ -44,27 +44,23 @@ class Dashboard extends React.Component {
         fetch(API_REMINDERS)
         .then(r => r.json())
         .then(remindersData => this.setState({ reminders: remindersData }))
-      }
+    };
 
-    timeout = 0
+    timeout = 0;
     timer = (id, progress) => {
-        this.timeout = setInterval(()=>{
-            if( this.state.time > 0 ){
-                this.setState({ time: this.state.time -= 1 })
-                if( this.state.time === 12 ){
-                    this.onFFClick( id )
-                }
+        this.timeout = setInterval( () => {
+            if ( this.state.time > 0 ) {
+                this.setState({ time: this.state.time -= 1 });
+                if ( this.state.time === 12 ) {
+                    this.onFFClick(id);
+                };
             } else {
                 this.stopTimer();
                 this.setState({ showReminder: false });
                 alert("Alert: Your progress for this habit has been reset back to Day 1");
-
-                let copiedHabitsArray = [...this.state.habits]
-                let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id)
-                let newCount = 1
-
-                console.log(newCount)
-
+                let copiedHabitsArray = [...this.state.habits];
+                let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id);
+                let newCount = 1;
                 this.setState(prevState => ({
                     habits: prevState.habits.map(eachItem =>
                         eachItem === copiedHabitObject
@@ -72,10 +68,9 @@ class Dashboard extends React.Component {
                         : eachItem
                         )
                 }))
-            }
-            console.log( this.state.time );
-        },1000);
-    }
+            };
+        }, 1000);
+    };
 
     stopTimer = () => {
         clearInterval( this.timeout );
