@@ -77,49 +77,49 @@ class Dashboard extends React.Component {
     }
 
     handleProgressCounter = (id, progress) => {
-    let copiedHabitsArray = [...this.state.habits]
-    let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id) 
-    let newCount = progress.counter + 1
+    let copiedHabitsArray = [...this.state.habits];
+    let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id); 
+    let newCount = progress.counter + 1;
 
     this.setState(prevState => ({
         habits: prevState.habits.map(eachItem => {
-            if( eachItem === copiedHabitObject ){
-                if( newCount === 21 ){
+            if ( eachItem === copiedHabitObject ) {
+                if ( newCount === 21 ) {
                     this.setState({ congrats: { show: true, habit: eachItem.description } });
-                }
-                return { ...eachItem, progress: { ...eachItem.progress, counter: newCount }}
+                };
+                return { ...eachItem, progress: { ...eachItem.progress, counter: newCount }};
             } else {
-                return eachItem
+                return eachItem;
             }
         })
         }), ()=>{ this.closeReminder() })
-    }
+    };
 
     closeCongrats = () => {
-        this.setState({ congrats: { show: false, habit: '' }})
-    }
+        this.setState({ congrats: { show: false, habit: '' }});
+    };
 
     closeReminder = () => {
         this.setState({ showReminder: false });
-    }
+    };
 
     handleNewHabit = newHabit => {
-        console.log("POST ---", "Description of newly-created habit object:", newHabit.description)
+        // console.log("POST ---", "Description of newly-created habit object:", newHabit.description)
         fetch(API_HABITS) 
         .then(r => r.json())
         .then(habitsData => this.setState({ habits: habitsData }))
-    }
+    };
 
     handleStickify = id => {
-        console.log("PATCH ---", "ID of habit object being stickified:", id)
+        // console.log("PATCH ---", "ID of habit object being stickified:", id)
         let updatedHabitObject = this.state.habits.find(habit => habit.id === id)
         let updatedStickifiedHabitsArr = [...this.state.stickifiedHabits, updatedHabitObject]
         this.setState({stickifiedHabits: updatedStickifiedHabitsArr})
         this.timer();
-    }
+    };
 
     handleDelete = id => {
-        console.log("DELETE ---", "ID of habit object being deleted:", id)
+        // console.log("DELETE ---", "ID of habit object being deleted:", id)
         fetch(`http://localhost:3001/api/v1/habits/${id}`, { 
             method: "DELETE",
             headers: {
@@ -131,22 +131,22 @@ class Dashboard extends React.Component {
             let newArr = this.state.habits.filter(habit => habit.id !== id)
             this.setState({habits: newArr})
           })
-        }
+        };
 
     onFFClick = id => {
-        let updatedHabitObject = this.state.habits.find(habit => habit.id === id)
-        this.setState({showReminder: true, remindedHabit: updatedHabitObject})
-    }
+        let updatedHabitObject = this.state.habits.find(habit => habit.id === id);
+        this.setState({showReminder: true, remindedHabit: updatedHabitObject});
+    };
 
-    editHabit = ( id, data ) => {
-        console.log('EVENT NOTIFICATION: USER CLICKED [ EDIT ] BUTTON.', 'ID: ', id)
-        console.log('EVENT NOTIFICATION: USER CLICKED [ EDIT ] BUTTON.', 'DATA: ', data)
+    editHabit = (id, data) => {
+        // console.log('EVENT NOTIFICATION: USER CLICKED [ EDIT ] BUTTON.', 'ID: ', id);
+        // console.log('EVENT NOTIFICATION: USER CLICKED [ EDIT ] BUTTON.', 'DATA: ', data);
       
-        let copiedHabitsArray = [...this.state.habits]
-        let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id)
+        let copiedHabitsArray = [...this.state.habits];
+        let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id);
 
-        console.log('copiedHabitsArray: ', copiedHabitsArray)
-        console.log('copiedHabitObject: ', copiedHabitObject)
+        // console.log('copiedHabitsArray: ', copiedHabitsArray);
+        // console.log('copiedHabitObject: ', copiedHabitObject);
 
         fetch(`http://localhost:3001/api/v1/habits/${id}`, {
             method: 'PATCH',
@@ -169,9 +169,9 @@ class Dashboard extends React.Component {
                 })
             }))
         })
-    }
+    };
 
-    startStikify = ( id ) => {
+    startStikify = (id) => {
       let copiedHabitsArray = [...this.state.habits]
       let copiedHabitObject = copiedHabitsArray.find(habit => habit.id === id)
 
@@ -185,53 +185,49 @@ class Dashboard extends React.Component {
               }
           })
       }))
-    }
+    };
 
     addReminder = newReminder => {
-        console.log("POST ---", "ID of newly-created reminder object:", newReminder.id)
-    }
+        // console.log("POST ---", "ID of newly-created reminder object:", newReminder.id);
+    };
 
     render() {
-        console.log("Users from DB:", this.state.users)
-        console.log("Habits from DB:", this.state.habits)
-        console.log("Reminders from DB:", this.state.reminders)
+        console.log("Users from DB:", this.state.users);
+        console.log("Habits from DB:", this.state.habits);
+        console.log("Reminders from DB:", this.state.reminders);
         return (
             <div className="ui centered grid">
                 <div className="twelve wide column">
                     <div className="dashboard">
-                        <br></br>
-                    <h1 className="mediumWhiteText">Habits Management Dashboard</h1>
-                        <br></br>
-                    <CreateHabit handleNewHabit={this.handleNewHabit} />
-                        <br></br>
-                        <br></br>
-                    <HabitsContainer habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } handleDelete={this.handleDelete} />
-            {
-                this.state.congrats.show
-                ? <Dimmer active>
-                        <Segment inverted>
-                            <Card inverted fluid color="purple">
-                                <Card.Content inverted textAlign="center">
-                                    <Card.Header>Congrats! You have Stickify'd your new habit!</Card.Header>
-                                    <p>{ this.state.congrats.habit }</p>
-                                    <button class="ui small inverted green button" onClick={ this.closeCongrats }>Okay</button>
-                                </Card.Content>
-                            </Card>
-                    </Segment></Dimmer>
-                : null
-            }
-
-            {
-              this.state.showReminder
-              ? <Dimmer active><Segment inverted><ReminderItem habits={this.state.habits} remindedHabit={this.state.remindedHabit} handleProgressCounter={this.handleProgressCounter}/></Segment></Dimmer>
-              : null
-            }
-            <Segment><h3>Hey, Brendon! You have { this.state.time } hours to re-type your latest 'In Progress' habit.</h3></Segment>
-            <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
-
-
-
-        </div></div></div>
+                        <br/>
+                        <h1 className="mediumWhiteText">Habits Management Dashboard</h1>
+                        <br/>
+                        <CreateHabit handleNewHabit={this.handleNewHabit}/>
+                        <br/>
+                        <br/>
+                        <HabitsContainer habits={ this.state.habits } editHabit={ this.editHabit } startStikify={ this.startStikify } handleDelete={this.handleDelete}/>
+                            { this.state.congrats.show
+                                ? <Dimmer active>
+                                        <Segment inverted>
+                                            <Card inverted fluid color="purple">
+                                                <Card.Content inverted textAlign="center">
+                                                    <Card.Header>Congrats! You have Stickify'd your new habit!</Card.Header>
+                                                    <p>{ this.state.congrats.habit }</p>
+                                                    <button class="ui small inverted green button" onClick={ this.closeCongrats }>Okay</button>
+                                                </Card.Content>
+                                            </Card>
+                                    </Segment></Dimmer>
+                                : null
+                            };
+                            { this.state.showReminder
+                                ? <Dimmer active><Segment inverted><ReminderItem habits={this.state.habits} remindedHabit={this.state.remindedHabit} handleProgressCounter={this.handleProgressCounter}/></Segment></Dimmer>
+                                : null
+                            };
+                        <Segment><h3>Hey, Brendon! You have { this.state.time } hours to re-type your latest 'In Progress' habit.</h3></Segment>
+                        <ProgressBarsContainer habits={this.state.habits} onFFClick={this.onFFClick} startTimer={this.timer} stickifiedHabits={this.state.stickifiedHabits}/>
+                    </div>
+                </div>
+            </div>
         )
     };
 };
