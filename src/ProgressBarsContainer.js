@@ -1,6 +1,6 @@
 import React from 'react';
-import ProgressBar from 'react-customizable-progressbar';
 import { Button, Card, Progress } from 'semantic-ui-react';
+import ProgressBar from 'react-customizable-progressbar';
 
 class ProgressBarsContainer extends React.Component {
   state = {

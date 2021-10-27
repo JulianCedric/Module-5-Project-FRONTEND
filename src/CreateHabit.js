@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { Container, Button } from 'semantic-ui-react';
 
 // const today = new Date()
