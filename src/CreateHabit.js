@@ -1,9 +1,6 @@
 import React from 'react';
 import { Container, Button } from 'semantic-ui-react';
 
-// const today = new Date()
-// const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
-
 class CreateHabit extends React.Component {
     state = {
         id: '',
