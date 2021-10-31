@@ -1,3 +1,5 @@
+// 2021.10.31 - Updated
+
 // import React from 'react';
 // import { useTimer } from 'react-timer-hook';
 // import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
@@ -87,14 +89,4 @@
 //  - We store each type of user input—(a) work minutes and (b) break minutes—into the following variables: 
 //     - optionsWork
 //     - optionsBreak
-
-// --
-
-//   1. User selects 30 min option from dropdown menu. 
-//   2. This value is stored within the variable, 'options' as 30.
-  
-//   Q. Where do we need to send this value (30)?
-//   A.  
-
-
 // */
