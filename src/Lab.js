@@ -109,6 +109,3 @@
 // }
  
 // export default Lab;
-
-// // git@github.com:JulianCedric/Module-5-Project-FRONTEND.git
-// // https://reactjsexample.com/a-date-range-picker-for-reactjs/

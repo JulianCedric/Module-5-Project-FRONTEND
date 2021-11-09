@@ -10,7 +10,7 @@ const API_USERS = 'http://localhost:3001/api/v1/users';
 const API_HABITS = 'http://localhost:3001/api/v1/habits';
 const API_REMINDERS = 'http://localhost:3001/api/v1/reminders';
 
-const HABITS = ['a','b','c'];
+// const HABITS = ['a','b','c'];
 
 const today = new Date();
 const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
