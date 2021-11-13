@@ -7,6 +7,8 @@ class ProgressBarsContainer extends React.Component {
     todaysDate: ''
   }
 
+  // 2021.11.10: Updates to ProgressBarsContainer component.
+
   render() {
     console.log("Date: ", this.props.date)
     console.log(this.props.habits.map(habit => habit.dateCreated))
