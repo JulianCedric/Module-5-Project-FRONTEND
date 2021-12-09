@@ -8,6 +8,7 @@ import Login from './Login';
 import Footer from './Footer';
 import Dashboard from './Dashboard';
 import Lab from './Lab';
+import Lab2 from './Lab2';
 
 class App extends React.Component {
   state = {  
