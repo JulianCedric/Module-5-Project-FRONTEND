@@ -18,6 +18,10 @@ class Navbar extends React.Component {
                         <Link to="/lab" className="link">Lab</Link>
                     </a>
 
+                    <a className="item">
+                        <Link to="/lab2" className="link">Lab2</Link>
+                    </a>
+
                     <div className="right menu">
                         <a className="item">
                         {

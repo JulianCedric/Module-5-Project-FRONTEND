@@ -36,6 +36,7 @@ class App extends React.Component {
             <Route path='/login' render={(props) => (<Login {...props} setLogin={this.setLogin} setLogout={this.setLogout} changeCurrentView={this.changeCurrentView} changeUsernameGreeting={this.changeUsernameGreeting}/>)}></Route>
             <Route path='/dashboard' render={(props) => (<Dashboard {...props} />)}></Route>
             <Route path='/lab' render={(props) => (<Lab {...props} />)}></Route>
+            <Route path='/lab2' render={(props) => (<Lab2 {...props} />)}></Route>
               { !this.state.loggedIn 
                 ? <Redirect to="/" component={ Home }/> 
                 : <Redirect to="/dashboard" component={ Dashboard }/> 
