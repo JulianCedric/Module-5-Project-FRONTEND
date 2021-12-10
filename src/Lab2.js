@@ -13,11 +13,13 @@ import Quotes from './Quotes';
 class Lab2 extends React.Component {
     render() { 
         return (
-            <div className="lab2">
+            <div className="lab2Container">
                 <h1>Lab2</h1>
-                <Goals/>
-                <Tasks/>
-                <Quotes/>
+                <div className="lab2">
+                    <Goals/>
+                    <Tasks/>
+                    <Quotes/>
+                </div>
             </div>
         )
     }
