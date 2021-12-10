@@ -11,8 +11,15 @@ import Tasks from './Tasks';
 import Quotes from './Quotes';
 import CreateTask from './CreateTask';
 
+var TASKS = ['a', 'b'];
+
 class Lab2 extends React.Component {
-    render() { 
+    state = {
+        tasks: TASKS
+    }
+
+    render() {
+        console.log("TASKS: ", TASKS);
         return (
             <div className="lab2Container">
                 <h1>Lab2</h1>
