@@ -5,6 +5,7 @@ import ProgressBarsContainer from './ProgressBarsContainer';
 import CreateHabit from './CreateHabit';
 import ReminderItem from './ReminderItem';
 import { v4 as uuidv4 } from 'uuid';
+import Lab2 from './Lab2';
 
 const API_USERS = 'http://localhost:3001/api/v1/users';
 const API_HABITS = 'http://localhost:3001/api/v1/habits';
@@ -202,10 +203,10 @@ class Dashboard extends React.Component {
 
                         <hr/>
 
-                            <h1>Lab2</h1>
+                            <div>
+                                <Lab2/>
+                            </div>
 
-                            
-                        
                         <br/>
                         <br/>
                         <br/>

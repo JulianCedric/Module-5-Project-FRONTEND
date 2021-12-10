@@ -109,7 +109,6 @@ html, body {
 .mediumWhiteText {
   color: white;
   text-align: center;
-
 }
 
 .cntered {
@@ -245,3 +244,12 @@ ul>li:hover {
   margin: 6px 10px 6px 0;
 }
 
+.lab2Container {
+  display: grid;
+  place-items: center;
+}
+
+.lab2 {
+  display: flex;
+  flex-wrap: wrap;
+}
