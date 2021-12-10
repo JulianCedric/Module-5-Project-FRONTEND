@@ -199,7 +199,70 @@ class Dashboard extends React.Component {
             <div className="ui centered grid">
                 <div className="twelve wide column">
                     <div className="dashboard">
+
+                        <hr/>
+
+                            <h1>Lab2</h1>
+
+                            
+                        
                         <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+
+                        <hr/>
+
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+
                         <h1 className="mediumWhiteText">Habits Management Dashboard</h1>
                         <br/>
                         <CreateHabit handleNewHabit={this.handleNewHabit}/>
