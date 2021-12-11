@@ -36,7 +36,9 @@ class Lab2 extends React.Component {
                     <Tasks/>
                     <CreateTask/>
                     <Quotes/>
-                    <CreateQuote/>
+                    <div className='sidebar'>
+                        {(this.state.showQuotes ? <CreateQuote/> : null)}
+                    </div>
                 </div>
             </div>
         )

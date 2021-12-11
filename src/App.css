@@ -253,3 +253,12 @@ ul>li:hover {
   display: flex;
   flex-wrap: wrap;
 }
+
+.sidebar {
+  min-height: 100vh;
+  min-width: 12em;
+  width: 28%;
+  border-right: solid black 1px;
+  background: #e5fdff;
+  padding: 1em;
+}
