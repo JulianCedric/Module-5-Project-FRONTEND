@@ -11,6 +11,7 @@ import Tasks from './Tasks';
 import Quotes from './Quotes';
 import CreateTask from './CreateTask';
 import CreateQuote from './CreateQuote';
+import Header from './Header';
 
 var TASKS = ['a', 'b'];
 
@@ -31,6 +32,7 @@ class Lab2 extends React.Component {
         return (
             <div className="lab2Container">
                 <h1>Lab2</h1>
+                <Header />
                 <div className="lab2">
                     <Goals/>
                     <Tasks/>
