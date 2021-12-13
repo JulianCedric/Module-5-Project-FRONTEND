@@ -15,9 +15,22 @@ import Header from './Header';
 import data from './data.json';
 import ToDoList from './ToDoList';
 
-function Lab2 () {
-    const [ toDoList, setToDoList ] = useState(data);
+var TASKS = ['a', 'b'];
 
+class Lab2 extends React.Component {
+    state = {
+        tasks: TASKS,
+        showQuotes: false
+    };
+
+    handleNewTask = newTask => {
+        let currentTasks = [...this.state.tasks]
+        console.log("currentTasks: ", currentTasks)
+    }
+
+    render() {
+        console.log("TASKS: ", TASKS);
+        console.log("this.handleNewTask: ", this.handleNewTask)
         return (
             <div className="lab2Container">
                 <h1>Lab2</h1>
@@ -34,6 +47,7 @@ function Lab2 () {
                 </div>
             </div>
         )
+    }
 }
  
 export default Lab2; 
