@@ -5,13 +5,14 @@ Tasks
 Quotes
 */
 
-import React from 'react';
+import React, { useState } from 'react';
 import Goals from './Goals';
 import Tasks from './Tasks';
 import Quotes from './Quotes';
 import CreateTask from './CreateTask';
 import CreateQuote from './CreateQuote';
 import Header from './Header';
+import data from './data.json';
 
 var TASKS = ['a', 'b'];
 
