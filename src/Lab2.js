@@ -33,7 +33,7 @@ function Lab2 () {
     }   
 
     return (
-        <div className="lab2Container">
+        <div className="lab2Container" className="mediumWhiteText">
             <h1>Lab2</h1>
             <Header />
             <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
